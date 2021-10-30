@@ -1,8 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
-const Menu = () => {
-  return <Text>Menu Page</Text>;
+const Menu = ({history}) => {
+  return (
+    <View>
+      <Text>Menu Page</Text>
+      <Button title="Go to home page"  onPress={() => history.push('/')}/>
+    </View>
+  );
 };
 
 export default Menu;
