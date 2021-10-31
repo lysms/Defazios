@@ -7,15 +7,16 @@ import Menu from './pages/Menu/Menu';
 
 export default function App() {
   return (
-    <NativeRouter>
-      <View style={styles.container}>
+    // <NativeRouter>
+    //   <View style={styles.container}>
 
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/menu" component={Menu}/>
-        </Switch>
-      </View>
-    </NativeRouter>
+    //     <Switch>
+    //       <Route exact path="/" component={Home}/>
+    //       <Route exact path="/menu" component={Menu}/>
+    //     </Switch>
+    //   </View>
+    // </NativeRouter>
+    <Home />
   );
 }
 
