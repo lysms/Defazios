@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Home from './pages/Home/Home';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
