@@ -17,8 +17,8 @@ export default function App() {
     //     </Switch>
     //   </View>
     // </NativeRouter>
-    // <Home />
-    <Newsletter />
+    <Home />
+    // <Newsletter />
   );
 }
 
