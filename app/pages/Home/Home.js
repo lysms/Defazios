@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Button} from 'react-native';
 import styles from './Home.style'
 
+
 const Home = ({history}) => {
   return (
     <View style={ styles.container }>
