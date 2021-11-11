@@ -45,7 +45,7 @@ const SignIn = ({ history }) => {
 
 
                 <View style={styles.container2}>
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/menu')}>
+                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/profile')}>
                         <Text style={styles.textcreate}>Sign In</Text>
                     </TouchableOpacity>
                 </View>

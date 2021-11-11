@@ -6,6 +6,7 @@ import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp'
 import SignIn from './pages/Auth/SignIn'
+import Profile from './pages/Profile/Profile'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route exact path="/menu" component={Menu} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/profile" component={Profile} />
         </Switch>
       </View>
     </NativeRouter>
