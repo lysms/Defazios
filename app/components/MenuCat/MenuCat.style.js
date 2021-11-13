@@ -2,19 +2,17 @@ import { StyleSheet } from 'react-native';
 
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
   menuCat: {
-    borderWidth: 1,
-    borderColor: "black",
+    borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: "#BEBEBE",
+    backgroundColor: "#FCFCFC",
+    padding: 4, 
+    paddingLeft: 6
   }, 
   
   menuBtn: {
-    color: "black",
+    color: "#333333",
   },
 });

@@ -1,12 +1,15 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { Button, View, Text } from 'react-native';
 import styles from './MenuCat.style';
 
 const MenuCat = props => {
   
   return (
-    <Button title={ props.title } style={ styles.menuBtn }/>
+    <View style={ styles.menuCat }>
+      <Text style={styles.menuBtn}>{props.title}</Text>
+    </View>
+   
   );
 }
-
+  // <Button title={  } style={ styles.menuBtn }/>
 export default MenuCat;

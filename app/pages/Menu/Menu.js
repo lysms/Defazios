@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, ScrollView} from 'react-native';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import styles from './Menu.style';
@@ -14,6 +14,10 @@ const Menu = ({history}) => {
     {
       "title": "calzone",
       "catNum": "2"
+    },
+    {
+      "title": "dessert",
+      "catNum": "3"
     }
   ];
 
@@ -37,9 +41,13 @@ const Menu = ({history}) => {
       
       <Text>Menu Page</Text>
 
-      { cats.map(el => {
-        return <MenuCat key={ el.catNum } title={ el.title } />
-      })}
+
+      <ScrollView>
+        { cats.map(el => {
+          return <MenuCat key={ el.catNum } title={ el.title }/>
+        })}
+      </ScrollView>
+      
       
       <Button title="Go to home page"  onPress={() => history.push('/')}/>
     </View>

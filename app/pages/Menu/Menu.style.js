@@ -12,5 +12,11 @@ export default StyleSheet.create({
   menuCat: {
     borderWidth: 1,
     borderColor: "black",
+  }, 
+
+  menuContainer: {
+    display: 'flex',
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 });

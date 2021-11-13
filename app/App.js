@@ -13,6 +13,8 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/menu" component={Menu}/>
+          <Route exact path="/dessert" component={Home}/>
+
         </Switch>
       </View>
     </NativeRouter>
