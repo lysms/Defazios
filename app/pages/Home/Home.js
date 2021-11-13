@@ -55,7 +55,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { console.log("Newsletter"); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/newsletter'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Newsletter</Text>

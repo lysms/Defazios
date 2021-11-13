@@ -15,11 +15,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-web": "~0.13.12",
     "react-router-native": "^5.2.1",
-<<<<<<< HEAD
-    "tcomb-form-native": "^0.6.20"
-=======
     "expo-haptics": "~10.1.0"
->>>>>>> main
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

@@ -21,6 +21,7 @@ export default function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/newsletter" component={Newsletter} />
         </Switch>
       </View>
     </NativeRouter>
