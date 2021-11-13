@@ -1,15 +1,23 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import { View, Text, Button,StyleSheet } from 'react-native';
 import AppButton from '../../components/Button/Button.component';
+import COLORS from '../../constants/colors';
 
-const Menu = ({history}) => {
+
+const Menu = ({ history }) => {
   return (
     <View>
-      <Text>Menu Page</Text>
-      <AppButton h={history}/>
-      <Button title="Go to home page"  onPress={() => history.push('/')}/>
+      <Text style = {styles.textColor}>Menu Page</Text>
+      <AppButton h={history} />
+
     </View>
   );
 };
+
+const styles =  StyleSheet.create({
+  textColor : {
+    color : COLORS.blueText}
+
+})
 
 export default Menu;
