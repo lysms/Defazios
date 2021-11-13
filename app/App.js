@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Newsletter from './pages/Newsletter/Newsletter';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
+import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation';
 
 export default function App() {
   return (
@@ -17,8 +18,9 @@ export default function App() {
     //     </Switch>
     //   </View>
     // </NativeRouter>
-    <Home />
+    // <Home />
     // <Newsletter />
+    <Catering_And_Reservation />
   );
 }
 
