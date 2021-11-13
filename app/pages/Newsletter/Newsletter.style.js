@@ -6,20 +6,7 @@ export default StyleSheet.create({
         alignItems: 'baseline',
         justifyContent: 'flex-start',
     },
-    button: {
-        backgroundColor: 'black',
-        marginLeft: '5%',
-        marginTop: '5%',
-        borderRadius: 50,
-        width: 60,
-        height: 60,
-    },
-    buttonText: {
-        color: '#fff',
-        fontWeight: 'bold',
-        marginLeft: '14%',
-        marginTop: '35%',
-    },
+    
     content: {
         alignItems: 'center',
         justifyContent: 'center',

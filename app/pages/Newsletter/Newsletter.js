@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Newsletter.style'
 import { StyleSheet, Text, View, SafeAreaView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
+import AppButton from '../../components/Button/Button.component';
 
 const Newsletter = ({ history }) => {
     const [emailAddress, setEmail] = React.useState('null');
@@ -28,12 +29,7 @@ const Newsletter = ({ history }) => {
             }}>
             <View
                 style={styles.header}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => history.push("/")}
-                >
-                    <Text style={styles.buttonText}>HOME</Text>
-                </TouchableOpacity>
+                <AppButton h = {history} />
             </View>
             <View style={styles.content}>
                 <Text style={styles.contentText}>Join our newsletter to keep track of the
