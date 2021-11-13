@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
+import AppButton from '../../components/Button/Button.component';
 
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
@@ -12,12 +13,12 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 const SignIn = ({ history }) => {
     return (
         <View style={styles.container}>
-
-            <TouchableOpacity onPress={() => history.push('/')}>
+            <AppButton h = {history} />
+            {/* <TouchableOpacity onPress={() => history.push('/')}>
                 <View style={styles.item}>
                     <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign In</Text>
