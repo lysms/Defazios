@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Home from './pages/Home/Home';
+import Newsletter from './pages/Newsletter/Newsletter';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp'
@@ -13,6 +14,7 @@ export default function App() {
     <NativeRouter>
       <View style={styles.container}>
 
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
@@ -22,6 +24,7 @@ export default function App() {
         </Switch>
       </View>
     </NativeRouter>
+
   );
 }
 
