@@ -89,12 +89,6 @@ const Profile = ({ history }) => {
                 </Text>
             </ScrollView>
 
-
-
-
-
-
-
             <View style={styles.menucontainer}>
                 <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/menu')}>
                     <Text style={styles.textcreate}>Browse Menus</Text>
