@@ -4,6 +4,7 @@ import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, 
 import styles from './Profile.style'
 
 
+
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 
@@ -90,7 +91,7 @@ const Profile = ({ history }) => {
             </ScrollView>
 
             <View style={styles.menucontainer}>
-                <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/menu')}>
+                <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/shoppingCart')}>
                     <Text style={styles.textcreate}>Browse Menus</Text>
                 </TouchableOpacity>
             </View>

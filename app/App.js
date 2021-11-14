@@ -8,6 +8,10 @@ import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp'
 import SignIn from './pages/Auth/SignIn'
 import Profile from './pages/Profile/Profile'
+import Confirmed from './pages/Ordering/Confirmed'
+import ShoppingCart from './pages/Ordering/ShoppingCart'
+import Payment from './pages/Ordering/Payment/Payment'
+
 
 export default function App() {
   return (
@@ -22,6 +26,9 @@ export default function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/newsletter" component={Newsletter} />
+          <Route exact path="/confirmed" component={Confirmed} />
+          <Route exact path="/shoppingCart" component={ShoppingCart} />
+          <Route exact path="/payment" component={Payment} />
         </Switch>
       </View>
     </NativeRouter>
