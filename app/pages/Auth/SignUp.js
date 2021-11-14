@@ -4,6 +4,7 @@ import styles from './SignUp.style'
 
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import AppButton from '../../components/Button/Button.component';
 
 
 // To do: Add the function to recceive the input value and authentication on the value input
@@ -12,12 +13,12 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 const SignUp = ({ history }) => {
     return (
         <View style={styles.container}>
-
-            <TouchableOpacity onPress={() => history.push('/')}>
+            <AppButton h ={history}/>
+            {/* <TouchableOpacity onPress={() => history.push('/')}>
                 <View style={styles.item}>
                     <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>
