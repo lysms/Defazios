@@ -6,6 +6,7 @@ import styles from './Profile.style'
 
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import AppButton from '../../components/Button/Button.component';
 
 
 // To do: Add the function to recceive the input value and authentication on the value input
@@ -17,50 +18,57 @@ const Profile = ({ history }) => {
             {/* Name  ->   Current Order + waiting time  ->  Order history(in one weeks) */}
             {/* At the top => will be able to view the overall menus  (can be direct to the menus page.) */}
 
-
+            <AppButton h={history} />
             <View style={styles.headerSection}>
-                <Text style={styles.headerText}>Welcome, Joe Doe</Text>
+                <Text style={styles.headerText}>USER PROFILE</Text>
             </View>
 
             <View>
             </View>
-
-
-            <View style={styles.currentOrder}>
-                <Text style={styles.currentOrderText}>
-                    Current Order Waiting Time
+            {/* 
+                info to display:
+                    first name
+                    last name
+                    email
+                    phone number
+            */}
+            <View style={styles.Profile}>
+                <Text style={styles.ProfileInfoText}>
+                    First Name{" "}: Joe {"\n"}
+                    Last Name{"  "}: Doe {"\n"}
+                    Email{""}: jd@gmail.com{"\n"}
+                    Phone# : 518-xxx-xxxx
                 </Text>
             </View>
-
-            <View style={styles.TimeContainer}>
+            {/* <View style={styles.TimeContainer}>
                 <StatusBar style='light-content' />
-                <TouchableOpacity onPress={() => null} style={styles.button}>
-                    {/* The time will become dynamic when the database is ready */}
-                    <Text style={styles.buttonText}>60 mins</Text>
+                <TouchableOpacity onPress={() => null} style={styles.button}> */}
+            {/* The time will become dynamic when the database is ready */}
+            {/* <Text style={styles.buttonText}>60 mins</Text>
                 </TouchableOpacity>
-            </View>
+            </View> */}
 
 
 
 
-
+            {/* 
             <View style={styles.subTitle}>
                 <Text style={styles.subTitleText}>15 Large Cheese Pizza, 2 sodas, 4 bags of buffalo chicken wings</Text>
-            </View>
+            </View> */}
 
 
 
 
-            <View style={styles.currentOrder}>
+            {/* <View style={styles.currentOrder}>
                 <Text style={styles.currentOrderText}>
                     Order History
                 </Text>
-            </View>
+            </View> */}
 
             {/* This will do the scrollview list of the order */}
 
 
-            <ScrollView style={styles.orderHistory}>
+            {/* <ScrollView style={styles.orderHistory}>
                 <Text style={styles.text}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -88,14 +96,21 @@ const Profile = ({ history }) => {
                     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
                 </Text>
-            </ScrollView>
+            </ScrollView> */}
 
-            <View style={styles.menucontainer}>
-                <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/shoppingCart')}>
-                    <Text style={styles.textcreate}>Browse Menus</Text>
-                </TouchableOpacity>
+            <View style={{ flexDirection: 'row' }}>
+                <View style={styles.editBtn}>
+                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/')}>
+                        <Text style={styles.textcreate}>Edit</Text>
+                    </TouchableOpacity>
+                </View>
+
+                {/* <View style={styles.menucontainer}>
+                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/shoppingCart')}>
+                        <Text style={styles.textcreate}>Browse Menus</Text>
+                    </TouchableOpacity>
+                </View> */}
             </View>
-
             <View style={styles.container3}></View>
 
         </View>

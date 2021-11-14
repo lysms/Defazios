@@ -50,6 +50,18 @@ export default StyleSheet.create({
         fontStyle: 'italic',
         fontSize: 25,
     },
+    Profile : {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        paddingLeft: 2,
+        padding: 2,
+    },
+    ProfileInfoText: {
+        color: 'grey',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 25,
+    },
 
 
     button: {
@@ -95,6 +107,14 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 30,
+        flex : 2
+    },
+    editBtn: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 30,
+        flex : 1
+        
     },
 
     createAccount: {
@@ -110,7 +130,8 @@ export default StyleSheet.create({
     textcreate: {
         fontSize: 20,
         color: "white",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        alignSelf: 'center'
     },
 
     orderHistory: {
