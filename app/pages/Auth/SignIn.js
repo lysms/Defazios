@@ -13,7 +13,7 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 const SignIn = ({ history }) => {
     return (
         <View style={styles.container}>
-            <AppButton h = {history} />
+            <AppButton h={history} />
             {/* <TouchableOpacity onPress={() => history.push('/')}>
                 <View style={styles.item}>
                     <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
@@ -36,6 +36,12 @@ const SignIn = ({ history }) => {
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Password</Text>
                     <TextInput placeholder="password" secureTextEntry={true} style={styles.inputtext} />
+                </View>
+
+                <View style={styles.container_create}>
+                    <TouchableOpacity onPress={() => history.push('/signup')}>
+                        <Text style={styles.textsignup}>Forgot Password ?</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.container_create}>

@@ -51,7 +51,7 @@ const ShoppingCart = ({ history }) => {
 
 
             <View style={styles.container4}>
-                <TouchableOpacity style={styles.createAccount2} onPress={() => history.push('/payment')}>
+                <TouchableOpacity style={styles.createAccount2} onPress={() => history.push('/confirmed')}>
                     <Text style={styles.textcreate}>Continue to Payment</Text>
                 </TouchableOpacity>
             </View>

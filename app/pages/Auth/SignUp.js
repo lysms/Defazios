@@ -23,7 +23,6 @@ const SignUp = ({ history }) => {
                 <Text style={styles.innertext}>Sign Up</Text>
             </View>
 
-
             <View style={styles.mainbody}>
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>First Name</Text>
