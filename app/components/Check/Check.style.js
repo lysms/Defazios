@@ -12,7 +12,7 @@ export default StyleSheet.create({
     height: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: '#D0D0D0',
     backgroundColor: 'transparent',
@@ -24,6 +24,7 @@ export default StyleSheet.create({
 
   checkContainer: {
     flexDirection: 'row', 
-    alignItems: 'center'
+    alignItems: 'center', 
+    marginRight: 10
   }
 }) 

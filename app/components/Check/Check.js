@@ -13,22 +13,19 @@ const Check = props => {
   }
 
   return (
-    <View style={styles.checkItem}>
-      
-
-      <View style={styles.checkContainer}>
-        <Pressable 
-          style={[styles.checkbox, checked && styles.checkboxChecked]}
-          onPress={handleCheckPress}
-        >
-        { checked && <Ionicons name="checkmark" size={24} color="black" />}
-        </Pressable>
-      </View>
-
       <TouchableOpacity onPress={handleCheckPress}>
-        <Text>{props.title}</Text>
+        <View style={styles.checkItem}>
+          <View style={styles.checkContainer}>
+            <Pressable 
+              style={[styles.checkbox, checked && styles.checkboxChecked]}
+              onPress={handleCheckPress}
+            >
+            { checked && <Ionicons name="checkmark" size={20} color="black"/>}
+            </Pressable>
+          </View>
+          <Text>{props.title}</Text>
+        </View>
       </TouchableOpacity>
-    </View>
   )
 }
 
