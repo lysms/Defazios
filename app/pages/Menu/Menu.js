@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, ScrollView} from 'react-native';
+import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import styles from './Menu.style';
@@ -37,20 +37,18 @@ const Menu = ({history}) => {
   
 
   return (
-    <View>
+    <SafeAreaView style={styles.menuContainer}>
       
       <Text>Menu Page</Text>
 
 
-      <ScrollView>
+      <ScrollView style={styles.scrollContainer}>
         { cats.map(el => {
-          return <MenuCat key={ el.catNum } title={ el.title }/>
+          return <TouchableOpacity key={ el.catNum } onPress={() => history.push('/food')}><MenuCat title={ el.title }/></TouchableOpacity>
         })}
       </ScrollView>
       
-      
-      <Button title="Go to home page"  onPress={() => history.push('/')}/>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -15,8 +15,16 @@ export default StyleSheet.create({
   }, 
 
   menuContainer: {
-    display: 'flex',
+    paddingTop: 40,
+    paddingBottom: 30,
+    width: '100%', 
+    height: '100%',
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+
+  scrollContainer: {
+    height: '100%', 
+    width: '100%'
   }
 });
