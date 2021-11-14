@@ -119,7 +119,7 @@ export default class App extends Component {
                 <TouchableOpacity
                     style={{
                         backgroundColor: 'black',
-                        width: '37%',
+                        width: '38%',
                         padding: 11,
                         borderRadius: 7,
                         marginTop: 5,
