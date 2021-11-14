@@ -8,11 +8,20 @@ export default StyleSheet.create({
     borderWidth: 0.5,
     borderColor: "#BEBEBE",
     backgroundColor: "#FCFCFC",
-    padding: 4, 
-    paddingLeft: 6
+    // paddingVertical: 8, 
+    paddingLeft: 8, 
+    // alignItems: 'center',
+    justifyContent: 'center',
+    height: 50, 
+    
+    // borderBottomColor: 'black'
   }, 
   
   menuBtn: {
     color: "#333333",
   },
+
+  catName: {
+    fontWeight: 'bold'
+  }
 });

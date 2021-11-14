@@ -1,53 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
+import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
+
 import styles from './Menu.style';
 
-const Menu = ({history}) => {
+const Menu = () => {
 
-  const cats = [
-    {
-      "title": "pizza",
-      "catNum": "1"
-    }, 
-    {
-      "title": "calzone",
-      "catNum": "2"
-    },
-    {
-      "title": "dessert",
-      "catNum": "3"
-    }
-  ];
-
-  const items = [
-    {
-      "title": "pizza",
-      "desc": "this is the pizza section",
-      "itemNum": "1"
-    }, 
-    {
-      "title": "calzone",
-      "desc": "this is the calzone section",
-      "itemNum": "2"
-    }
-  ];
+  const [step, setStep] = useState('categories');
 
   
+  const filterItemsHandler = () => {
+    setStep('items');
+  }
+
+  const itemDetailHandler = () => {
+    setStep('itemDetail');
+  }
+
+  const catHandler = () => {
+    setStep('categories');
+  }
+
+  
+  let menuType = <MenuCat />
+
+  if (step == "categories") {
+    menuType = <MenuCat handler={filterItemsHandler}/>
+  }
+  else if (step == "items") {
+    menuType = <MenuItem handler={itemDetailHandler} back={catHandler}/>
+  }
+  else if (step == "itemDetail") {
+    menuType = <MenuItemDetail back={filterItemsHandler}/>
+  }
 
   return (
     <SafeAreaView style={styles.menuContainer}>
-      
-      <Text>Menu Page</Text>
-
-
+      <Text>Menu</Text>
       <ScrollView style={styles.scrollContainer}>
-        { cats.map(el => {
-          return <TouchableOpacity key={ el.catNum } onPress={() => history.push('/food')}><MenuCat title={ el.title }/></TouchableOpacity>
-        })}
+        { menuType }
       </ScrollView>
-      
     </SafeAreaView>
   );
 };
