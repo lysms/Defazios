@@ -61,7 +61,7 @@ const MenuItem = props => {
                     <View style={ styles.item }>
                       <Text style={styles.title}>{ el.title }</Text>
                       <Text>{ el.desc }</Text>
-                      <Text style={styles.price}>{ el.price }</Text>
+                      <Text style={styles.price}>${ el.price.toFixed(2) }</Text>
                     </View>
                   </TouchableOpacity>
                 )
