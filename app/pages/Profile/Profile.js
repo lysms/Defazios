@@ -20,7 +20,7 @@ const Profile = ({ history }) => {
 
             <AppButton h={history} />
             <View style={styles.headerSection}>
-                <Text style={styles.headerText}>Welcome!</Text>
+                <Text style={styles.headerText}>USER PROFILE</Text>
             </View>
 
             <View>
@@ -105,11 +105,11 @@ const Profile = ({ history }) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.menucontainer}>
+                {/* <View style={styles.menucontainer}>
                     <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/shoppingCart')}>
                         <Text style={styles.textcreate}>Browse Menus</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
             <View style={styles.container3}></View>
 

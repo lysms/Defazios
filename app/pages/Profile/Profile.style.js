@@ -57,7 +57,7 @@ export default StyleSheet.create({
         padding: 2,
     },
     ProfileInfoText: {
-        color: 'blue',
+        color: 'grey',
         fontStyle: 'normal',
         fontWeight: 'bold',
         fontSize: 25,
