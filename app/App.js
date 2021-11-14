@@ -6,6 +6,7 @@ import Newsletter from './pages/Newsletter/Newsletter';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
 import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation';
+import MakeOneWithCalendar from './pages/Catering_And_Reservation/MakeOneWithCalendar';
 
 export default function App() {
   return (
@@ -20,7 +21,9 @@ export default function App() {
     // </NativeRouter>
     // <Home />
     // <Newsletter />
-    <Catering_And_Reservation />
+    // <Catering_And_Reservation />
+    <MakeOneWithCalendar />
+    // <makeOneWithCalendar />
   );
 }
 
