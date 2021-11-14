@@ -7,7 +7,8 @@ import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
 import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation';
 import MakeOneWithCalendar from './pages/Catering_And_Reservation/MakeOneWithCalendar';
-import Information from './pages/Catering_And_Reservation/Information'
+import Information from './pages/Catering_And_Reservation/Information';
+import Confirmation from './pages/Catering_And_Reservation/Confirmation'
 
 export default function App() {
   return (
@@ -20,11 +21,7 @@ export default function App() {
     //     </Switch>
     //   </View>
     // </NativeRouter>
-    // <Home />
-    // <Newsletter />
-    // <Catering_And_Reservation />
-    // <MakeOneWithCalendar />
-    <Information />
+    <Confirmation />
   );
 }
 

@@ -78,7 +78,7 @@ export default class App extends Component {
             multiline={true}
             style={{
               fontSize: 17,
-              padding: 5,
+              padding: 7,
               borderRadius: 6,
               backgroundColor: '#f2f2f2',
               height: 34,
