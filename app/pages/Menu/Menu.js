@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import AppButton from '../../components/Button/Button.component';
+// import COLORS from '../constants/colors';
 
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
@@ -7,7 +9,7 @@ import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
 
 import styles from './Menu.style';
 
-const Menu = () => {
+const Menu = ({history}) => {
 
   const [step, setStep] = useState('categories');
 
@@ -39,10 +41,12 @@ const Menu = () => {
 
   return (
     <SafeAreaView style={styles.menuContainer}>
+      <AppButton h={history} />
       <ScrollView style={styles.scrollContainer}>
         { menuType }
       </ScrollView>
     </SafeAreaView>
+
   );
 };
 
