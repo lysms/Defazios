@@ -12,6 +12,11 @@ import Confirmed from './pages/Ordering/Confirmed'
 import ShoppingCart from './pages/Ordering/ShoppingCart'
 import Payment from './pages/Ordering/Payment/Payment'
 import Waiting from './components/WaitingTime/Waiting'
+import Admin_Home from './pages/Admin/Admin_Home/Admin_Home'
+import Booked from './pages/Admin/Booked/Booked'
+import EditMenus from './pages/Admin/EditMenus/EditMenus'
+import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
+import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
 
 
 export default function App() {
@@ -31,6 +36,11 @@ export default function App() {
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
           <Route exact path="/waiting" component={Waiting} />
+          <Route exact path="/adminHome" component={Admin_Home} />
+          <Route exact path="/adminReservation" component={Booked} />
+          <Route exact path="/adminMenus" component={EditMenus} />
+          <Route exact path="/adminNews" component={EditNewsLetter} />
+          <Route exact path="/adminOrder" component={ManageOrder} />
         </Switch>
       </View>
     </NativeRouter>
