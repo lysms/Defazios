@@ -12,6 +12,12 @@ const Check = props => {
     setToggleCheck(!checked);
   }
 
+          
+  let cost = <Text> (+${props.priceIncrease.toFixed(2)})</Text>
+  if (props.priceIncrease == 0) {
+    cost = null;
+  }
+
   return (
       <TouchableOpacity onPress={handleCheckPress}>
         <View style={styles.checkItem}>
@@ -24,6 +30,7 @@ const Check = props => {
             </Pressable>
           </View>
           <Text>{props.title}</Text>
+        { cost }
         </View>
       </TouchableOpacity>
   )

@@ -47,7 +47,7 @@ const MenuItem = props => {
   return (
     <View>
       <TouchableOpacity onPress={props.back}>
-        <Text>Go back to Categories</Text>
+        <Text style={{ color: '#4A6CC2', marginVertical: 10}}>Return to Categories</Text>
       </TouchableOpacity>
 
       { 

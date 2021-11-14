@@ -59,7 +59,7 @@ const MenuCat = props => {
   ];
   
   return (
-    <View>
+    <View style={{ marginTop: 20 }}>
       
       { 
         cats.map(el => {

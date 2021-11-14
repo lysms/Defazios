@@ -39,7 +39,6 @@ const Menu = () => {
 
   return (
     <SafeAreaView style={styles.menuContainer}>
-      <Text>Menu</Text>
       <ScrollView style={styles.scrollContainer}>
         { menuType }
       </ScrollView>

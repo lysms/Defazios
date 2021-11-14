@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   checkItem: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center", 
+    marginVertical: 2
   },
 
   checkbox: {
@@ -15,7 +16,7 @@ export default StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     borderColor: '#D0D0D0',
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   },
 
   checkboxChecked: {
