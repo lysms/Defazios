@@ -1,23 +1,31 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import { View, Text, TouchableOpacity, Pressable } from 'react-native';
 import styles from './Check.style';
-
-
+import { Ionicons } from '@expo/vector-icons';
 
 
 const Check = props => {
 
-  const [toggleCheck, setToggleCheck] = useState(props.initial)
+  const [checked, setToggleCheck] = useState(props.initial)
+
+  const handleCheckPress = () => {
+    setToggleCheck(!checked);
+  }
 
   return (
     <View style={styles.checkItem}>
-      <CheckBox 
-        disabled={false} 
-        value={toggleCheck}
-        onValueChange={newVal => setToggleCheck(newVal)}
-      />
-      <TouchableOpacity onPress={() => setToggleCheck(!toggleCheck)}>
+      
+
+      <View style={styles.checkContainer}>
+        <Pressable 
+          style={[styles.checkbox, checked && styles.checkboxChecked]}
+          onPress={handleCheckPress}
+        >
+        { checked && <Ionicons name="checkmark" size={24} color="black" />}
+        </Pressable>
+      </View>
+
+      <TouchableOpacity onPress={handleCheckPress}>
         <Text>{props.title}</Text>
       </TouchableOpacity>
     </View>
