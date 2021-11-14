@@ -3,7 +3,6 @@ import styles from './Catering_And_Reservation.style'
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
 
 const Catering_And_Reservation = ({history}) => {
-
     return(
         <SafeAreaView
             style={{flex: 1}}>

@@ -34,14 +34,19 @@ export default class App extends Component {
                         <TouchableOpacity
                             style={{
                                 backgroundColor: 'black',
-                                width: '13%',
+                                width: '19%',
                                 padding: 13,
                                 justifyContent: 'center',
                                 alignContent: 'center',
-                                borderRadius: 50,
-                                margin: 13,
+                                borderRadius: 9,
+                                margin: 17,
                             }}>
-                            <MaterialIcons style={styles.itemicons} name="home" size={25} color="white" />
+                            <Text
+                                style={{
+                                    color: 'white',
+                                    fontSize: 14,
+                                    fontWeight: 'bold',
+                                }}>Return</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -86,7 +91,7 @@ export default class App extends Component {
                         }}>
                         <Text
                             style={{
-                                fontSize: 23,
+                                fontSize: 21,
                                 fontWeight:'bold',
 
                             }}>Choose a Opened Time Slot</Text>
@@ -120,7 +125,7 @@ export default class App extends Component {
                         }}>
                         <Text
                             style={{
-                                fontSize: 23,
+                                fontSize: 21,
                                 fontWeight:'bold',
                                 paddingBottom: 7,
                             }}>
