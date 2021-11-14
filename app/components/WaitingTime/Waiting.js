@@ -3,9 +3,11 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, TouchableOpacity, StyleSheet, View, Dimensions, Button } from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
-const Waiting = ({ h }) => {
+import AppButton from '../Button/Button.component';
+const Waiting = ({ history }) => {
     return (
         <View style={styles.container}>
+            <AppButton h={history} />
             <View style={styles.TimeContainer}>
                 <StatusBar style='light-content' />
                 <TouchableOpacity onPress={() => null} style={styles.button}>
