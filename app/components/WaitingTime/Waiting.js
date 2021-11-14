@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { Text, TouchableOpacity, StyleSheet, View, Dimensions, Button } from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
-const AppButton = ({ h }) => {
+const Waiting = ({ h }) => {
     return (
-        <View style={styles.container} blurRadius={1}>
+        <View style={styles.container}>
             <View style={styles.TimeContainer}>
                 <StatusBar style='light-content' />
                 <TouchableOpacity onPress={() => null} style={styles.button}>
@@ -16,6 +17,7 @@ const AppButton = ({ h }) => {
     )
 };
 
+const screen = Dimensions.get('window')
 
 const styles = StyleSheet.create({
     container: {
@@ -50,6 +52,6 @@ const styles = StyleSheet.create({
 
 })
 
-export default AppButton
+export default Waiting
 
 

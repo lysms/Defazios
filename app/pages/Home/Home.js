@@ -47,7 +47,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { console.log("Wait Time Calculator"); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/waiting'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Wait Time Calculator</Text>

@@ -11,6 +11,7 @@ import Profile from './pages/Profile/Profile'
 import Confirmed from './pages/Ordering/Confirmed'
 import ShoppingCart from './pages/Ordering/ShoppingCart'
 import Payment from './pages/Ordering/Payment/Payment'
+import Waiting from './components/WaitingTime/Waiting'
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           <Route exact path="/confirmed" component={Confirmed} />
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
+          <Route exact path="/waiting" component={Waiting} />
         </Switch>
       </View>
     </NativeRouter>
