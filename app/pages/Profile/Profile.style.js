@@ -19,7 +19,7 @@ export default StyleSheet.create({
         flex: 3,
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 18,
+        margin: 5,
         borderBottomWidth: 3,
         borderStyle: 'dashed',
 
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     headerText: {
         color: 'black',
         fontWeight: 'bold',
-        fontSize: 32
+        fontSize: 24
     },
 
     currentOrder: {
@@ -41,14 +41,14 @@ export default StyleSheet.create({
     TimeContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 20,
+        paddingTop: 10,
         padding: 10
     },
 
     currentOrderText: {
         color: 'red',
         fontStyle: 'italic',
-        fontSize: 25,
+        fontSize: 20,
     },
     Profile : {
         justifyContent: 'flex-start',
@@ -60,7 +60,7 @@ export default StyleSheet.create({
         color: 'grey',
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 20,
     },
 
 
@@ -75,7 +75,7 @@ export default StyleSheet.create({
     },
 
     buttonText: {
-        fontSize: 24,
+        fontSize: 20,
         color: '#B9AAFF',
     },
 
@@ -128,7 +128,7 @@ export default StyleSheet.create({
     },
 
     textcreate: {
-        fontSize: 20,
+        fontSize: 18,
         color: "white",
         fontWeight: "bold",
         alignSelf: 'center'
