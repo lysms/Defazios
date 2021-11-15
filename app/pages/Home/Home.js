@@ -17,7 +17,7 @@ const Home = ({ history }) => {
         }}>
         <View
           style={styles.upperview}>
-          <Text style={styles.titleText}>Welcome to DaFazio's</Text>
+          <Text style={styles.titleText}>Welcome to DeFazio's</Text>
         </View>
         <View
           style={styles.viewForSelecting}>
@@ -32,7 +32,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { console.log("Catering"); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/catering'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Catering</Text>
@@ -40,7 +40,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { console.log("Make a Reservation"); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/catering'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Make a Reservation</Text>
