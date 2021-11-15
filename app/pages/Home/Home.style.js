@@ -15,15 +15,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: '#fffafa',
+    textAlign: 'center'
   },
   button: {
     alignItems: "center",
-    backgroundColor: 'trgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     padding: 10,
     width: "65%",
-    borderRadius: 14,
+    borderRadius: 10,
     borderColor: '#fff',
-    borderWidth: 1.5,
+    borderWidth: 1,
+    marginVertical: 5
   },
   buttonText: {
     fontSize: 17,
@@ -44,7 +46,7 @@ export default StyleSheet.create({
     flex: 4,
     alignItems: 'center',
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   image: {
     flex: 1,

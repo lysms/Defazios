@@ -41,7 +41,9 @@ const Menu = ({history}) => {
 
   return (
     <SafeAreaView style={styles.menuContainer}>
-      <AppButton h={history} />
+      <View style={styles.homeBtn}>
+        <AppButton h={history}/>
+      </View>
       <ScrollView style={styles.scrollContainer}>
         { menuType }
       </ScrollView>

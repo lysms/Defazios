@@ -8,12 +8,16 @@ const Waiting = ({ history }) => {
     return (
         <View style={styles.container}>
             <AppButton h={history} />
-            <View style={styles.TimeContainer}>
-                <StatusBar style='light-content' />
-                <TouchableOpacity onPress={() => null} style={styles.button}>
-                    {/* The time will become dynamic when the database is ready */}
-                    <Text style={styles.buttonText}>60 mins</Text>
-                </TouchableOpacity>
+            <View style={styles.contentContainer}>
+
+                <Text style={{ fontSize: 20 }}>Your order will be ready in</Text>
+                <View style={styles.TimeContainer}>
+                    <StatusBar style='light-content' />
+                    <TouchableOpacity onPress={() => null} style={styles.button}>
+                        {/* The time will become dynamic when the database is ready */}
+                        <Text style={styles.buttonText}>60 mins</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        padding: 15,
+        padding: 15
     },
 
     TimeContainer: {
@@ -37,10 +41,13 @@ const styles = StyleSheet.create({
 
     button: {
         borderWidth: 5,
-        borderColor: '#B9AAFF',
-        width: screen.width / 3.5,
-        height: screen.height / 7,
-        borderRadius: screen.width / 2,
+        // borderColor: '#B9AAFF',
+        borderColor: '#4A6CC2',
+        // width: screen.width / 3.5,
+        // height: screen.height / 7,
+        width: 125, 
+        height: 125,
+        borderRadius: 62.5,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -48,8 +55,17 @@ const styles = StyleSheet.create({
 
     buttonText: {
         fontSize: 24,
-        color: '#B9AAFF',
+        // color: '#B9AAFF',
+        color: '#4A6CC2'
     },
+
+    contentContainer: {
+        alignItems: 'center',
+        // justifyContent: 'center',
+        marginTop: '50%',
+        height: '100%', 
+        width: '100%'
+    }
 
 
 })

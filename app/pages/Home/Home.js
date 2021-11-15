@@ -13,6 +13,7 @@ const Home = ({ history }) => {
         style={{
           // backgroundColor: '#fff',
           flex: 1,
+          paddingBottom: 20
         }}>
         <View
           style={styles.upperview}>
