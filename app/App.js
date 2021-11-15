@@ -5,23 +5,46 @@ import Home from './pages/Home/Home';
 import Newsletter from './pages/Newsletter/Newsletter';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
-import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation';
-import MakeOneWithCalendar from './pages/Catering_And_Reservation/MakeOneWithCalendar';
-import Information from './pages/Catering_And_Reservation/Information';
-import Confirmation from './pages/Catering_And_Reservation/Confirmation'
+import SignUp from './pages/Auth/SignUp'
+import SignIn from './pages/Auth/SignIn'
+import Profile from './pages/Profile/Profile'
+import Confirmed from './pages/Ordering/Confirmed'
+import ShoppingCart from './pages/Ordering/ShoppingCart'
+import Payment from './pages/Ordering/Payment/Payment'
+import Waiting from './components/WaitingTime/Waiting'
+import Admin_Home from './pages/Admin/Admin_Home/Admin_Home'
+import Booked from './pages/Admin/Booked/Booked'
+import EditMenus from './pages/Admin/EditMenus/EditMenus'
+import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
+import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
+
 
 export default function App() {
   return (
-    // <NativeRouter>
-    //   <View style={styles.container}>
+    <NativeRouter>
+      <View style={styles.container}>
 
-    //     <Switch>
-    //       <Route exact path="/" component={Home}/>
-    //       <Route exact path="/menu" component={Menu}/>
-    //     </Switch>
-    //   </View>
-    // </NativeRouter>
-    <Confirmation />
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/menu" component={Menu} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/newsletter" component={Newsletter} />
+          <Route exact path="/confirmed" component={Confirmed} />
+          <Route exact path="/shoppingCart" component={ShoppingCart} />
+          <Route exact path="/payment" component={Payment} />
+          <Route exact path="/waiting" component={Waiting} />
+          <Route exact path="/adminHome" component={Admin_Home} />
+          <Route exact path="/adminReservation" component={Booked} />
+          <Route exact path="/adminMenus" component={EditMenus} />
+          <Route exact path="/adminNews" component={EditNewsLetter} />
+          <Route exact path="/adminOrder" component={ManageOrder} />
+        </Switch>
+      </View>
+    </NativeRouter>
+
   );
 }
 
@@ -29,7 +52,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
