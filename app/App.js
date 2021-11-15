@@ -17,6 +17,7 @@ import Booked from './pages/Admin/Booked/Booked'
 import EditMenus from './pages/Admin/EditMenus/EditMenus'
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
+import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation'
 
 
 export default function App() {
@@ -41,6 +42,8 @@ export default function App() {
           <Route exact path="/adminMenus" component={EditMenus} />
           <Route exact path="/adminNews" component={EditNewsLetter} />
           <Route exact path="/adminOrder" component={ManageOrder} />
+          <Route exact path="/catering" component={Catering_And_Reservation} />
+
         </Switch>
       </View>
     </NativeRouter>
