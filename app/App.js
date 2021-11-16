@@ -18,9 +18,20 @@ import EditMenus from './pages/Admin/EditMenus/EditMenus'
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
 import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation'
-
+import { initializeApp } from 'firebase/app';
 
 export default function App() {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3K-hw17dXiWua5CqPm9i8lhLEga2eznQ",
+    authDomain: "defazios-37d6c.firebaseapp.com",
+    projectId: "defazios-37d6c",
+    storageBucket: "defazios-37d6c.appspot.com",
+    messagingSenderId: "354753035029",
+    appId: "1:354753035029:web:74252d38ba217581ccc71c",
+    measurementId: "G-D77CK0V410"
+  };
+
   return (
     <NativeRouter>
       <View style={styles.container}>
