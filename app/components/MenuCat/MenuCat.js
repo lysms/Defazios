@@ -5,7 +5,8 @@ import styles from './MenuCat.style';
 const MenuCat = props => {
   return (
     <View style={{ marginTop: 20 }}>
-      { 
+    {/* {console.log(props.menu)} */}
+      {/* { 
         props.menu.map(el => {
             return (
               <TouchableOpacity key={ el.id } onPress={props.handler}>
@@ -15,7 +16,7 @@ const MenuCat = props => {
               </TouchableOpacity>
             )
           })
-      }
+      } */}
     </View>
    
   );

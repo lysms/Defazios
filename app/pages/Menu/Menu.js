@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createElement, useEffect, useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import { useLocation } from 'react-router-native'
 
@@ -26,14 +26,34 @@ const Menu = ({history}) => {
   const [step, setStep] = useState('categories');
   const [currentMenuType, setCurrentMenuType] = useState('cateringMenu');
   const [currentMenu, setCurrentMenu] = useState([])
+  const [currentCategories, setCurrentCategories] = useState(null)
+
 
   useEffect(() => {
     // gets data from database
-    const catmen = firebase.firestore().collection('cateringMenu');
+    const collection = firebase.firestore().collection('cateringMenu');
+    collection.doc('Categories').get().onSnapshot(querySnapShot => {
+      querySnapShot.forEach(res => {
+        console.log(res.data)
+      })
+    })
+    
+      // .then(snapshot => {
+      //   snapshot.forEach(doc => {
+      //     const data = doc.data();
+      //     console.log(doc.id, data)
+      //   })
+      // })
+      // .catch(err => {
+      //   console.error(err)
+      // })
+
+    // console.log(categories)
+
     
     if (currentMenu.length == 0) {
 
-      catmen.onSnapshot((querySnapShot) => {
+      collection.onSnapshot((querySnapShot) => {
   
         let tempData = []
   
