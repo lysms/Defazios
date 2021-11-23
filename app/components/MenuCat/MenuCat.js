@@ -1,22 +1,25 @@
 import React from 'react';
-import { Button, View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './MenuCat.style';
 
 const MenuCat = props => {
+
+  const generateId = prevId => {
+    return prevId + 1;
+  }
   return (
     <View style={{ marginTop: 20 }}>
-    {/* {console.log(props.menu)} */}
-      {/* { 
-        props.menu.map(el => {
-            return (
-              <TouchableOpacity key={ el.id } onPress={props.handler}>
-                <View style={styles.menuCat}>
-                  <Text style={styles.catName}>{el.category}</Text>
-                </View>
-              </TouchableOpacity>
-            )
-          })
-      } */}
+      { 
+        props.menu.map((el, i) => {
+          return (
+            <TouchableOpacity key={ i } onPress={() => props.handler(el)}>
+              <View style={styles.menuCat}>
+                <Text style={styles.catName}>{el}</Text>
+              </View>
+            </TouchableOpacity>
+          )
+        })
+      }
     </View>
    
   );

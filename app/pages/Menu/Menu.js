@@ -1,5 +1,5 @@
 import React, { createElement, useEffect, useState } from 'react';
-import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {SafeAreaView, View, Text, ScrollView } from 'react-native';
 import { useLocation } from 'react-router-native'
 
 
@@ -24,59 +24,47 @@ const Menu = ({history}) => {
 
   // state
   const [step, setStep] = useState('categories');
-  const [currentMenuType, setCurrentMenuType] = useState('cateringMenu');
+  const [currentMenuType, setCurrentMenuType] = useState(type);
   const [currentMenu, setCurrentMenu] = useState([])
-  const [currentCategories, setCurrentCategories] = useState(null)
+  const [currentCategories, setCurrentCategories] = useState([])
+  const [detail, setDetail] = useState(null)
 
 
   useEffect(() => {
-    // gets data from database
-    const collection = firebase.firestore().collection('cateringMenu');
-    collection.doc('Categories').get().onSnapshot(querySnapShot => {
-      querySnapShot.forEach(res => {
-        console.log(res.data)
+    // gets the categories from the current collection
+    const collection = firebase.firestore().collection(currentMenuType);
+    collection.doc('Categories').get()
+      .then(snap => {
+        const catList = snap.data().categories
+        setCurrentCategories([...catList])
       })
-    })
+      .catch(err => {
+        console.error(err)
+      })
     
-      // .then(snapshot => {
-      //   snapshot.forEach(doc => {
-      //     const data = doc.data();
-      //     console.log(doc.id, data)
-      //   })
-      // })
-      // .catch(err => {
-      //   console.error(err)
-      // })
 
-    // console.log(categories)
-
+    collection.onSnapshot((querySnapShot) => {
+      let tempData = []
+      querySnapShot.forEach(res => {
+        const d = res.data();
+        let newitem = {
+          name: d.name, 
+          hcost: d.halfCost,
+          fcost: d.fullCost,
+          category: d.category, 
+          id: res.id
+        }
+        tempData.push(newitem)
+      })
+      setCurrentMenu(prevData => [...prevData, ...tempData])
+    });
     
-    if (currentMenu.length == 0) {
-
-      collection.onSnapshot((querySnapShot) => {
-  
-        let tempData = []
-  
-        querySnapShot.forEach(res => {
-          const d = res.data();
-          let newitem = {
-            name: d.name, 
-            hcost: d.halfCost,
-            fcost: d.fullCost,
-            category: d.category, 
-            id: res.id
-          }
-          tempData.push(newitem)
-        })
-  
-        setCurrentMenu(prevData => [...prevData, ...tempData])
-      });
-    }
-  }, [currentMenu])
+  }, [])
 
   
-  const filterItemsHandler = () => {
+  const filterItemsHandler = (category) => {
     setStep('items');
+    setDetail(category)
   }
   const itemDetailHandler = () => {
     setStep('itemDetail');
@@ -89,10 +77,10 @@ const Menu = ({history}) => {
   let menuStep = <MenuCat />
 
   if (step == "categories") {
-    menuStep = <MenuCat handler={filterItemsHandler} menu={currentMenu}/>
+    menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuStep = <MenuItem handler={itemDetailHandler} back={catHandler}/>
+    menuStep = <MenuItem handler={itemDetailHandler} back={catHandler} category={detail}/>
   }
   else if (step == "itemDetail") {
     menuStep = <MenuItemDetail back={filterItemsHandler}/>
