@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Catering_And_Reservation.style'
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
+import AppButton from '../../components/Button/Button.component';
 
 const Catering_And_Reservation = ({history}) => {
     return(
@@ -13,12 +14,13 @@ const Catering_And_Reservation = ({history}) => {
                 }}>
                 <View
                     style={styles.header}>
-                    <TouchableOpacity
+                        <AppButton h={history} />
+                    {/* <TouchableOpacity
                         style={styles.button}
                         onPress={()=>console.log("HOME")}
                     >
                         <Text style={styles.buttonText}>HOME</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
                 <View
                     style={{padding: 25,
