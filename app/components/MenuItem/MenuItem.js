@@ -1,49 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './MenuItem.style';
+import firebase from '../../firebase';
 
 const MenuItem = props => {
 
-  const items = [
+  const [menuItems, setMenuItems] = useState([]);
 
-    {
-      "title": "Pizza", 
-      "items": [
-        {
-          "title": 'Large Cheese Pizza (16")',
-          "desc": "Tomato sauce, mozzarella cheese, Romano cheese and spices, cooked in an authentic Italian wood-fired oven. Add as many toppings as you want!",
-          "price": 16.75,
-          "itemNum": "1"
-        }, 
-        {
-          "title": 'Small Cheese Pizza (12")',
-          "desc": "Tomato sauce, mozzarella cheese, Romano cheese and spices, cooked in an authentic Italian wood-fired oven. Add as many toppings as you want!",
-          "price": 13.50,
-          "itemNum": "2"
-        }, 
-        {
-          "title": 'White Clam Pizza (Small 12")',
-          "desc": "Fresh garlic, parsley, clams, mozzarella cheese and spices, cooked in an authentic Italian wood-fired oven.",
-          "price": 16.50,
-          "itemNum": "3"
-        }, 
-        {
-          "title": 'Fra Diavolo Pizza (Large 16")',
-          "desc": "Our homemade hot Italian sausages, hot chopped peppers, tomato sauce and mozzarella cheese, cooked in an authentic Italian wood-fired oven.",
-          "price": 20.00,
-          "itemNum": "4"
-        }, 
-        {
-          "title": '4-Cheese Pizza (Small 12")',
-          "desc": "Gorgonzola cheese, mozzarella cheese, fontinella cheese and Romano cheese with fresh chopped garlic and spices, cooked in an authentic Italian wood-fired oven.",
-          "price": 18.00,
-          "itemNum": "5"
-        }
-      ]
-    }
+  useEffect(() => {
+    let tempData = [];
+    firebase.firestore().collection(props.menuType).where('category', '==', props.category).get()
+      .then(snap => {
+        snap.forEach(doc => {
+          let d = doc.data();
+          tempData.push(d);
+        })
+        setMenuItems([...tempData]);
+      })
+      .catch(err => {
+        console.error(err);
+      })
     
-  ];
-  
+  }, []);
+
   return (
     <View>
       <TouchableOpacity onPress={props.back}>
@@ -51,21 +30,37 @@ const MenuItem = props => {
       </TouchableOpacity>
 
       { 
-        items.map(f => {
-          if (f.title == "Pizza") {
+        menuItems.map((el, i) => {
 
+          if (props.menuType == "menu") {
             return (
-              f.items.map(el => {
-                return (
-                  <TouchableOpacity  key={ el.itemNum } onPress={props.handler}>
-                    <View style={ styles.item }>
-                      <Text style={styles.title}>{ el.title }</Text>
-                      <Text>{ el.desc }</Text>
-                      <Text style={styles.price}>${ el.price.toFixed(2) }</Text>
-                    </View>
-                  </TouchableOpacity>
-                )
-              })
+              <TouchableOpacity  key={ i } onPress={props.handler}>
+                <View style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text>
+                  <Text>{ el.desc }</Text>
+                  <Text style={styles.price}>${ el.cost.toFixed(2) }</Text>
+                </View>
+              </TouchableOpacity>
+            )
+          } else if (props.menuType == "cateringMenu" && typeof(menuItems[0].desc) == "undefined") {
+            return (
+              <TouchableOpacity  key={ i } onPress={props.handler}>
+                <View style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text>
+                  <Text style={styles.price}>Half Cost: ${ el.halfCost.toFixed(2) }</Text>
+                  <Text style={styles.price}>Full Cost: ${ el.fullCost.toFixed(2) }</Text>
+                </View>
+              </TouchableOpacity>
+            )
+  
+          } else {
+            return (
+              <TouchableOpacity  key={ i } onPress={props.handler}>
+                <View style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text><Text>{ el.desc }</Text>
+                </View>
+              </TouchableOpacity>
+
             )
           }
         })

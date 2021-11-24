@@ -4,9 +4,6 @@ import styles from './MenuCat.style';
 
 const MenuCat = props => {
 
-  const generateId = prevId => {
-    return prevId + 1;
-  }
   return (
     <View style={{ marginTop: 20 }}>
       { 
