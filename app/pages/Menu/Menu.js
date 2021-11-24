@@ -59,7 +59,7 @@ const Menu = ({history}) => {
       setCurrentMenu(prevData => [...prevData, ...tempData])
     });
     
-  }, [])
+  }, []);
 
   
   const filterItemsHandler = (category) => {
