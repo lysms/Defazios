@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import COLORS from '../../../constants/colors';
 
 const screen = Dimensions.get('window')
 
@@ -35,7 +36,7 @@ export default StyleSheet.create({
         flex: 8,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        backgroundColor: "#BEBEBE",
+        backgroundColor: COLORS.lightGray,
         width: screen.width,
         height: 65,
     },
