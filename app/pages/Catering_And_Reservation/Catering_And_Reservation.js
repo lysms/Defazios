@@ -63,13 +63,13 @@ const Catering_And_Reservation = ({history}) => {
                                     fontSize: 21,
                                     color: 'white',
                                     fontWeight: 'bold'
-                                }}>Create New Catering Order</Text>
+                                }}>Create New Reservation</Text>
                         </TouchableOpacity>
                                 
     
-                        <Link to={{pathname:"/menu", state: {type: "catering"}}} style={styles.orderBtn}>
+                        <Link to={{pathname:"/menu", state: {type: "cateringMenu"}}} style={styles.orderBtn}>
                           <Text style={{fontSize: 21,color: 'white',fontWeight: 'bold'}}>
-                            Create New Reservation
+                            Create New Catering Order
                           </Text>
                         </Link>
 
