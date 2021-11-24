@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import COLORS from '../../constants/colors';
 import {
   SafeAreaView,
   StyleSheet,
@@ -61,7 +62,7 @@ export default class App extends Component {
                     borderColor: 'grey',
                     margin: 3,
                     marginTop: 5,
-                    backgroundColor: '#f2f2f2'
+                    backgroundColor: COLORS.lightGrayText
                 }}>
                 <View
                     style={{

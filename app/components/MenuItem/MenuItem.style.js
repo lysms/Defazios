@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
   container: {
@@ -11,8 +11,8 @@ export default StyleSheet.create({
 
   item: {
     borderWidth: 1,
-    borderColor: "#BEBEBE",
-    backgroundColor: "#FCFCFC",
+    borderColor: COLORS.lightGray,
+    backgroundColor: COLORS.offWhite,
     paddingVertical: 10, 
     paddingHorizontal: 20
   },

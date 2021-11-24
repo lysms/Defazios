@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-
+import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
 
   menuCat: {
     borderStyle: 'solid',
     borderWidth: 0.5,
-    borderColor: "#BEBEBE",
-    backgroundColor: "#FCFCFC",
+    borderColor: COLORS.lightGray,
+    backgroundColor: COLORS.offWhite,
     // paddingVertical: 8, 
     paddingLeft: 8, 
     // alignItems: 'center',
@@ -18,7 +18,7 @@ export default StyleSheet.create({
   }, 
   
   menuBtn: {
-    color: "#333333",
+    color: COLORS.gray20,
   },
 
   catName: {

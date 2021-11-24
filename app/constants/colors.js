@@ -9,4 +9,6 @@ export default {
     darkGrayText: '#504F40',
     offBlack: '#151515',
     blueText: '#4A6CC2',
+    gray20 : '#333333',
+    pastelBlue : '#2a9df4'
 }

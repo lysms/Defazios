@@ -1,4 +1,5 @@
 import {StyleSheet } from 'react-native';
+import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
     infoText: {
@@ -10,9 +11,9 @@ export default StyleSheet.create({
         fontSize: 17,
         padding: 7,
         borderRadius: 6,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: COLORS.lightGrayText,
         height: 34,
-        borderColor: 'lightgrey',
+        borderColor: COLORS.lightGray,
         borderWidth: 1,
         margin: 5,
         width: '97%',
