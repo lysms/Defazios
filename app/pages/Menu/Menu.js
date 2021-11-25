@@ -72,6 +72,9 @@ const Menu = ({history}) => {
   const catHandler = () => {
     setStep('categories');
   }
+  const baseMenuItemHandler = () => {
+    console.log('item clicked')
+  }
 
   
   let menuStep = <MenuCat />
@@ -80,7 +83,7 @@ const Menu = ({history}) => {
     menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuStep = <MenuItem handler={itemDetailHandler} back={catHandler} category={detail} menuType={currentMenuType}/>
+    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType}/>
   }
   else if (step == "itemDetail") {
     menuStep = <MenuItemDetail back={filterItemsHandler}/>
