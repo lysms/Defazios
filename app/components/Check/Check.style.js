@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-
+import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
   checkItem: {
@@ -15,12 +15,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#D0D0D0',
+    borderColor: COLORS.lightGrayBorder,
     backgroundColor: 'transparent'
   },
 
   checkboxChecked: {
-    backgroundColor: '#D0D0D0'
+    backgroundColor: COLORS.lightGrayBorder
   }, 
 
   checkContainer: {

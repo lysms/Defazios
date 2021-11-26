@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions, Button, Alert } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
+import COLORS from '../../constants/colors';
 // import styles from './MakeOneWithCalendar.style'
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import AppButton from '../../components/Button/Button.component';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -102,7 +105,7 @@ export default class App extends Component {
                             }}>
                             <CalendarPicker
                                 onDateChange={this.onDateChange}
-                                todayBackgroundColor="#2a9df4"
+                                todayBackgroundColor = {COLORS.pastelBlue}
                                 selectedDayColor="black"
                                 selectedDayTextColor="white"
                                 width={375}

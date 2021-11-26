@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TouchableOpacity, StyleSheet, View, Dimensions, Button } from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import COLORS from '../../constants/colors';
 
 import AppButton from '../Button/Button.component';
 const Waiting = ({ history }) => {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     button: {
         borderWidth: 5,
         // borderColor: '#B9AAFF',
-        borderColor: '#4A6CC2',
+        borderColor: COLORS.blueText,
         // width: screen.width / 3.5,
         // height: screen.height / 7,
         width: 125, 
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 24,
         // color: '#B9AAFF',
-        color: '#4A6CC2'
+        color: COLORS.blueText
     },
 
     contentContainer: {
