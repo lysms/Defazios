@@ -1,5 +1,5 @@
 import React, { createElement, useEffect, useState } from 'react';
-import {SafeAreaView, View, Text, ScrollView } from 'react-native';
+import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
 import { useLocation } from 'react-router-native'
 
 
@@ -76,6 +76,19 @@ const Menu = ({history}) => {
     console.log('item clicked')
   }
 
+  const handleAddOrder = () => {
+    firebase.firestore().collection('menu').add(
+      {
+        category: 'Side Orders', 
+        cost: 6.95,
+        desc: "Iceberg, Field Greens, Tomatoes, Black Olives, Bell Peppers, Red Onions, homemade house red wine vinegar & olive oil dressing.",
+        image: null,
+        name: 'Side Salad',
+        time: 0
+      }
+    )
+  }
+
   
   let menuStep = <MenuCat />
 
@@ -94,6 +107,9 @@ const Menu = ({history}) => {
       <View style={styles.homeBtn}>
         <AppButton h={history}/>
       </View>
+
+      <Button title="add to db" onPress={handleAddOrder}/>
+
       <ScrollView style={styles.scrollContainer}>
         { menuStep }
       </ScrollView>
