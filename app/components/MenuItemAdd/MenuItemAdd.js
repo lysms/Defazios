@@ -20,7 +20,9 @@ const MenuItemAdd = props => {
 
   const [itemCount, setItemCount] = useState(1);
   const [totalCost, setTotalCost] = useState(itemCost);
-  
+  const [toggleButton, setToggleButton] = useState(false);
+  const [buttonColorOne, setButtonColorOne] = useState('black');
+  const [buttonColorTwo, setButtonColorTwo] = useState('white');
 
   const increaseCountHandler = () => {
     setItemCount(itemCount + 1);
@@ -35,12 +37,64 @@ const MenuItemAdd = props => {
   }
 
   const addToOrderHandler = () => {
+
+    let horf = "";
+
+    if (toggleButton) {
+      horf = "full";
+    } else {
+      horf = "half";
+    }
     let itemOrder = {
       ...props.item,
       quantity: itemCount, 
-      cost: totalCost
+      cost: totalCost, 
+      halfOrFull: horf
     }
     console.log(itemOrder)
+    props.showHandler();
+  }
+  
+  const toggleHalfHandler = () => {
+    setToggleButton(!toggleButton)
+
+    if (toggleButton) {
+      setButtonColorOne("black");
+      setButtonColorTwo("white");
+    } else {
+      setButtonColorOne("white");
+      setButtonColorTwo("black");
+    }
+  }
+
+  let choice = null;
+
+  if (props.type == "hf") {
+    choice = 
+    <View style={{
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginVertical: 5
+    }}>
+
+      <TouchableOpacity style={{
+        backgroundColor: buttonColorOne,
+        marginHorizontal: 2,
+        paddingVertical: 3,
+        paddingHorizontal: 5
+      }} onPress={toggleHalfHandler} >
+        <Text style={{color: buttonColorTwo}}>Half</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={toggleHalfHandler} style={{
+        backgroundColor: buttonColorTwo,
+        marginHorizontal: 2,
+        paddingVertical: 3,
+        paddingHorizontal: 5
+      }}>
+        <Text style={{color: buttonColorOne}}>Full</Text>
+      </TouchableOpacity>
+    </View>
   }
 
   return (
@@ -86,6 +140,7 @@ const MenuItemAdd = props => {
               marginTop: 4
             }}>
               <Text>{props.item.name}</Text>
+              {choice}
               <Text>Total Cost: ${totalCost.toFixed(2)}</Text>
 
             </View>
