@@ -77,16 +77,27 @@ const Menu = ({history}) => {
   }
 
   const handleAddOrder = () => {
+
+    // fill in the name/title of the item
+    let name = "enter name here";
+
+
+    // fill in the cost of the item along with the description and category
+    // leave image as null
+    // leave time as 0
     firebase.firestore().collection('menu').add(
       {
-        category: 'Side Orders', 
-        cost: 6.95,
-        desc: "Iceberg, Field Greens, Tomatoes, Black Olives, Bell Peppers, Red Onions, homemade house red wine vinegar & olive oil dressing.",
+        category: "enter category it belongs to",
+        cost: 9,
+        desc: "enter description here, if there is no description, leave it as an empty string",
         image: null,
-        name: 'Side Salad',
+        name: name,
         time: 0
       }
     )
+    
+    console.log('request completed for ' + name);
+
   }
 
   
