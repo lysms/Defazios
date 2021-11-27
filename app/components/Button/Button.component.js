@@ -8,7 +8,7 @@ const windowHeight = Dimensions.get('window').height;
 
 const AppButton = ({ h }) => {
   return (
-    <TouchableOpacity style={styles.homeButton} onPress={() => {h.push('/'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); console.log("back to home");}}>
+    <TouchableOpacity style={styles.homeButton} onPress={() => {h.push('/'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
       <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
     </TouchableOpacity>
   )
