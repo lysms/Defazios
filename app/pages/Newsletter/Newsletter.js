@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Newsletter.style'
 import { StyleSheet, Text, View, SafeAreaView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
 import AppButton from '../../components/Button/Button.component';
 
 const Newsletter = ({ history }) => {
-    const [emailAddress, setEmail] = React.useState('null');
-    // const [number, onChangeNumber] = React.useState(null);
+    const [emailAddress, setEmail] = useState('null');
+    // const [number, onChangeNumber] = useState(null);
 
     const createTwoButtonAlert = () =>
         Alert.alert(
