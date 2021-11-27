@@ -5,29 +5,27 @@ import Home from './pages/Home/Home';
 import Newsletter from './pages/Newsletter/Newsletter';
 import { NativeRouter, Switch, Route } from 'react-router-native';
 import Menu from './pages/Menu/Menu';
-import SignUp from './pages/Auth/SignUp'
-import SignIn from './pages/Auth/SignIn'
-import Profile from './pages/Profile/Profile'
-import Confirmed from './pages/Ordering/Confirmed'
-import ShoppingCart from './pages/Ordering/ShoppingCart'
-import Payment from './pages/Ordering/Payment/Payment'
-import Waiting from './components/WaitingTime/Waiting'
-import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' 
-import Booked from './pages/Admin/Booked/Booked'
-import EditMenus from './pages/Admin/EditMenus/EditMenus'
-import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
-import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
-import Catering from './pages/Catering/Catering'
-import Reservation from './pages/Reservation/Reservation'
-import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar'
-import { initializeApp } from 'firebase/app';
+import SignUp from './pages/Auth/SignUp';
+import SignIn from './pages/Auth/SignIn';
+import Profile from './pages/Profile/Profile';
+import Confirmed from './pages/Ordering/Confirmed';
+import ShoppingCart from './pages/Ordering/ShoppingCart';
+import Payment from './pages/Ordering/Payment/Payment';
+import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' ;
+import Booked from './pages/Admin/Booked/Booked';
+import EditMenus from './pages/Admin/EditMenus/EditMenus';
+import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter';
+import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
+import Catering from './pages/Catering/Catering';
+import Reservation from './pages/Reservation/Reservation';
+import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar';
+import WaitingTime from './pages/WaitingTime/WaitingTime';
 
 export default function App() {
 
   return (
     <NativeRouter>
       <View style={styles.container}>
-
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -39,7 +37,7 @@ export default function App() {
           <Route exact path="/confirmed" component={Confirmed} />
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
-          <Route exact path="/waiting" component={Waiting} />
+          <Route exact path="/waiting" component={WaitingTime} />
           <Route exact path="/adminHome" component={Admin_Home} />
           <Route exact path="/adminReservation" component={Booked} />
           <Route exact path="/adminMenus" component={EditMenus} />
