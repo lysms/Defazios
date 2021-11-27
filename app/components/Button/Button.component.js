@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, Button } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, Button, Dimensions } from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import * as Haptics from 'expo-haptics';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const AppButton = ({ h }) => {
   return (
-    <TouchableOpacity style={styles.homeButton} onPress={() => h.push('/')}>
+    <TouchableOpacity style={styles.homeButton} onPress={() => {h.push('/'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); console.log("back to home");}}>
       <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
     </TouchableOpacity>
   )
@@ -18,8 +22,8 @@ const styles = StyleSheet.create({
     height: 55,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 20,
-    marginTop: 45,
+    marginLeft: windowWidth / 100 * 5,
+    marginTop: windowHeight > 800 ? windowHeight / 100 * 1.8: windowHeight / 100 * 2,
     padding: 10,
     borderRadius: 100,
     backgroundColor: 'black'

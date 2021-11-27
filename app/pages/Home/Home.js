@@ -11,9 +11,7 @@ const Home = ({ history }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <SafeAreaView
         style={{
-          // backgroundColor: '#fff',
           flex: 1,
-          paddingBottom: 20
         }}>
         <View
           style={styles.upperview}>
@@ -40,7 +38,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { history.push('/catering'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/reservation'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Make a Reservation</Text>

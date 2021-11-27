@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   container: {
@@ -29,7 +31,7 @@ export default StyleSheet.create({
     paddingHorizontal: 40
   }, 
 
-  homeBtn: {
-    marginVertical: 10
+  header: {
+    height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
   }
 });

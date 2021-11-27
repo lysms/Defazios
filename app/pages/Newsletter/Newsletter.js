@@ -27,10 +27,10 @@ const Newsletter = ({ history }) => {
                 backgroundColor: '#fff',
                 flex: 1,
             }}>
-            <View
+            <AppButton h={history}/>
+            {/* <View
                 style={styles.header}>
-                <AppButton h = {history} />
-            </View>
+            </View> */}
             <View style={styles.content}>
                 <Text style={styles.contentText}>Join our newsletter to keep track of the
                     latest specials, offers, merchandise, and more!</Text>
