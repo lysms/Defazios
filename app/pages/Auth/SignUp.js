@@ -4,7 +4,7 @@ import styles from './SignUp.style'
 
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import AppButton from '../../components/Button/Button.component';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 
 // To do: Add the function to recceive the input value and authentication on the value input
@@ -13,7 +13,7 @@ import AppButton from '../../components/Button/Button.component';
 const SignUp = ({ history }) => {
     return (
         <View style={styles.container}>
-            <AppButton h ={history}/>
+            <HomeButton h ={history}/>
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>
