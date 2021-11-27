@@ -14,18 +14,6 @@ const Catering_And_Reservation = ({history}) => {
                     flex: 1
                 }}>
                 <AppButton h={history}/>
-                {/* <View
-                    style={styles.header}>
-                        <AppButton h={history} />
-                    {/* <TouchableOpacity
-                        style={styles.button}
-                        onPress={()=>console.log("HOME")}
-                    >
-                        <Text style={styles.buttonText}>HOME</Text>
-
-                    </TouchableOpaci>ty
-                </View> */}
-
                 <View
                     style={{padding: 25,
                             flex: 15}}>

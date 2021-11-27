@@ -11,9 +11,7 @@ const Home = ({ history }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <SafeAreaView
         style={{
-          // backgroundColor: '#fff',
           flex: 1,
-          paddingBottom: 20
         }}>
         <View
           style={styles.upperview}>

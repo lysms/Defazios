@@ -4,7 +4,7 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 const AppButton = ({ h }) => {
   return (
-    <TouchableOpacity style={styles.homeButton} onPress={() => h.push('/')}>
+    <TouchableOpacity style={styles.homeButton} onPress={() => {h.push('/'); console.log("back to home")}}>
       <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
     </TouchableOpacity>
   )

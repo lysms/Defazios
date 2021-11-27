@@ -1,13 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   titleText: {
     fontSize: 34,
     fontWeight: 'bold',
@@ -25,7 +21,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     borderColor: '#fff',
     borderWidth: 1,
-    marginVertical: 5
+    marginVertical: windowHeight / 100 * 1.05,
   },
   buttonText: {
     fontSize: 17,
@@ -33,17 +29,14 @@ export default StyleSheet.create({
     color: '#fff',
   },
   upperview: {
-    // backgroundColor: '#fff',
-    // opacity: 100
     backgroundColor: 'rgba(0,0,0,0)',
-    flex: 4,
+    height: windowHeight / 100 * 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
   viewForSelecting: {
-    // backgroundColor: '#fff',
     backgroundColor: 'rgba(0,0,0,0)',
-    flex: 4,
+    height: windowHeight / 100 * 60,
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
