@@ -23,6 +23,8 @@ export default StyleSheet.create({
   }, 
   
   price: {
-    paddingTop: 5
-  }
+    paddingVertical: 5
+  }, 
+
+  
 });

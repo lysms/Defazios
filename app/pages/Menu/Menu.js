@@ -1,42 +1,116 @@
-import React, { useState } from 'react';
-import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import React, { createElement, useEffect, useState } from 'react';
+import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
+import { useLocation } from 'react-router-native'
+
+
 import AppButton from '../../components/Button/Button.component';
 // import COLORS from '../constants/colors';
-
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
 
 import styles from './Menu.style';
 
+import firebase from '../../firebase';
+
 const Menu = ({history}) => {
 
-  const [step, setStep] = useState('categories');
-
-  
-  const filterItemsHandler = () => {
-    setStep('items');
+  // allows us to add props to a link
+  const location = useLocation();
+  let type = location.state?.type;
+  if (!type) {
+    type = "menu";
   }
 
+  // state
+  const [step, setStep] = useState('categories');
+  const [currentMenuType, setCurrentMenuType] = useState(type);
+  const [currentMenu, setCurrentMenu] = useState([])
+  const [currentCategories, setCurrentCategories] = useState([])
+  const [detail, setDetail] = useState(null)
+
+
+  useEffect(() => {
+    // gets the categories from the current collection
+    const collection = firebase.firestore().collection(currentMenuType);
+    collection.doc('Categories').get()
+      .then(snap => {
+        const catList = snap.data().categories
+        setCurrentCategories([...catList])
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    
+
+    collection.onSnapshot((querySnapShot) => {
+      let tempData = []
+      querySnapShot.forEach(res => {
+        const d = res.data();
+        let newitem = {
+          name: d.name, 
+          hcost: d.halfCost,
+          fcost: d.fullCost,
+          category: d.category, 
+          id: res.id
+        }
+        tempData.push(newitem)
+      })
+      setCurrentMenu(prevData => [...prevData, ...tempData])
+    });
+    
+  }, []);
+
+  
+  const filterItemsHandler = (category) => {
+    setStep('items');
+    setDetail(category)
+  }
   const itemDetailHandler = () => {
     setStep('itemDetail');
   }
-
   const catHandler = () => {
     setStep('categories');
   }
+  const baseMenuItemHandler = () => {
+    console.log('item clicked')
+  }
+
+  const handleAddOrder = () => {
+
+    // fill in the name/title of the item
+    let name = "enter name here";
+
+
+    // fill in the cost of the item along with the description and category
+    // leave image as null
+    // leave time as 0
+    firebase.firestore().collection('menu').add(
+      {
+        category: "enter category it belongs to",
+        cost: 9,
+        desc: "enter description here, if there is no description, leave it as an empty string",
+        image: null,
+        name: name,
+        time: 0
+      }
+    )
+    
+    console.log('request completed for ' + name);
+
+  }
 
   
-  let menuType = <MenuCat />
+  let menuStep = <MenuCat />
 
   if (step == "categories") {
-    menuType = <MenuCat handler={filterItemsHandler}/>
+    menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuType = <MenuItem handler={itemDetailHandler} back={catHandler}/>
+    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType}/>
   }
   else if (step == "itemDetail") {
-    menuType = <MenuItemDetail back={filterItemsHandler}/>
+    menuStep = <MenuItemDetail back={filterItemsHandler}/>
   }
 
   return (
@@ -44,8 +118,11 @@ const Menu = ({history}) => {
       <View style={styles.homeBtn}>
         <AppButton h={history}/>
       </View>
+
+      <Button title="add to db" onPress={handleAddOrder}/>
+
       <ScrollView style={styles.scrollContainer}>
-        { menuType }
+        { menuStep }
       </ScrollView>
     </SafeAreaView>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Catering_And_Reservation.style'
+import styles from './Catering_And_Reservation.style';
+import { Link } from 'react-router-native';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
 import AppButton from '../../components/Button/Button.component';
 
@@ -12,7 +13,8 @@ const Catering_And_Reservation = ({history}) => {
                     flexDirection: "column",
                     flex: 1
                 }}>
-                <View
+                <AppButton h={history}/>
+                {/* <View
                     style={styles.header}>
                         <AppButton h={history} />
                     {/* <TouchableOpacity
@@ -20,8 +22,10 @@ const Catering_And_Reservation = ({history}) => {
                         onPress={()=>console.log("HOME")}
                     >
                         <Text style={styles.buttonText}>HOME</Text>
-                    </TouchableOpacity> */}
-                </View>
+
+                    </TouchableOpaci>ty
+                </View> */}
+
                 <View
                     style={{padding: 25,
                             flex: 15}}>
@@ -62,17 +66,16 @@ const Catering_And_Reservation = ({history}) => {
                                     fontSize: 21,
                                     color: 'white',
                                     fontWeight: 'bold'
-                                }}>New Catering</Text>
+                                }}>Create New Reservation</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.orderBtn}>
-                            <Text
-                                style={{
-                                    fontSize: 21,
-                                    color: 'white',
-                                    fontWeight: 'bold'
-                                }}>New Reservation</Text>
-                        </TouchableOpacity>
+                                
+    
+                        <Link to={{pathname:"/menu", state: {type: "cateringMenu"}}} style={styles.orderBtn}>
+                          <Text style={{fontSize: 21,color: 'white',fontWeight: 'bold'}}>
+                            Create New Catering Order
+                          </Text>
+                        </Link>
+
                     </View>
                 </View>
             </View>

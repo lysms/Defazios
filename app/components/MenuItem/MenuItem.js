@@ -1,71 +1,83 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
 import styles from './MenuItem.style';
+import firebase from '../../firebase';
+import MenuItemAdd from '../MenuItemAdd/MenuItemAdd';
 
 const MenuItem = props => {
 
-  const items = [
+  const [menuItems, setMenuItems] = useState([]);
+  const [modalItem, setModalItem] = useState(null)
+  const [showModal, setShowModal] = useState(false);
 
-    {
-      "title": "Pizza", 
-      "items": [
-        {
-          "title": 'Large Cheese Pizza (16")',
-          "desc": "Tomato sauce, mozzarella cheese, Romano cheese and spices, cooked in an authentic Italian wood-fired oven. Add as many toppings as you want!",
-          "price": 16.75,
-          "itemNum": "1"
-        }, 
-        {
-          "title": 'Small Cheese Pizza (12")',
-          "desc": "Tomato sauce, mozzarella cheese, Romano cheese and spices, cooked in an authentic Italian wood-fired oven. Add as many toppings as you want!",
-          "price": 13.50,
-          "itemNum": "2"
-        }, 
-        {
-          "title": 'White Clam Pizza (Small 12")',
-          "desc": "Fresh garlic, parsley, clams, mozzarella cheese and spices, cooked in an authentic Italian wood-fired oven.",
-          "price": 16.50,
-          "itemNum": "3"
-        }, 
-        {
-          "title": 'Fra Diavolo Pizza (Large 16")',
-          "desc": "Our homemade hot Italian sausages, hot chopped peppers, tomato sauce and mozzarella cheese, cooked in an authentic Italian wood-fired oven.",
-          "price": 20.00,
-          "itemNum": "4"
-        }, 
-        {
-          "title": '4-Cheese Pizza (Small 12")',
-          "desc": "Gorgonzola cheese, mozzarella cheese, fontinella cheese and Romano cheese with fresh chopped garlic and spices, cooked in an authentic Italian wood-fired oven.",
-          "price": 18.00,
-          "itemNum": "5"
-        }
-      ]
-    }
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    setModalItem(null)
+  }
+
+  const itemClickHandler = (item, type) => {
+    let newModalItem = <MenuItemAdd item={item} show={true} showHandler={toggleModal} type={type}/>
+    setModalItem(newModalItem)
+  }
+
+  useEffect(() => {
+    let tempData = [];
+    firebase.firestore().collection(props.menuType).where('category', '==', props.category).get()
+      .then(snap => {
+        snap.forEach(doc => {
+          let d = doc.data();
+          tempData.push(d);
+        })
+        setMenuItems([...tempData]);
+      })
+      .catch(err => {
+        console.error(err);
+      })
     
-  ];
-  
+  }, []);
+
   return (
     <View>
+      {modalItem}
       <TouchableOpacity onPress={props.back}>
         <Text style={{ color: '#4A6CC2', marginVertical: 10}}>Return to Categories</Text>
       </TouchableOpacity>
 
       { 
-        items.map(f => {
-          if (f.title == "Pizza") {
+        menuItems.map((el, i) => {
 
+          if (props.menuType == "menu") {
             return (
-              f.items.map(el => {
-                return (
-                  <TouchableOpacity  key={ el.itemNum } onPress={props.handler}>
-                    <View style={ styles.item }>
-                      <Text style={styles.title}>{ el.title }</Text>
-                      <Text>{ el.desc }</Text>
-                      <Text style={styles.price}>${ el.price.toFixed(2) }</Text>
-                    </View>
-                  </TouchableOpacity>
-                )
-              })
+              <TouchableOpacity  key={ i } onPress={() => itemClickHandler(menuItems[i], "nm")}>
+              {/* <TouchableOpacity  key={ i } onPress={props.handler}> */}
+
+                <View key={ i } style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text>
+                  <Text>{ el.desc }</Text>
+                  <Text style={styles.price}>${ el.cost.toFixed(2) }</Text>
+                </View>
+              </TouchableOpacity>
+
+            )
+          } else if (props.menuType == "cateringMenu" && typeof(menuItems[0].desc) == "undefined") {
+            return (
+              <TouchableOpacity  key={ i } onPress={() => itemClickHandler(menuItems[i], "hf")}>
+                <View style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text>
+                  <Text style={styles.price}>Half Cost: ${ el.halfCost.toFixed(2) }</Text>
+                  <Text style={styles.price}>Full Cost: ${ el.fullCost.toFixed(2) }</Text>
+                </View>
+              </TouchableOpacity>
+            )
+  
+          } else {
+            return (
+              <TouchableOpacity  key={ i } onPress={() => itemClickHandler(menuItems[i], "nc")}>
+                <View style={ styles.item }>
+                  <Text style={styles.title}>{ el.name }</Text><Text>{ el.desc }</Text>
+                </View>
+              </TouchableOpacity>
+
             )
           }
         })
