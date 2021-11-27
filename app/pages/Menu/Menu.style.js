@@ -33,6 +33,5 @@ export default StyleSheet.create({
 
   header: {
     height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
-    backgroundColor: 'red',
   }
 });

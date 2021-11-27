@@ -17,7 +17,9 @@ import Booked from './pages/Admin/Booked/Booked'
 import EditMenus from './pages/Admin/EditMenus/EditMenus'
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
-import Catering_And_Reservation from './pages/Catering_And_Reservation/Catering_And_Reservation'
+import Catering from './pages/Catering/Catering'
+import Reservation from './pages/Reservation/Reservation'
+import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar'
 import { initializeApp } from 'firebase/app';
 
 export default function App() {
@@ -43,8 +45,9 @@ export default function App() {
           <Route exact path="/adminMenus" component={EditMenus} />
           <Route exact path="/adminNews" component={EditNewsLetter} />
           <Route exact path="/adminOrder" component={ManageOrder} />
-          <Route exact path="/catering" component={Catering_And_Reservation} />
-
+          <Route exact path="/catering" component={Catering} />
+          <Route exact path="/reservation" component={Reservation} />
+          <Route exact path="/makeOneWithCalendar" component={MakeOneWithCalendar} />
         </Switch>
       </View>
     </NativeRouter>

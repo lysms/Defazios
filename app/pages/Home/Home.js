@@ -38,7 +38,7 @@ const Home = ({ history }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={
-              () => { history.push('/catering'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
+              () => { history.push('/reservation'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Make a Reservation</Text>

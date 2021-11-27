@@ -1,6 +1,7 @@
 import React, { createElement, useEffect, useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
 import { useLocation } from 'react-router-native'
+import * as Haptics from 'expo-haptics';
 
 
 import AppButton from '../../components/Button/Button.component';
