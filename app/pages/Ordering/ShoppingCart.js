@@ -1,14 +1,14 @@
 import React from 'react'
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './ShoppingCart.style'
-import AppButton from '../../components/Button/Button.component';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 
 const ShoppingCart = ({ history }) => {
     return (
         <View style={styles.container}>
 
-            <AppButton h={history} />
+            <HomeButton h={history} />
 
             <View style={styles.container3}>
             </View>

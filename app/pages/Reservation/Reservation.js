@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Reservation.style';
 import { Link } from 'react-router-native';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
-import AppButton from '../../components/Button/Button.component';
 import * as Haptics from 'expo-haptics';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 const reservation = ({history}) => {
     return(
@@ -15,7 +15,7 @@ const reservation = ({history}) => {
                     flex: 1
                 }}>
                 <View style={styles.header}>
-                    <AppButton h={history}/>
+                    <HomeButton h={history}/>
                 </View>
                 <View style={styles.viewForPreView}>
                     <Text
