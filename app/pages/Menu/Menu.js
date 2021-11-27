@@ -115,7 +115,7 @@ const Menu = ({history}) => {
 
   return (
     <SafeAreaView style={styles.menuContainer}>
-      <View style={styles.homeBtn}>
+      <View style={styles.header}>
         <AppButton h={history}/>
       </View>
 
