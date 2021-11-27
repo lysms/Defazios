@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
 import styles from './MenuItemAdd.style';
 import { AntDesign } from '@expo/vector-icons'; 
@@ -6,23 +6,31 @@ import { AntDesign } from '@expo/vector-icons';
 
 const MenuItemAdd = props => {
 
-  let itemCost = 0;
-
-  if (props.type == "nm") {
-    itemCost = props.item.cost
-  } 
-  else if (props.type == "hf") {
-    itemCost = props.item.halfCost
-  } else if (props.type =="hc") {
-    itemCost = props.item.halfCost
-
-  }
-
   const [itemCount, setItemCount] = useState(1);
-  const [totalCost, setTotalCost] = useState(itemCost);
+  // HALF COST FULL  COST
+  const [totalCost, setTotalCost] = useState(0);
+  const [itemCost, setItemCost] = useState(0)
   const [toggleButton, setToggleButton] = useState(false);
   const [buttonColorOne, setButtonColorOne] = useState('black');
   const [buttonColorTwo, setButtonColorTwo] = useState('white');
+
+
+  useEffect(() => {
+    if (props.type == "nm") {
+      setItemCost(props.item.cost)
+      setTotalCost(props.item.cost)
+    } 
+    else if (props.type == "hf") {
+      setItemCost(props.item.halfCost)
+      setTotalCost(props.item.halfCost)
+
+    } 
+    else if (props.type =="nc") {
+      setItemCost(props.item.halfCost)
+      setTotalCost(props.item.halfCost)
+    }
+
+  }, [])
 
   const increaseCountHandler = () => {
     setItemCount(itemCount + 1);
@@ -45,6 +53,7 @@ const MenuItemAdd = props => {
     } else {
       horf = "half";
     }
+
     let itemOrder = {
       ...props.item,
       quantity: itemCount, 
@@ -61,10 +70,22 @@ const MenuItemAdd = props => {
     if (toggleButton) {
       setButtonColorOne("black");
       setButtonColorTwo("white");
+      
+      if (props.type == "hf") {
+        setItemCost(props.item.halfCost)
+        setTotalCost(props.item.halfCost)
+      }
+
     } else {
       setButtonColorOne("white");
       setButtonColorTwo("black");
+
+      if (props.type == "hf") {
+        setItemCost(props.item.fullCost)
+        setTotalCost(props.item.fullCost)
+      }
     }
+    setItemCount(1);
   }
 
   let choice = null;
