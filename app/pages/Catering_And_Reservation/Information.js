@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import styles from './Information.style'
+import styles from './Information.style';
+import COLORS from '../../constants/colors';
 
 export default class App extends Component {
   render() {
@@ -80,9 +81,9 @@ export default class App extends Component {
               fontSize: 17,
               padding: 7,
               borderRadius: 6,
-              backgroundColor: '#f2f2f2',
+              backgroundColor: COLORS.lightGrayText,
               height: 34,
-              borderColor: 'lightgrey',
+              borderColor: COLORS.lightGray,
               borderWidth: 1,
               margin: 5,
               width: '97%',

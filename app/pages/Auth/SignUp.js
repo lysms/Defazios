@@ -14,11 +14,6 @@ const SignUp = ({ history }) => {
     return (
         <View style={styles.container}>
             <AppButton h ={history}/>
-            {/* <TouchableOpacity onPress={() => history.push('/')}>
-                <View style={styles.item}>
-                    <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
-                </View>
-            </TouchableOpacity> */}
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>
