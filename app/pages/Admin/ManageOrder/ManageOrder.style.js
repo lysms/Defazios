@@ -40,6 +40,32 @@ export default StyleSheet.create({
         height: 65,
     },
 
+    minimenucontainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: screen.width,
+    },
+
+    minimenucontainer2: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: screen.width,
+        height: screen.height / 14,
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+    },
+
+    subitem: {
+        width: screen.width / 3,
+        padding: 5,
+        fontSize: 18,
+    },
+
+    subitem_price: {
+        width: screen.width / 5,
+        padding: 5,
+        fontSize: 18,
+    },
 
     createAccount: {
 
