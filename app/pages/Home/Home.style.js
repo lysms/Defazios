@@ -21,7 +21,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     borderColor: '#fff',
     borderWidth: 1,
-    marginVertical: windowHeight / 100 * 1.05,
+    marginVertical: 5,
   },
   buttonText: {
     fontSize: 17,

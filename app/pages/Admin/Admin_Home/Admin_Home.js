@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './Admin_Home.style'
-import AppButton from '../../../components/Button/Button.component';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import HomeButton from '../../../components/HomeButton/HomeButton';
 
 const Tap = createBottomTabNavigator();
 
 const Admin_Home = ({ history }) => {
     return (
         <View style={styles.container}>
-            <AppButton h={history} />
+            <HomeButton h={history} />
 
             <View style={styles.container1}>
                 <Text style={styles.headerText}>Welcome, Admin. </Text>
