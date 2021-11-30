@@ -61,6 +61,7 @@ const MenuItemAdd = props => {
       halfOrFull: horf
     }
     console.log(itemOrder)
+    props.h()
     props.showHandler();
   }
   

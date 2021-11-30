@@ -83,7 +83,7 @@ const Menu = ({history}) => {
     menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType}/>
+    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType} h={catHandler}/>
   }
   else if (step == "itemDetail") {
     menuStep = <MenuItemDetail back={filterItemsHandler}/>
