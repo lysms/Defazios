@@ -1,18 +1,16 @@
 import React, { createElement, useEffect, useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
-import { useLocation } from 'react-router-native'
+import { useLocation, Link } from 'react-router-native';
 import * as Haptics from 'expo-haptics';
-
-
 // import COLORS from '../constants/colors';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 import styles from './Menu.style';
 
 import firebase from '../../firebase';
-import HomeButton from '../../components/HomeButton/HomeButton';
 
 const Menu = ({history}) => {
 
@@ -22,6 +20,18 @@ const Menu = ({history}) => {
   if (!type) {
     type = "menu";
   }
+
+  let isOrdering = location.state?.createOrder;
+  let goToCartBtn = ''
+  if (isOrdering) {
+    goToCartBtn = 
+    <Link to={{pathname:"/shoppingCart", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+      <Text style={styles.textInsideOrderBtn}>Go to Cart</Text>
+    </Link>
+  } else {
+    goToCartBtn = null
+  }
+  const [order, setOrder] = useState([])
 
   // state
   const [step, setStep] = useState('categories');
@@ -43,7 +53,6 @@ const Menu = ({history}) => {
         console.error(err)
       })
     
-
     collection.onSnapshot((querySnapShot) => {
       let tempData = []
       querySnapShot.forEach(res => {
@@ -94,9 +103,16 @@ const Menu = ({history}) => {
       <View style={styles.header}>
         <HomeButton h={history}/>
       </View>
-      <ScrollView style={styles.scrollContainer}>
-        { menuStep }
-      </ScrollView>
+
+      <View style={styles.menuContent}>
+        <ScrollView style={styles.scrollContainer}>
+          { menuStep }
+        </ScrollView>
+
+        {goToCartBtn}
+
+      </View>
+
     </SafeAreaView>
   );
 };
