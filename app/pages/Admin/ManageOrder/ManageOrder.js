@@ -22,6 +22,7 @@ const ManageOrder = ({ history }) => {
         firebase.collection('orders')
             .get()
             .then(result => {
+
                 result.forEach(item => {
                     let docs = item.data();
                     let dateFor = docs.dateFor.toDate().toString();
@@ -35,7 +36,7 @@ const ManageOrder = ({ history }) => {
                     let addons = [];
 
                     dateFor = dateFor.split(' ');
-                    console.log(dateFor);
+
                     let month = 0;
                     let day = dateFor[2];
                     let year = dateFor[3];
@@ -85,19 +86,58 @@ const ManageOrder = ({ history }) => {
 
                     console.log("This is time \t" + time1)
                     let order = docs.items;
-                    // console.log(order.get())
 
-                    // order.map((t, i) => {
+                    // console.log("\n", "This is promise\n")
+                    // Promise.all([order]).then((values) => {
+
+                    //     values.forEach((t => {
+
+                    //         t.forEach((x => {
+                    //             console.log("\t", x['addOns'])
+                    //             size = x["halfOrFull"];
+                    //             quantity = x["quantity"];
+                    //             let Add = x["addOns"];
+
+
+                    //             Add.map((x) => {
+                    //                 addons.push(x);
+                    //             })
+
+                    //         }))
+
+                    //     }))
+                    // })
+
+
+
+                    if (order != '') {
+
+                        order.map((item, index) => {
+                            //console.log(item);
+                            let Add = item['addOns']
+
+                            Add.map((x) => {
+                                addons.push(x);
+                            })
+
+
+                            size = item['halfOrFull']
+                            quantity = item['quantity']
+                        })
+
+                    }
+                    // order.forEach((t => {
                     //     size = t["halfOrFull"];
                     //     quantity = t["quantity"];
                     //     let Add = t["addOns"];
+                    //     console.log(size)
                     //     Add.map((x) => {
                     //         addons.push(x);
                     //     })
-                    //     let order_item = t["item"]
+                    //     // let order_item = t["item"]
 
-                    // })
-                    // console.log(addons)
+                    // }))
+                    //console.log(addons)
                     let temp = [];
 
                     temp.push(firstName)
@@ -114,6 +154,7 @@ const ManageOrder = ({ history }) => {
                     final.push(temp)
                 })
                 setOrderItems([...final]);
+
             })
 
 
@@ -122,7 +163,7 @@ const ManageOrder = ({ history }) => {
 
     const handleDetails = (data) => {
         console.log("you click");
-        // console.log(data);
+        console.log(data);
         history.push({
             pathname: '/order_details',
             state: data
@@ -192,7 +233,7 @@ const ManageOrder = ({ history }) => {
                                             <Text style={styles.subitem_price}>${data[5]}</Text>
                                             <Text style={styles.subitem}>{data[2]}</Text>
                                         </View>
-                                        <Details name={data} />
+                                        {/* <Details name={data} /> */}
                                     </TouchableOpacity>
 
                                 </View>
