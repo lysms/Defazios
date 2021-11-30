@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions, Button, Alert, Link } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import COLORS from '../../constants/colors';
 import styles from './MakeOneWithCalendar.style'
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -31,12 +32,12 @@ export default class App extends Component {
             <SafeAreaView
                 style={{flex: 1}}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
+                    {/* <TouchableOpacity style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
                         <Text style={styles.textInsideReturnBtn}>Return</Text>
-                    </TouchableOpacity>
-                    {/* <Link to={{pathname:"/reservation", state: {type: "reservation"}}} style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
+                    </TouchableOpacity> */}
+                    <Link to={{pathname:"/reservation", state: {type: "reservation"}}} style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
                         <Text style={styles.textInsideReturnBtn}> Return </Text>
-                    </Link> */}
+                    </Link>
                 </View>
                 <View style={styles.viewForContact}>
                     <Text style={{fontSize: 23, fontWeight: 'bold',}}> Create a New Order </Text>
