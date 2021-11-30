@@ -77,31 +77,6 @@ const Menu = ({history}) => {
     console.log('item clicked')
   }
 
-  const handleAddOrder = () => {
-
-    // fill in the name/title of the item
-    let name = "enter name here";
-
-
-    // fill in the cost of the item along with the description and category
-    // leave image as null
-    // leave time as 0
-    firebase.firestore().collection('menu').add(
-      {
-        category: "enter category it belongs to",
-        cost: 9,
-        desc: "enter description here, if there is no description, leave it as an empty string",
-        image: null,
-        name: name,
-        time: 0
-      }
-    )
-    
-    console.log('request completed for ' + name);
-
-  }
-
-  
   let menuStep = <MenuCat />
 
   if (step == "categories") {
@@ -119,14 +94,10 @@ const Menu = ({history}) => {
       <View style={styles.header}>
         <HomeButton h={history}/>
       </View>
-
-      <Button title="add to db" onPress={handleAddOrder}/>
-
       <ScrollView style={styles.scrollContainer}>
         { menuStep }
       </ScrollView>
     </SafeAreaView>
-
   );
 };
 
