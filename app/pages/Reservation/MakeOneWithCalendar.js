@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import COLORS from '../../constants/colors';
 import styles from './MakeOneWithCalendar.style'
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { Link } from 'react-router-native';
+
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default class App extends Component {
+class MakeOneWithCalendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,15 +31,14 @@ export default class App extends Component {
     const startDate = selectedStartDate ? selectedStartDate.toString() : '';
     const {height, width} = Dimensions.get('window');
         return(
-            <SafeAreaView
-                style={{flex: 1}}>
+            <SafeAreaView style={{flex: 1}}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
+                    {/* <TouchableOpacity style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
                         <Text style={styles.textInsideReturnBtn}>Return</Text>
-                    </TouchableOpacity>
-                    {/* <Link to={{pathname:"/reservation", state: {type: "reservation"}}} style={styles.returnBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.light)}>
+                    </TouchableOpacity> */}
+                    <Link to={{pathname:"/reservation"}} style={styles.returnBtn}>
                         <Text style={styles.textInsideReturnBtn}> Return </Text>
-                    </Link> */}
+                    </Link>
                 </View>
                 <View style={styles.viewForContact}>
                     <Text style={{fontSize: 23, fontWeight: 'bold',}}> Create a New Order </Text>
@@ -84,3 +86,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default MakeOneWithCalendar;

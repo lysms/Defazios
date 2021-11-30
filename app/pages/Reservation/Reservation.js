@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, Touc
 import * as Haptics from 'expo-haptics';
 import HomeButton from '../../components/HomeButton/HomeButton';
 
-const reservation = ({history}) => {
+const Reservation = ({history}) => {
     return(
         <SafeAreaView
             style={{flex: 1}}>
@@ -42,4 +42,4 @@ const reservation = ({history}) => {
     )
 }
 
-export default reservation;
+export default Reservation;
