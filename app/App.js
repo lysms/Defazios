@@ -20,6 +20,8 @@ import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
 import Catering from './pages/Catering/Catering'
 import Reservation from './pages/Reservation/Reservation'
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar'
+import Information from './pages/Reservation/Information'
+import Confirmation from './pages/Reservation/Confirmation'
 import { initializeApp } from 'firebase/app';
 
 export default function App() {
@@ -48,6 +50,8 @@ export default function App() {
           <Route exact path="/catering" component={Catering} />
           <Route exact path="/reservation" component={Reservation} />
           <Route exact path="/makeOneWithCalendar" component={MakeOneWithCalendar} />
+          <Route exact path="/information" component={Information} />
+          <Route exact path="/confirmation" component={Confirmation} />
         </Switch>
       </View>
     </NativeRouter>

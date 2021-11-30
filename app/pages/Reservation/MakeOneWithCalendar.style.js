@@ -10,7 +10,7 @@ export default StyleSheet.create({
     },
     returnBtn: {
         backgroundColor: 'black',
-        width: '21.6%',
+        width: windowWidth / 100 * 24,
         padding: 13,
         justifyContent: 'center',
         alignContent: 'center',
@@ -28,12 +28,11 @@ export default StyleSheet.create({
         paddingHorizontal: 17,
     },
     viewForCalendar: {
-        height: windowHeight > 800 ? windowHeight / 100 * 37: windowHeight / 100 * 42.7,
+        height: windowHeight > 800 ? windowHeight / 100 * 37: windowHeight / 100 * 43,
         paddingHorizontal: 17,
     },
     viewForSlot: {
         height: windowHeight > 800 ? windowHeight / 100 * 27: windowHeight / 100 * 22,
-        // backgroundColor: 'red',
         paddingHorizontal: 17,
     },
     buttonInScrollView: {
@@ -63,5 +62,5 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 17,
         color: 'white',
-    }
+    },
 });
