@@ -16,7 +16,7 @@ const MenuItem = props => {
   }
 
   const itemClickHandler = (item, type) => {
-    let newModalItem = <MenuItemAdd item={item} show={true} showHandler={toggleModal} type={type} h={props.h}/>
+    let newModalItem = <MenuItemAdd addToOrderHandler={props.add} item={item} show={true} showHandler={toggleModal} type={type} h={props.h}/>
     setModalItem(newModalItem)
   }
 

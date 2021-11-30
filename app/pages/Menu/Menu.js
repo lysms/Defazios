@@ -1,5 +1,5 @@
-import React, { createElement, useEffect, useState } from 'react';
-import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {SafeAreaView, View, Text, ScrollView } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
 import * as Haptics from 'expo-haptics';
 // import COLORS from '../constants/colors';
@@ -20,9 +20,11 @@ const Menu = ({history}) => {
   if (!type) {
     type = "menu";
   }
+  const [order, setOrder] = useState([])
 
-  let isOrdering = location.state?.createOrder;
-  let goToCartBtn = ''
+  const isOrdering = location.state?.createOrder;
+  let goToCartBtn = '';
+
   if (isOrdering) {
     goToCartBtn = 
     <Link to={{pathname:"/shoppingCart", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
@@ -31,7 +33,6 @@ const Menu = ({history}) => {
   } else {
     goToCartBtn = null
   }
-  const [order, setOrder] = useState([])
 
   // state
   const [step, setStep] = useState('categories');
@@ -85,6 +86,9 @@ const Menu = ({history}) => {
   const baseMenuItemHandler = () => {
     console.log('item clicked')
   }
+  const addItemToOrderHandler = item => {
+    setOrder([...order, item]);
+  }
 
   let menuStep = <MenuCat />
 
@@ -92,7 +96,7 @@ const Menu = ({history}) => {
     menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType} h={catHandler}/>
+    menuStep = <MenuItem add={addItemToOrderHandler} handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType} h={catHandler}/>
   }
   else if (step == "itemDetail") {
     menuStep = <MenuItemDetail back={filterItemsHandler}/>
