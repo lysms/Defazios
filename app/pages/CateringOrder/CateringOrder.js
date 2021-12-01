@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 
 
-import ShoppingCart from '../ShoppingCart/ShoppingCart';
-import OrderInfo from '../OrderInfo/OrderInfo';
-import Payment from '../Payment/Payment';
-import Confirmation from '../Confirmation/Confirmation';
+import ShoppingCart from '../../components/ShoppingCart/ShoppingCart';
+import OrderInfo from '../../components/OrderInfo/OrderInfo';
+import Payment from '../../components/Payment/Payment';
+import Confirmation from '../../components/Confirmation/Confirmation';
 
 import { useLocation } from 'react-router-native'
 

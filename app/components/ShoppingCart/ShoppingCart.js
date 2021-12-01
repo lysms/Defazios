@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
 
 import styles from './ShoppingCart.style';
-import HomeButton from '../../components/HomeButton/HomeButton';
+import HomeButton from '../HomeButton/HomeButton';
 
 
 const ShoppingCart = (props, { history }) => {

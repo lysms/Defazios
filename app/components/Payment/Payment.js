@@ -4,7 +4,7 @@ import styles from './Payment.style'
 import { Formik } from 'formik';
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import HomeButton from '../../components/HomeButton/HomeButton';
+import HomeButton from '../HomeButton/HomeButton';
 import { useLinkProps } from '@react-navigation/native';
 
 const Payment = (props, { history }) => {

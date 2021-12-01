@@ -8,19 +8,19 @@ import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
 import Profile from './pages/Profile/Profile';
-import Confirmation from './pages/Confirmation/Confirmation';
-import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
-import Payment from './pages/Payment/Payment';
+
 import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' ;
 import Booked from './pages/Admin/Booked/Booked';
 import EditMenus from './pages/Admin/EditMenus/EditMenus';
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter';
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
-import Catering from './pages/Catering/Catering';
+
 import Reservation from './pages/Reservation/Reservation';
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar';
+
 import WaitingTime from './pages/WaitingTime/WaitingTime';
-import OrderInfo from './pages/OrderInfo/OrderInfo';
+
+import Catering from './pages/Catering/Catering';
 import CateringOrder from './pages/CateringOrder/CateringOrder';
 
 export default function App() {
