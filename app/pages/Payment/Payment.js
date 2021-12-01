@@ -23,24 +23,28 @@ const Payment = ({ history }) => {
           {({handleChange, handleBlur, handleSubmit, values}) => (
             <View>
               <TextInput 
+                style={styles.paymentInput}
                 placeholder="Email"
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
               />
               <TextInput 
+                style={styles.paymentInput}
                 placeholder="First Name"
                 onChangeText={handleChange('fname')}
                 onBlur={handleBlur('fname')}
                 value={values.fname}
               />
               <TextInput 
+                style={styles.paymentInput}
                 placeholder="Last Name"
                 onChangeText={handleChange('lname')}
                 onBlur={handleBlur('lname')}
                 value={values.lname}
               />
               <TextInput 
+                style={styles.paymentInput}
                 multiline={true}
                 placeholder="Special Requests"
                 onChangeText={handleChange('specialRequests')}
