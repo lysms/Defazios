@@ -9,7 +9,7 @@ export default StyleSheet.create({
         height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
     },
     viewForPreView: {
-        height: windowHeight > 800 ? windowHeight / 100 * 70 : windowHeight / 100 * 70,
+        height: windowHeight > 800 ? windowHeight / 100 * 71 : windowHeight / 100 * 70,
         paddingHorizontal: 17,
         paddingVertical: 7,
     },
