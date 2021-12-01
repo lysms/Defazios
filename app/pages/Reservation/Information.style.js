@@ -46,6 +46,12 @@ export default StyleSheet.create({
         borderRadius: 9,
         marginLeft: windowWidth / 100 * 5,
         marginTop: windowHeight > 800 ? windowHeight / 100 * 1.8: windowHeight / 100 * 2,
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 1
+        },
     },
     textInsideReturnBtn: {
         color: 'white',
@@ -53,7 +59,7 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
     viewForInput: {
-        height: windowHeight > 800 ? windowHeight / 100 * 75 : windowHeight / 100 * 77,
+        height: windowHeight > 800 ? windowHeight / 100 * 75 : windowHeight / 100 * 77.5,
         padding: 17,
         justifyContent: 'space-around'
     },
@@ -72,6 +78,12 @@ export default StyleSheet.create({
         width: "30%",
         borderRadius: 7,
         alignItems: 'center',
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 1
+        },
     },
     textInConfirmBtn: {
         fontWeight: 'bold',

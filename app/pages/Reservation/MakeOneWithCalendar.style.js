@@ -17,6 +17,12 @@ export default StyleSheet.create({
         borderRadius: 9,
         marginLeft: windowWidth / 100 * 5,
         marginTop: windowHeight > 800 ? windowHeight / 100 * 1.8: windowHeight / 100 * 2,
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 1
+        },
     },
     textInsideReturnBtn: {
         color: 'white',
@@ -32,7 +38,7 @@ export default StyleSheet.create({
         paddingHorizontal: 17,
     },
     viewForSlot: {
-        height: windowHeight > 800 ? windowHeight / 100 * 27: windowHeight / 100 * 22,
+        height: windowHeight > 800 ? windowHeight / 100 * 26.5: windowHeight / 100 * 22,
         paddingHorizontal: 17,
     },
     buttonInScrollView: {
@@ -57,6 +63,12 @@ export default StyleSheet.create({
         width: "30%",
         borderRadius: 7,
         alignItems: 'center',
+        shadowOpacity: 0.4,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 1
+        },
     },
     textInNextBtn: {
         fontWeight: 'bold',
