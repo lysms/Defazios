@@ -14,6 +14,12 @@ export default StyleSheet.create({
     marginTop: windowHeight > 800 ? windowHeight / 100 * 1.8: windowHeight / 100 * 2,
     padding: 10,
     borderRadius: 100,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    shadowOffset: {
+        height: 2,
+        width: 1
+    },
   },
 });
