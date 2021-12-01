@@ -25,10 +25,7 @@ const Menu = ({history}) => {
   const isOrdering = location.state?.createOrder;
 
   const prevOrder = location.state?.currentOrder.order;
-
-  console.log('PREVIOUS ORDER')
-  console.log(prevOrder)
-
+  
   let goToCartBtn = '';
 
   if (isOrdering) {
