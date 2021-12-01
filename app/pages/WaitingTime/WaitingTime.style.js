@@ -1,19 +1,22 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import COLORS from '../../constants/colors';
 
-const screen = Dimensions.get('window')
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: '#fff',
-      padding: 15
+      padding: 15,
+      justifyContent: 'center',
+      alignItems: 'center',
   },
 
   TimeContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      paddingTop: 20,
+      paddingTop: 40,
       padding: 10
   },
 
@@ -43,7 +46,11 @@ export default StyleSheet.create({
       marginTop: '50%',
       height: '100%', 
       width: '100%'
-  }
+  },
+
+  header: {
+    height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
+  },
 
 
 })
