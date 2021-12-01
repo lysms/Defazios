@@ -8,9 +8,9 @@ import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
 import Profile from './pages/Profile/Profile';
-import Confirmed from './pages/Ordering/Confirmed';
-import ShoppingCart from './pages/Ordering/ShoppingCart';
-import Payment from './pages/Ordering/Payment/Payment';
+import Confirmation from './pages/Confirmation/Confirmation';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Payment from './pages/Payment/Payment';
 import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' ;
 import Booked from './pages/Admin/Booked/Booked';
 import EditMenus from './pages/Admin/EditMenus/EditMenus';
@@ -34,7 +34,7 @@ export default function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/newsletter" component={Newsletter} />
-          <Route exact path="/confirmed" component={Confirmed} />
+          <Route exact path="/confirmation" component={Confirmation} />
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
           <Route exact path="/waiting" component={WaitingTime} />
