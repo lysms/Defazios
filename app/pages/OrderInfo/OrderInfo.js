@@ -2,18 +2,23 @@ import React from 'react';
 import { SafeAreaView, Text, View, TouchableOpacity, TextInput} from 'react-native';
 import { Formik } from 'formik';
 import styles from './OrderInfo.style';
-import { Link } from 'react-router-native';
+import { Link, useLocation } from 'react-router-native';
+
 
 const OrderInfo = ({history}) =>  {
+
+  const location = useLocation();
+  const curOrder = location.state?.currentOrder;
+  console.log(curOrder)
 
   return (
     <SafeAreaView style={styles.infoContainer}>
       <View>
-        <TouchableOpacity style={styles.returnBtn}>
+        <Link to={{pathname:"/shoppingCart", state: {order: {curOrder}}}} style={styles.returnBtn}>
           <Text style={styles.returnBtnText}>
             Return
           </Text>
-        </TouchableOpacity>
+        </Link>
       </View>
       
       <View style={styles.pageContent}>
@@ -87,7 +92,7 @@ const OrderInfo = ({history}) =>  {
                   Continue to Payment 
                 </Text>
               </Link>
-              
+
             </View>
           )}
         </Formik>

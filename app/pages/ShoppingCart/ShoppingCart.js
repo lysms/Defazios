@@ -58,9 +58,6 @@ const ShoppingCart = ({ history }) => {
         <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder:{order}}}}>
           <Text>Continue Ordering</Text>
         </Link>
-        {/* <TouchableOpacity style={styles.createAccount2} onPress={() => history.push('/cateringMenu')}>
-          <Text style={styles.textcreate}>Continue to Payment</Text>
-        </TouchableOpacity> */}
       </View>
 
       <View style={styles.container3}>
@@ -70,11 +67,8 @@ const ShoppingCart = ({ history }) => {
 
 
       <View style={styles.container4}>
-        {/* <TouchableOpacity style={styles.createAccount2} onPress={() => history.push('/confirmed')}>
-          <Text style={styles.textcreate}>Continue to Payment</Text>
-        </TouchableOpacity> */}
-        <Link to={{pathname:"/payment", state: {currentOrder:{order}}}}>
-          <Text>Continue to Payment</Text>
+        <Link to={{pathname:"/orderInfo", state: {currentOrder:{order}}}}>
+          <Text>Confirm Order Information</Text>
         </Link>
       </View>
 
