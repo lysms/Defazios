@@ -1,0 +1,95 @@
+import { StyleSheet, Dimensions } from 'react-native';
+import COLORS from "../../constants/colors"
+const screen = Dimensions.get('window')
+
+
+export default StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        padding: 5,
+    },
+
+    container1: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    container2: {
+        flex: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+
+    title: {
+        fontSize: 26,
+        color: 'red',
+        fontWeight: 'bold',
+        marginTop: 8,
+    },
+
+    DetailContainer: {
+        backgroundColor: 'lightgrey',
+        height: screen.height / 1.3,
+        padding: 15,
+        marginTop: 10,
+    },
+
+    cat: {
+        width: screen.width / 1.2,
+
+    },
+    profile: {
+        flex: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+
+    backButton: {
+        backgroundColor: 'black',
+        borderRadius: 16,
+        width: screen.width / 3,
+        height: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 7,
+        padding: 2,
+        flexDirection: 'row',
+    },
+
+    goback: {
+        color: 'white',
+        fontSize: 17,
+        padding: 5,
+    },
+
+    minimenucontainer2: {
+        height: screen.height / 11,
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 18,
+
+    },
+
+    subitem: {
+        textAlign: 'center',
+        padding: 5,
+        fontSize: 18,
+    },
+
+
+    ButtonContainer: {
+        flexDirection: 'row',
+        flex: 4,
+        padding: 10,
+    },
+
+    Button: {
+        padding: screen.width / 8,
+    }
+
+})

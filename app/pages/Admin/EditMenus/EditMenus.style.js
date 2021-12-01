@@ -81,4 +81,23 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         padding: 20
     },
+
+    cat: {
+        width: screen.width / 1.2,
+
+    },
+
+    minimenucontainer2: {
+        height: screen.height / 14,
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+
+    subitem: {
+        textAlign: 'center',
+        padding: 5,
+        fontSize: 18,
+    },
 })
