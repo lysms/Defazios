@@ -3,7 +3,7 @@ import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } 
 import styles from './Payment.style'
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import HomeButton from '../../../components/HomeButton/HomeButton';
+import HomeButton from '../../components/HomeButton/HomeButton';
 const Payment = ({ history }) => {
     return (
         <View style={styles.container}>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
-import styles from './Confirmed.style'
+import styles from './Confirmation.style'
 
 
-const Confirmed = ({ history }) => {
+const Confirmation = ({ history }) => {
     return (
         <View style={styles.container}>
 
@@ -50,4 +50,4 @@ const Confirmed = ({ history }) => {
     );
 };
 
-export default Confirmed;
+export default Confirmation;
