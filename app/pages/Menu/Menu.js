@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-native'
 import * as Haptics from 'expo-haptics';
 
 
-import AppButton from '../../components/Button/Button.component';
 // import COLORS from '../constants/colors';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
@@ -13,6 +12,7 @@ import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
 import styles from './Menu.style';
 
 import firebase from '../../firebase';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 const Menu = ({history}) => {
 
@@ -117,7 +117,7 @@ const Menu = ({history}) => {
   return (
     <SafeAreaView style={styles.menuContainer}>
       <View style={styles.header}>
-        <AppButton h={history}/>
+        <HomeButton h={history}/>
       </View>
 
       <Button title="add to db" onPress={handleAddOrder}/>

@@ -1,5 +1,3 @@
-
-
 export default {
     offWhite: '#FCFCFC',
     lightGrayText: '#F2F2F2',

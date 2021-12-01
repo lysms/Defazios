@@ -54,7 +54,8 @@ export default StyleSheet.create({
         borderColor: "black",
         borderRadius: 10,
         height: 45,
-        padding: 5
+        paddingVertical: 5,
+        paddingHorizontal: 10
     },
 
     container2: {

@@ -23,13 +23,13 @@ import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar'
 import Information from './pages/Reservation/Information'
 import Confirmation from './pages/Reservation/Confirmation'
 import { initializeApp } from 'firebase/app';
+import WaitingTime from './pages/WaitingTime/WaitingTime';
 
 export default function App() {
 
   return (
     <NativeRouter>
       <View style={styles.container}>
-
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -41,7 +41,7 @@ export default function App() {
           <Route exact path="/confirmed" component={Confirmed} />
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
-          <Route exact path="/waiting" component={Waiting} />
+          <Route exact path="/waiting" component={WaitingTime} />
           <Route exact path="/adminHome" component={Admin_Home} />
           <Route exact path="/adminReservation" component={Booked} />
           <Route exact path="/adminMenus" component={EditMenus} />
