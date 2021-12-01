@@ -34,6 +34,8 @@ const ManageOrder = ({ history }) => {
                     let quantity = 0;
                     let size = "";
                     let addons = [];
+                    let order_item = ""
+                    let order_index = []
 
                     dateFor = dateFor.split(' ');
 
@@ -87,6 +89,7 @@ const ManageOrder = ({ history }) => {
                     console.log("This is time \t" + time1)
                     let order = docs.items;
 
+
                     // console.log("\n", "This is promise\n")
                     // Promise.all([order]).then((values) => {
 
@@ -109,20 +112,25 @@ const ManageOrder = ({ history }) => {
                     // })
 
 
-
+                    let temp = [];
                     if (order != '') {
 
                         order.map((item, index) => {
                             //console.log(item);
                             let Add = item['addOns']
-
+                            order_item = item['item']
                             Add.map((x) => {
                                 addons.push(x);
                             })
-
-
                             size = item['halfOrFull']
                             quantity = item['quantity']
+                            let tmp = []
+                            tmp.push(addons)
+                            addons = []
+                            tmp.push(size)
+                            tmp.push(order_item)
+                            tmp.push(quantity)
+                            temp.push(tmp)
                         })
 
                     }
@@ -138,7 +146,6 @@ const ManageOrder = ({ history }) => {
 
                     // }))
                     //console.log(addons)
-                    let temp = [];
 
                     temp.push(firstName)
                     temp.push(lastName)
@@ -146,11 +153,15 @@ const ManageOrder = ({ history }) => {
                     temp.push(dateOrdered)
                     temp.push(requests)
                     temp.push(cost)
-                    temp.push(addons)
-                    temp.push(size)
-                    temp.push(quantity)
 
-                    console.log(temp)
+                    console.log(temp[0])
+                    console.log(temp[1])
+                    console.log(temp[2])
+                    console.log(temp[3])
+                    console.log(temp[4])
+                    console.log(temp[5])
+                    console.log(temp[6])
+
                     final.push(temp)
                 })
                 setOrderItems([...final]);
@@ -169,6 +180,7 @@ const ManageOrder = ({ history }) => {
             state: data
         });
     }
+
 
 
     return (
@@ -193,9 +205,9 @@ const ManageOrder = ({ history }) => {
 
 
 
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminOrder')}>
+                    {/* <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminOrder')}>
                         <Text style={styles.textcreate}>Prices</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
                     <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminHome')}>
                         <Text style={styles.textcreate}>Time</Text>
@@ -220,18 +232,19 @@ const ManageOrder = ({ history }) => {
                     {
 
                         orderItems.map((data, i) => {
-                            // 0: firstName; 1: lastName; 2: dateFor; 3: dateOrdered; 
-                            // 4: requests; 5: cost; 6: addons; 7:size; 8:quantity
+                            // 0: items (array) => addons is also array; 
+                            // 1: first; 2: last; 3: Datefor; 
+                            // 4: DateOrdered; 5: requests; 6: costs
 
                             return (
                                 <View>
-                                    <Text></Text>
+                                    <Text key={i}></Text>
                                     {/* {setState([...data])} */}
                                     <TouchableOpacity onPress={() => handleDetails(data)}>
                                         <View style={styles.minimenucontainer2}>
-                                            <Text style={styles.subitem}>{data[0]}, {data[1]}</Text>
-                                            <Text style={styles.subitem_price}>${data[5]}</Text>
-                                            <Text style={styles.subitem}>{data[2]}</Text>
+                                            <Text style={styles.subitem}>{data[1]}, {data[2]}</Text>
+
+                                            <Text style={styles.subitem}>{data[3]}</Text>
                                         </View>
                                         {/* <Details name={data} /> */}
                                     </TouchableOpacity>

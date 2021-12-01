@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Modal, Button, Alert } from 'react-native
 import { useLocation } from 'react-router';
 
 import styles from './Details.style';
-
+import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 const Detail = ({ history }) => {
     const location = useLocation();
@@ -33,46 +33,39 @@ const Detail = ({ history }) => {
     }, [])
 
     return (
-        <View style={{ alignItems: 'center', padding: 10 }}>
-            <View style={styles.container1}>
-                <Text style={styles.headerText}>Welcome to view all the order. </Text>
+        <View style={styles.container}>
+            <View style={styles.container2}>
+                <Text style={styles.title}>Defazio's Pizza</Text>
             </View>
-            <Text style={styles.text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-            <Button
-                title="Press meok"
-                onPress={() => history.push('/adminOrder')}
-            />
-            {
-                Order.map((x, i) => {
-                    // 0: firstName; 1: lastName; 2: dateFor; 3: dateOrdered; 
-                    // 4: requests; 5: cost; 6: addons; 7:size; 8:quantity
+            <TouchableOpacity style={styles.backButton} onPress={() => { history.push('/adminOrder') }}>
+                <AntDesign name="back" size={30} color="white" />
+                <Text style={styles.goback}>Go Back</Text>
+            </TouchableOpacity>
 
-                    return (
-                        <View>
-                            <Text>{x}</Text>
-                            {/* {setState([...data])} */}
+            <View style={styles.container2}></View>
+            <View style={styles.DetailContainer}>
+                {
+                    // 0: items (array); 1: first; 2: last; 3: Datefor; 
+                    // 4: DateOrdered; 5: requests; 6: costs
 
-                            {/* <View style={styles.minimenucontainer2}>
-                                <Text style={styles.subitem}>{x[0]}, {x[1]}</Text>
-                                <Text style={styles.subitem_price}>${x[5]}</Text>
-                                <Text style={styles.subitem}>{x[2]}</Text>
-                            </View> */}
-                            {/* <Details name={data} /> */}
+                    <View>
+                        <Text>Name: {Order[1]}, {Order[2]}</Text>
+                        <Text>Text: {Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>Items: {Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>{Order[0]}</Text>
+                        <Text>Price: ${Order[5]}</Text>
+                        <Text>Special Requests: "{Order[4]}"</Text>
+                    </View>
 
+                }
+            </View>
 
-                        </View>
-                    )
-                })
-            }
-
+            <View style={styles.container1}></View>
 
 
 

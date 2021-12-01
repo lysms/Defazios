@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import COLORS from "../../constants/colors"
 const screen = Dimensions.get('window')
 
 
@@ -16,7 +17,7 @@ export default StyleSheet.create({
     },
 
     container2: {
-        flex: 0.4,
+        flex: 5,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
@@ -25,11 +26,26 @@ export default StyleSheet.create({
     title: {
         fontSize: 26,
         color: 'red',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 8,
     },
 
     DetailContainer: {
         backgroundColor: 'lightgrey',
+        height: screen.height / 1.3,
+        padding: 15,
+        marginTop: 10,
+    },
+
+    cat: {
+        width: screen.width / 1.2,
+
+    },
+    profile: {
+        flex: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
     },
 
     backButton: {
@@ -48,7 +64,32 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 17,
         padding: 5,
-    }
+    },
 
+    minimenucontainer2: {
+        height: screen.height / 11,
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 18,
+
+    },
+
+    subitem: {
+        textAlign: 'center',
+        padding: 5,
+        fontSize: 18,
+    },
+
+
+    ButtonContainer: {
+        flexDirection: 'row',
+        flex: 4,
+        padding: 10,
+    },
+
+    Button: {
+        padding: screen.width / 8,
+    }
 
 })
