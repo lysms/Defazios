@@ -13,43 +13,81 @@ const Payment = ({ history }) => {
   
         <Formik
           initialValues={{
-            email: '',
-            fname: '',
-            lname: '',
-            specialRequests: ''
+            name: '',
+            cardNumber: '',
+            cvv: '',
+            streetAddress: '',
+            state: '',
+            city: '',
+            zipcode: ''
           }}
           onSubmit={values => console.log(values)}
         >
           {({handleChange, handleBlur, handleSubmit, values}) => (
             <View>
+
+              <Text>Full Name</Text>
               <TextInput 
                 style={styles.paymentInput}
-                placeholder="Email"
-                onChangeText={handleChange('email')}
-                onBlur={handleBlur('email')}
-                value={values.email}
+                placeholder="Full Name"
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                value={values.name}
               />
+
+              <Text>Credit Card Number</Text>
               <TextInput 
                 style={styles.paymentInput}
-                placeholder="First Name"
-                onChangeText={handleChange('fname')}
-                onBlur={handleBlur('fname')}
-                value={values.fname}
+                placeholder="####-####-####-####"
+                onChangeText={handleChange('cardNumber')}
+                onBlur={handleBlur('cardNumber')}
+                value={values.cardNumber}
               />
+
+              <Text>CVV</Text>
               <TextInput 
                 style={styles.paymentInput}
-                placeholder="Last Name"
-                onChangeText={handleChange('lname')}
-                onBlur={handleBlur('lname')}
-                value={values.lname}
+                placeholder="###"
+                onChangeText={handleChange('cvv')}
+                onBlur={handleBlur('cvv')}
+                value={values.cvv}
               />
+
+              <Text>Billing Address</Text>
+              <Text>Street Address</Text>
               <TextInput 
                 style={styles.paymentInput}
-                multiline={true}
-                placeholder="Special Requests"
-                onChangeText={handleChange('specialRequests')}
-                onBlur={handleBlur('specialRequests')}
-                value={values.specialRequests}
+                placeholder="999 Rainbow Rd"
+                onChangeText={handleChange('streetAddress')}
+                onBlur={handleBlur('streetAddress')}
+                value={values.streetAddress}
+              />
+
+              <Text>State</Text>
+              <TextInput 
+                style={styles.paymentInput}
+                placeholder="New York"
+                onChangeText={handleChange('state')}
+                onBlur={handleBlur('state')}
+                value={values.state}
+              />
+
+              <Text>City</Text>
+              <TextInput 
+                style={styles.paymentInput}
+                placeholder="Troy"
+                onChangeText={handleChange('city')}
+                onBlur={handleBlur('city')}
+                value={values.city}
+              />
+
+              <Text>Zipcode</Text>
+              <TextInput 
+                style={styles.paymentInput}
+                placeholder="Troy"
+                onChangeText={handleChange('zipcode')}
+                onBlur={handleBlur('zipcode')}
+                value={values.zipcode}
               />
 
               <Button onPress={handleSubmit} title="Submit" />
