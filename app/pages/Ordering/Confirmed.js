@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './Confirmed.style'
-import AppButton from '../../components/Button/Button.component';
 
 
 const Confirmed = ({ history }) => {

@@ -11,8 +11,13 @@ import Profile from './pages/Profile/Profile'
 import Confirmed from './pages/Ordering/Confirmed'
 import ShoppingCart from './pages/Ordering/ShoppingCart'
 import Payment from './pages/Ordering/Payment/Payment'
+
 import Waiting from './components/WaitingTime/Waiting'
 import Admin_Home from './pages/Admin/Admin_Home/Admin_Home'
+
+// import Waiting from './components/WaitingTime/Waiting'
+import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' 
+
 import Booked from './pages/Admin/Booked/Booked'
 import EditMenus from './pages/Admin/EditMenus/EditMenus'
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter'
@@ -20,17 +25,22 @@ import ManageOrder from './pages/Admin/ManageOrder/ManageOrder'
 import Catering from './pages/Catering/Catering'
 import Reservation from './pages/Reservation/Reservation'
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar'
+
 import OrderDetails from "./components/Order_details/Details"
 import MenusDetails from "./components/Menus_details/Menus_details"
 import MenusSubItemsDetails from "./components/Menus_details/Item"
+
+import Information from './pages/Reservation/Information'
+import Confirmation from './pages/Reservation/Confirmation'
+
 import { initializeApp } from 'firebase/app';
+import WaitingTime from './pages/WaitingTime/WaitingTime';
 
 export default function App() {
 
   return (
     <NativeRouter>
       <View style={styles.container}>
-
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -42,7 +52,7 @@ export default function App() {
           <Route exact path="/confirmed" component={Confirmed} />
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/payment" component={Payment} />
-          <Route exact path="/waiting" component={Waiting} />
+          <Route exact path="/waiting" component={WaitingTime} />
           <Route exact path="/adminHome" component={Admin_Home} />
           <Route exact path="/adminReservation" component={Booked} />
           <Route exact path="/adminMenus" component={EditMenus} />
@@ -54,6 +64,10 @@ export default function App() {
           <Route exact path="/order_details" component={OrderDetails} />
           <Route exact path="/menus_details" component={MenusDetails} />
           <Route exact path="/menus_sub_item_details" component={MenusSubItemsDetails} />
+
+          <Route exact path="/information" component={Information} />
+          <Route exact path="/confirmation" component={Confirmation} />
+
         </Switch>
       </View>
     </NativeRouter>

@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Catering.style';
 import { Link } from 'react-router-native';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
-import AppButton from '../../components/Button/Button.component';
 import * as Haptics from 'expo-haptics';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 const Catering = ({history}) => {
     return(
@@ -15,11 +15,11 @@ const Catering = ({history}) => {
                     flex: 1
                 }}>
                 <View style={styles.header}>
-                    <AppButton h={history}/>
+                    <HomeButton h={history}/>
                 </View>
                 <View style={styles.viewForPreView}>
                     <Text
-                        style={styles.titleForPreView}>Previous Orders</Text>
+                        style={styles.titleForPreView}>Current and Previous Orders</Text>
                     <ScrollView style={styles.scrollviewForPreView}>
                         <View style={styles.preOrderBtn}>
                             <Text style={styles.textInsidePreOrderBtn}>October 24, 2021</Text>

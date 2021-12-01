@@ -3,10 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './Profile.style'
 
-
-
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import AppButton from '../../components/Button/Button.component';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 
 // To do: Add the function to recceive the input value and authentication on the value input
@@ -18,7 +16,7 @@ const Profile = ({ history }) => {
             {/* Name  ->   Current Order + waiting time  ->  Order history(in one weeks) */}
             {/* At the top => will be able to view the overall menus  (can be direct to the menus page.) */}
 
-            <AppButton h={history} />
+            <HomeButton h={history} />
             <View style={styles.headerSection}>
                 <Text style={styles.headerText}>USER PROFILE</Text>
             </View>

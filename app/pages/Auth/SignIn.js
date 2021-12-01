@@ -1,10 +1,9 @@
 import React from 'react'
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
-import AppButton from '../../components/Button/Button.component';
-
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
 
 // To do: Add the function to recceive the input value and authentication on the value input
@@ -13,7 +12,7 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 const SignIn = ({ history }) => {
     return (
         <View style={styles.container}>
-            <AppButton h={history} />
+            <HomeButton h={history} />
             {/* <TouchableOpacity onPress={() => history.push('/')}>
                 <View style={styles.item}>
                     <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
@@ -29,13 +28,14 @@ const SignIn = ({ history }) => {
 
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Email Address</Text>
-                    <TextInput placeholder="email" style={styles.inputtext} />
+                    <TextInput placeholder="Email" style={styles.inputtext} />
                 </View>
 
 
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Password</Text>
-                    <TextInput placeholder="password" secureTextEntry={true} style={styles.inputtext} />
+
+                    <TextInput placeholder="Password" secureTextEntry={true} style={styles.inputtext} />
                 </View>
 
                 <View style={styles.container_create}>

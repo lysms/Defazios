@@ -92,27 +92,12 @@ const MenuItemAdd = props => {
 
   if (props.type == "hf") {
     choice = 
-    <View style={{
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginVertical: 5
-    }}>
-
-      <TouchableOpacity style={{
-        backgroundColor: buttonColorOne,
-        marginHorizontal: 2,
-        paddingVertical: 3,
-        paddingHorizontal: 5
-      }} onPress={toggleHalfHandler} >
+    <View style={styles.hfContainer}>
+      <TouchableOpacity style={{backgroundColor: buttonColorOne,...styles.hfBtn}} onPress={toggleHalfHandler} >
         <Text style={{color: buttonColorTwo}}>Half</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={toggleHalfHandler} style={{
-        backgroundColor: buttonColorTwo,
-        marginHorizontal: 2,
-        paddingVertical: 3,
-        paddingHorizontal: 5
-      }}>
+      <TouchableOpacity onPress={toggleHalfHandler} style={{backgroundColor: buttonColorTwo, ...styles.hfBtn}}>
         <Text style={{color: buttonColorOne}}>Full</Text>
       </TouchableOpacity>
     </View>
@@ -129,66 +114,41 @@ const MenuItemAdd = props => {
     >
       <View style={styles.modalView}>
 
-        <View style={{
-          backgroundColor: 'white', 
-          paddingTop: 10, 
-          paddingHorizontal: 10, 
-          borderRadius: 5,
-          justifyContent: 'center',
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 4,
-          elevation: 10
-
-          }}>
+        <View style={styles.modalContainer}>
+          
           <TouchableOpacity onPress={props.showHandler}>
             <AntDesign name="close" size={24} color="black" />
           </TouchableOpacity>
 
 
-          <View style={{
-            paddingHorizontal: 15,
-            paddingBottom: 5
-          }}>
+          <View style={styles.modalInfo}>
             
-            <View style={{
-              alignItems: 'center', 
-              marginBottom: 10,
-              marginTop: 4
-            }}>
+            <View style={styles.modalInfoMain}>
               <Text>{props.item.name}</Text>
               {choice}
               <Text>Total Cost: ${totalCost.toFixed(2)}</Text>
-
             </View>
 
-            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 5}}>
+            <View style={styles.modalQuantity}>
               <TouchableOpacity onPress={decreaseCountHandler}>
                 <AntDesign name="minuscircleo" size={24} color="black" />
               </TouchableOpacity>
-              <View style={{marginHorizontal: 5, borderColor: "gray", borderWidth: 1, paddingHorizontal: 5}}>
-                <Text style={{fontSize: 20}}>{itemCount}</Text>
+              <View style={styles.itemCount}>
+                <Text style={styles.itemCountText}>{itemCount}</Text>
               </View>
               <TouchableOpacity onPress={increaseCountHandler}>
                 <AntDesign name="pluscircle" size={24} color="black" />
               </TouchableOpacity>
-
             </View>
 
-            <View style={{margin: 10}}>
+            <View style={styles.addOrderBtn}>
               <Button color="black" title="Add to order" onPress={addToOrderHandler}/>
             </View>
+
           </View>
-
         </View>
-
-        </View>
-
-      </Modal>
+      </View>
+    </Modal>
   );
 }
 
