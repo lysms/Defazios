@@ -3,7 +3,8 @@ import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
   infoContainer: {
-    flex: 1
+    flex: 1,
+    paddingTop: 40
   },
   returnBtn: {
     backgroundColor: 'black',

@@ -30,7 +30,7 @@ const Menu = ({history}) => {
 
   if (isOrdering) {
     goToCartBtn = 
-    <Link to={{pathname:"/shoppingCart", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+    <Link to={{pathname:"/cateringOrder", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
       <Text style={styles.textInsideOrderBtn}>Go to Cart</Text>
     </Link>
   } else {

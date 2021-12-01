@@ -5,20 +5,14 @@ import styles from './OrderInfo.style';
 import { Link, useLocation } from 'react-router-native';
 
 
-const OrderInfo = ({history}) =>  {
-
-  const location = useLocation();
-  const curOrder = location.state?.currentOrder;
-  console.log(curOrder)
+const OrderInfo = (props, {history}) =>  {
 
   return (
     <SafeAreaView style={styles.infoContainer}>
       <View>
-        <Link to={{pathname:"/shoppingCart", state: {order: {curOrder}}}} style={styles.returnBtn}>
-          <Text style={styles.returnBtnText}>
-            Return
-          </Text>
-        </Link>
+        <TouchableOpacity onPress={() => props.stepHandler('cart')}>
+          <Text>Return to Cart</Text>
+        </TouchableOpacity>
       </View>
       
       <View style={styles.pageContent}>
@@ -87,21 +81,14 @@ const OrderInfo = ({history}) =>  {
                 value={values.specialRequests}
               />
 
-              <Link to={{pathname:'/payment', state: {order: ""}}} style={styles.btn} onPress={handleSubmit}>
-                <Text style={styles.btnText}>
-                  Continue to Payment 
-                </Text>
-              </Link>
+              <TouchableOpacity onPress={() => props.stepHandler('payment')}>
+                <Text>Continue to Payment</Text>
+              </TouchableOpacity>
 
             </View>
           )}
         </Formik>
 
-        {/* <Link to={{pathname:'/payment', state: {order: ""}}} style={styles.btn}>
-          <Text style={styles.btnText}>
-            Continue to Payment 
-          </Text>
-        </Link> */}
       </View>
     </SafeAreaView>
   );

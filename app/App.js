@@ -21,6 +21,7 @@ import Reservation from './pages/Reservation/Reservation';
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar';
 import WaitingTime from './pages/WaitingTime/WaitingTime';
 import OrderInfo from './pages/OrderInfo/OrderInfo';
+import CateringOrder from './pages/CateringOrder/CateringOrder';
 
 export default function App() {
 
@@ -35,9 +36,6 @@ export default function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/newsletter" component={Newsletter} />
-          <Route exact path="/confirmation" component={Confirmation} />
-          <Route exact path="/shoppingCart" component={ShoppingCart} />
-          <Route exact path="/payment" component={Payment} />
           <Route exact path="/waiting" component={WaitingTime} />
           <Route exact path="/adminHome" component={Admin_Home} />
           <Route exact path="/adminReservation" component={Booked} />
@@ -45,8 +43,8 @@ export default function App() {
           <Route exact path="/adminNews" component={EditNewsLetter} />
           <Route exact path="/adminOrder" component={ManageOrder} />
           <Route exact path="/catering" component={Catering} />
-          <Route exact path="/orderInfo" component={OrderInfo} />
           <Route exact path="/reservation" component={Reservation} />
+          <Route exact path="/cateringOrder" component={CateringOrder} />
           <Route exact path="/makeOneWithCalendar" component={MakeOneWithCalendar} />
         </Switch>
       </View>

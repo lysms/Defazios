@@ -1,15 +1,21 @@
 import React from 'react'
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 import styles from './Payment.style'
 import { Formik } from 'formik';
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import HomeButton from '../../components/HomeButton/HomeButton';
+import { useLinkProps } from '@react-navigation/native';
 
-const Payment = ({ history }) => {
+const Payment = (props, { history }) => {
   return (
     <View style={styles.container}>
       <HomeButton h={history} />
+      <View>
+        <TouchableOpacity onPress={() => props.stepHandler('info')}>
+          <Text>Return to order information</Text>
+        </TouchableOpacity>
+      </View>
 
         <View style={styles.formContainer}>
           <Text style={styles.formTitle}>Payment Information</Text>
@@ -106,7 +112,7 @@ const Payment = ({ history }) => {
                   />
                 </View>
 
-                <Button onPress={handleSubmit} title="Confirm Payment" />
+                <Button onPress={() => {handleSubmit; props.stepHandler('confirm')}} title="Confirm Payment" />
               </View>
             )}
           </Formik>

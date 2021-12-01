@@ -46,7 +46,7 @@ export default StyleSheet.create({
         padding: 2,
         fontSize: 18,
         fontWeight: 'bold',
-        alignSelf: 'flex-end'
+        alignSelf: 'flex-end',
     },
 
 

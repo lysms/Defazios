@@ -4,14 +4,11 @@ import { Link } from 'react-router-native';
 
 import styles from './ShoppingCart.style';
 import HomeButton from '../../components/HomeButton/HomeButton';
-import { useLocation } from 'react-router-native';
 
 
-const ShoppingCart = ({ history }) => {
+const ShoppingCart = (props, { history }) => {
 
-  const location = useLocation();
-  const order = location.state?.order;
-
+  const order = props.items
   let sub = 0;
 
   const orders = order.map(el => {
@@ -24,7 +21,7 @@ const ShoppingCart = ({ history }) => {
       </View>
     )
   })
-  
+
   return (
     <View style={styles.container}>
 
@@ -67,9 +64,9 @@ const ShoppingCart = ({ history }) => {
 
 
       <View style={styles.container4}>
-        <Link to={{pathname:"/orderInfo", state: {currentOrder:{order}}}}>
+        <TouchableOpacity onPress={() => props.stepHandler('info')}>
           <Text>Confirm Order Information</Text>
-        </Link>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.container3}>
