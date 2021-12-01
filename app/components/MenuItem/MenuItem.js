@@ -26,7 +26,15 @@ const MenuItem = props => {
       .then(snap => {
         snap.forEach(doc => {
           let d = doc.data();
-          tempData.push(d);
+          let tempObject = {
+            category: d.category, 
+            fullCost: d.fullCost,
+            halfCost: d.halfCost,
+            name: d.name, 
+            id: doc.id
+          }
+          tempData.push(tempObject);
+          console.log(tempObject)
         })
         setMenuItems([...tempData]);
       })

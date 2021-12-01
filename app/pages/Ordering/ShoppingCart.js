@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, View, TouchableOpacity } from 'react-native';
-import styles from './ShoppingCart.style'
+import { Link } from 'react-router-native';
+
+import styles from './ShoppingCart.style';
 import HomeButton from '../../components/HomeButton/HomeButton';
 import { useLocation } from 'react-router-native';
 
@@ -16,7 +18,7 @@ const ShoppingCart = ({ history }) => {
   const orders = order.map(el => {
     sub += el.cost;
     return (
-      <View>
+      <View key={el.id}>
         <Text>{el.name}</Text>
         <Text>Quantity: {el.quantity}</Text>
         <Text>Cost: {el.cost.toFixed(2)}</Text>
@@ -55,9 +57,9 @@ const ShoppingCart = ({ history }) => {
 
 
       <View style={styles.container4}>
-        <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/cateringMenu')}>
-          <Text style={styles.textcreate}>Continue Ordering</Text>
-        </TouchableOpacity>
+        <Link to={{pathname:"/cateringMenu", state: {type: "cateringMenu", createOrder: true}}} onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
+          <Text style={styles.textInsideOrderBtn}>Continue Ordering</Text>
+        </Link>
       </View>
 
       <View style={styles.container3}>
