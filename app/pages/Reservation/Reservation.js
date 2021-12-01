@@ -19,7 +19,7 @@ const Reservation = ({history}) => {
                 </View>
                 <View style={styles.viewForPreView}>
                     <Text
-                        style={styles.titleForPreView}>Previous Orders</Text>
+                        style={styles.titleForPreView}>Current and Previous Orders</Text>
                     <ScrollView style={styles.scrollviewForPreView}>
                         <View style={styles.preOrderBtn}>
                             <Text style={styles.textInsidePreOrderBtn}>October 24, 2021</Text>
