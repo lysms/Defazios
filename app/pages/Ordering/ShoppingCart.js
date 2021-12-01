@@ -11,7 +11,6 @@ const ShoppingCart = ({ history }) => {
 
   const location = useLocation();
   const order = location.state?.order;
-  console.log(order);
 
   let sub = 0;
 
@@ -33,7 +32,6 @@ const ShoppingCart = ({ history }) => {
 
       <View style={styles.container3}>
       </View>
-
 
       <View style={styles.container1}>
         <Text style={styles.confirm}>Review Order</Text>
@@ -57,9 +55,12 @@ const ShoppingCart = ({ history }) => {
 
 
       <View style={styles.container4}>
-        <Link to={{pathname:"/cateringMenu", state: {type: "cateringMenu", createOrder: true}}} onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
-          <Text style={styles.textInsideOrderBtn}>Continue Ordering</Text>
+        <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder:{order}}}}>
+          <Text>Continue Ordering</Text>
         </Link>
+        {/* <TouchableOpacity style={styles.createAccount2} onPress={() => history.push('/cateringMenu')}>
+          <Text style={styles.textcreate}>Continue to Payment</Text>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.container3}>

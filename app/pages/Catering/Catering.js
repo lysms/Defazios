@@ -35,7 +35,7 @@ const Catering = ({history}) => {
             </View>
 
             <View style={styles.viewForOrderBtn}>    
-              <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true}}} style={styles.orderBtn} onPress={() => {setIsOrdering(true); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+              <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder: []}}} style={styles.orderBtn} onPress={() => {setIsOrdering(true); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
                 <Text style={styles.textInsideOrderBtn}>Create New Catering Order</Text>
               </Link>
             </View>

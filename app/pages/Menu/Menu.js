@@ -23,6 +23,12 @@ const Menu = ({history}) => {
   const [order, setOrder] = useState([])
 
   const isOrdering = location.state?.createOrder;
+
+  const prevOrder = location.state?.currentOrder.order;
+
+  console.log('PREVIOUS ORDER')
+  console.log(prevOrder)
+
   let goToCartBtn = '';
 
   if (isOrdering) {
@@ -43,6 +49,10 @@ const Menu = ({history}) => {
 
 
   useEffect(() => {
+
+    if (isOrdering && prevOrder) {
+      setOrder([...prevOrder]);
+    }
     // gets the categories from the current collection
     const collection = firebase.firestore().collection(currentMenuType);
     collection.doc('Categories').get()
