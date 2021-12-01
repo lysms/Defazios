@@ -10,6 +10,19 @@ const ShoppingCart = ({ history }) => {
   const location = useLocation();
   const order = location.state?.order;
   console.log(order);
+
+  let sub = 0;
+
+  const orders = order.map(el => {
+    sub += el.cost;
+    return (
+      <View>
+        <Text>{el.name}</Text>
+        <Text>Quantity: {el.quantity}</Text>
+        <Text>Cost: {el.cost.toFixed(2)}</Text>
+      </View>
+    )
+  })
   
   return (
     <View style={styles.container}>
@@ -32,11 +45,12 @@ const ShoppingCart = ({ history }) => {
 
             <Text style={styles.regularText2}>4:39pm</Text>
             <Text style={styles.regularText3}>Scheduled for 7:00pm December 21, 2021</Text>
-            <Text style={styles.regularText3}>1 Large - Cheese Pizza ($16.75)</Text>
-            <Text style={styles.regularText2}>Taxes: $0.89</Text>
-            <Text style={styles.regularText2}>Subtotal: $17.64</Text>
+            <View>
+              { orders }
+            </View>
+            <Text style={styles.regularText2}>Subtotal: ${sub.toFixed(2)}</Text>
 
-        </View>
+        </View> 
       </View>
 
 
