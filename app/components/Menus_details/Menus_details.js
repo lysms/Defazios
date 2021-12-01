@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import firebase from '../../firebase'
 
 import styles from './Menus_details.style';
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { MaterialIcons, AntDesign, Entypo } from '@expo/vector-icons';
 
 const MenusDetails = ({ history }) => {
     const location = useLocation();
@@ -14,23 +14,28 @@ const MenusDetails = ({ history }) => {
     let final = []
     useEffect(() => {
         let result = location['state'];
-        console.log("this is the result\n", result);
-        firebase.collection("menu")
-            .where("category", "==", result)
+        console.log("this is the result\n", result[0]);
+        let name = result[1];
+        console.log(name)
+
+        firebase.collection(name)
+            .where("category", "==", result[0])
             .get()
             .then(value => {
                 value.forEach(element => {
-                    //console.log(element.data())
+                    console.log(element.data())
                     final.push(element.data())
                 });
-                console.log(final[0])
+                //console.log(final[0])
+
                 final.sort(function (a, b) {
-                    return parseFloat(a.cost) - parseFloat(b.cost);
+                    return a.name > b.name;
                 })
-                console.log(final[0])
+                //console.log(final[0])
                 setMenus(prevState => [...prevState, ...final]);
 
             })
+
 
         // setOrder(prevState => [...prevState, ...final]);
         // console.log(Order)
@@ -38,10 +43,17 @@ const MenusDetails = ({ history }) => {
 
     const handleDetails = (data) => {
         console.log(data);
-        history.push({
-            pathname: '/menus_sub_item_details',
-            state: data
-        });
+        if (data.hasOwnProperty('fullCost')) {
+            history.push({
+                pathname: '/menus_sub_catering_item_details',
+                state: data
+            });
+        } else {
+            history.push({
+                pathname: '/menus_sub_item_details',
+                state: data
+            });
+        }
     }
     return (
         <View style={styles.container}>

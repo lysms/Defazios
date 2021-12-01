@@ -42,10 +42,10 @@ const Item = ({ history }) => {
     }, [])
 
     const handleDetails = (data) => {
-        let value = []
-        value.push(data);
-        value.push('menu')
-        console.log(value);
+        console.log(data);
+        let value = [];
+        value.push(data)
+        value.push('cateringMenu')
         history.push({
             pathname: '/menus_details',
             state: value
@@ -94,8 +94,8 @@ const Item = ({ history }) => {
                                         </View>
                                         <Text></Text>
                                         <View style={styles.minimenucontainer2}>
-                                            <Text style={styles.subitem}>Price: ${item.cost}</Text>
-
+                                            <Text style={styles.subitem}>Full Cost: ${item.fullCost}</Text>
+                                            <Text style={styles.subitem}>Half Cost: ${item.halfCost}</Text>
                                         </View>
                                         <Text></Text>
 

@@ -12,9 +12,10 @@ export default StyleSheet.create({
     },
 
     container1: {
-        flex: 20,
+        flex: 12,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 30,
     },
 
     headerText: {
@@ -25,7 +26,7 @@ export default StyleSheet.create({
     },
 
     profile: {
-        flex: 40,
+        flex: 25,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
@@ -99,5 +100,30 @@ export default StyleSheet.create({
         textAlign: 'center',
         padding: 5,
         fontSize: 18,
+    },
+
+    subTitleSection: {
+        borderBottomColor: 'red',
+        borderBottomWidth: 2,
+        marginBottom: 10,
+    },
+
+    subTitle: {
+        fontSize: 22,
+    },
+
+    AddListContainer: {
+        alignItems: 'flex-end',
+        paddingRight: 10,
+    },
+
+    AddList: {
+        flexDirection: 'row',
+    },
+
+    AddText: {
+        paddingRight: 7,
+        fontSize: 18,
+        color: 'blue',
     },
 })
