@@ -30,6 +30,7 @@ export default StyleSheet.create({
 
     DetailContainer: {
         backgroundColor: 'lightgrey',
+        lineHeight: 10,
     },
 
     backButton: {
@@ -48,7 +49,27 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 17,
         padding: 5,
-    }
+    },
+    addonValue: {
+        padding: 5,
+        color: 'red',
+        lineHeight: 30,
+    },
+
+    Value: {
+        lineHeight: 30,
+        color: 'green'
+    },
+    ButtonContainer: {
+        flex: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+
+    Button: {
+        padding: screen.width / 8,
+    },
 
 
 })
