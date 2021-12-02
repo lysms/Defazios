@@ -18,6 +18,17 @@ import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
 import Reservation from './pages/Reservation/Reservation';
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar';
 
+import OrderDetails from "./components/Order_details/Details";
+import MenusDetails from "./components/Menus_details/Menus_details";
+import MenusSubItemsDetails from "./components/Menus_details/Item";
+import MenusSubCateringItemsDetails from "./components/Menus_details/Item_catering";
+import AddMenus from './pages/Admin/EditMenus/Add';
+
+import Information from './pages/Reservation/Information';
+import Confirmation from './pages/Reservation/Confirmation';
+
+import { initializeApp } from 'firebase/app';
+
 import WaitingTime from './pages/WaitingTime/WaitingTime';
 
 import Catering from './pages/Catering/Catering';
@@ -46,6 +57,14 @@ export default function App() {
           <Route exact path="/reservation" component={Reservation} />
           <Route exact path="/cateringOrder" component={CateringOrder} />
           <Route exact path="/makeOneWithCalendar" component={MakeOneWithCalendar} />
+          <Route exact path="/order_details" component={OrderDetails} />
+          <Route exact path="/menus_details" component={MenusDetails} />
+          <Route exact path="/menus_sub_item_details" component={MenusSubItemsDetails} />
+          <Route exact path="/menus_sub_catering_item_details" component={MenusSubCateringItemsDetails} />
+          <Route exact path="/addMenus" component={AddMenus} />
+          <Route exact path="/information" component={Information} />
+          <Route exact path="/confirmation" component={Confirmation} />
+
         </Switch>
       </View>
     </NativeRouter>

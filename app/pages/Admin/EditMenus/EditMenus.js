@@ -2,57 +2,157 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './EditMenus.style'
+import firebase from '../../../firebase'
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { MaterialIcons, AntDesign, Entypo } from '@expo/vector-icons';
 
-const Tap = createBottomTabNavigator();
+
 
 const EditMenus = ({ history }) => {
+
+    const [Menus_Cat, setMenusCat] = useState([]);
+    const [Cate, SetCate] = useState([]);
+    const [Name, setName] = useState([])
+
+
+
+    useEffect(() => {
+        const collection = firebase.collection('menu');
+        collection.doc('Categories').get()
+            .then(result => {
+
+                let value = result.data().categories
+                setMenusCat(prevState => [...prevState, ...value]);
+
+
+            });
+
+        const collection2 = firebase.collection('cateringMenu');
+        collection2.doc('Categories').get()
+            .then(result => {
+
+                let value = result.data().categories
+                SetCate(prevState => [...prevState, ...value]);
+
+
+            })
+    }, [])
+
+    const handleDetails = (data) => {
+        let value = []
+        value.push(data);
+        value.push('menu')
+        console.log(value);
+        history.push({
+            pathname: '/menus_details',
+            state: value
+        });
+    }
+
+    const handleDetailsCate = (data) => {
+
+        let value = []
+        value.push(data);
+        value.push('cateringMenu')
+        console.log(value);
+        history.push({
+            pathname: '/menus_details',
+            state: value
+        });
+    }
+
+    const handleAdd = (event) => {
+        console.log("hi")
+        history.push({
+            pathname: '/addMenus'
+
+        });
+    }
+
     return (
         <View style={styles.container}>
 
 
             <View style={styles.container1}>
-                <Text style={styles.headerText}>Welcome to edit the menus. </Text>
+                <Text style={styles.headerText}>Select a Category to continue</Text>
+            </View>
+
+            <View style={styles.AddListContainer}>
+                <TouchableOpacity style={styles.AddList} onPress={() => { handleAdd() }}>
+                    <Text style={styles.AddText}>Add a new menu</Text>
+                    <Entypo name="add-to-list" size={24} color="blue" />
+                </TouchableOpacity>
+
             </View>
 
 
+
             <View style={styles.profile}>
-                <ScrollView style={styles.orderHistory}>
-                    <Text style={styles.text}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Text>
-                    <Text style={styles.text}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Text>
-                    <Text style={styles.text}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Text>
+                <View style={styles.subTitleSection}>
+                    <Text style={styles.subTitle}>Menus</Text>
+                </View>
+                <ScrollView style={styles.cat}>
+                    <View>
+                        {
+                            Menus_Cat.map((item, index) => {
+                                return (
+                                    <View key={index}>
+                                        <Text></Text>
+
+                                        <TouchableOpacity onPress={() => handleDetails(item)}>
+                                            <View style={styles.minimenucontainer2}>
+                                                <Text style={styles.subitem}>{item}</Text>
+
+
+                                            </View>
+
+                                        </TouchableOpacity>
+
+                                    </View>
+                                )
+                            })
+                        }
+
+                    </View>
+
                 </ScrollView>
             </View>
 
 
-            <View style={styles.container3}></View>
+            <View style={styles.profile}>
+                <View style={styles.subTitleSection}>
+                    <Text style={styles.subTitle}>Catering Menus</Text>
+                </View>
+                <ScrollView style={styles.cat}>
+                    <View>
+                        {
+                            Cate.map((item, index) => {
+                                return (
+                                    <View key={index}>
+                                        <Text></Text>
+
+                                        <TouchableOpacity onPress={() => handleDetailsCate(item)}>
+                                            <View style={styles.minimenucontainer2}>
+                                                <Text style={styles.subitem}>{item}</Text>
+
+
+                                            </View>
+
+                                        </TouchableOpacity>
+
+                                    </View>
+                                )
+                            })
+                        }
+
+                    </View>
+
+                </ScrollView>
+            </View>
+
+
+
             <View style={styles.container3}></View>
             {/* Footer component */}
 

@@ -12,9 +12,10 @@ export default StyleSheet.create({
     },
 
     container1: {
-        flex: 20,
+        flex: 12,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 30,
     },
 
     headerText: {
@@ -25,7 +26,7 @@ export default StyleSheet.create({
     },
 
     profile: {
-        flex: 40,
+        flex: 25,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
@@ -81,4 +82,148 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         padding: 20
     },
+
+    cat: {
+        width: screen.width / 1.2,
+
+    },
+
+    minimenucontainer2: {
+        height: screen.height / 14,
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+
+    subitem: {
+        textAlign: 'center',
+        padding: 5,
+        fontSize: 18,
+    },
+
+    subTitleSection: {
+        borderBottomColor: 'red',
+        borderBottomWidth: 2,
+        marginBottom: 10,
+    },
+
+    subTitle: {
+        fontSize: 22,
+    },
+
+    AddListContainer: {
+        alignItems: 'flex-end',
+        paddingRight: 10,
+    },
+
+    AddList: {
+        flexDirection: 'row',
+    },
+
+    AddText: {
+        paddingRight: 7,
+        fontSize: 18,
+        color: 'blue',
+    },
+
+    backButton: {
+        backgroundColor: 'black',
+        borderRadius: 16,
+        width: screen.width / 3,
+        height: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 7,
+        padding: 2,
+        flexDirection: 'row',
+    },
+
+    goback: {
+        color: 'white',
+        fontSize: 17,
+        padding: 5,
+    },
+
+    mainbody: {
+        fontSize: 19,
+        fontWeight: "bold",
+        paddingBottom: 5,
+        paddingTop: 7,
+
+    },
+
+    inputtext: {
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 10,
+        height: 45,
+        paddingVertical: 5,
+        paddingHorizontal: 10
+    },
+
+    inputtext2: {
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 10,
+        height: 95,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        textAlignVertical: "top",
+    },
+    mainform: {
+        padding: 2
+    },
+
+    container10: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20
+    },
+    container8: {
+        flex: 0.1,
+        marginTop: 30,
+    },
+    container11: {
+        flex: 60,
+        padding: 10,
+    },
+    headerText1: {
+        fontSize: 30,
+        padding: 10,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'red'
+    },
+    subheader: {
+        fontSize: 20,
+        marginTop: -10,
+        color: 'black'
+    },
+
+    submit: {
+        borderWidth: 2,
+        backgroundColor: "black",
+        width: screen.width / 4,
+        height: 42,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+
+    textsubmit: {
+        color: 'white',
+        fontSize: 20,
+    },
+
+    picker: {
+        height: 50,
+        width: screen.width / 1.04,
+
+    },
+
+    add_cat_pick: {
+        borderWidth: 2,
+        borderRadius: 10,
+    }
 })

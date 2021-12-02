@@ -41,7 +41,7 @@ const SignIn = ({ history }) => {
                 </View>
 
                 <View style={styles.container_create}>
-                    <TouchableOpacity onPress={() => history.push('/signup')}>
+                    <TouchableOpacity onPress={() => history.push('/shoppingCart')}>
                         <Text style={styles.textsignup}>Create Account?</Text>
                     </TouchableOpacity>
                 </View>

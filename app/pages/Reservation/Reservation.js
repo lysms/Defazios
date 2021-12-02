@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, Touc
 import * as Haptics from 'expo-haptics';
 import HomeButton from '../../components/HomeButton/HomeButton';
 
-const reservation = ({history}) => {
+const Reservation = ({history}) => {
     return(
         <SafeAreaView
             style={{flex: 1}}>
@@ -19,7 +19,7 @@ const reservation = ({history}) => {
                 </View>
                 <View style={styles.viewForPreView}>
                     <Text
-                        style={styles.titleForPreView}>Previous Orders</Text>
+                        style={styles.titleForPreView}>Current and Previous Orders</Text>
                     <ScrollView style={styles.scrollviewForPreView}>
                         <View style={styles.preOrderBtn}>
                             <Text style={styles.textInsidePreOrderBtn}>October 24, 2021</Text>
@@ -42,4 +42,4 @@ const reservation = ({history}) => {
     )
 }
 
-export default reservation;
+export default Reservation;
