@@ -42,15 +42,16 @@ const CateringOrder = () => {
   const confirmOrderHandler = () => {
     const date = new Date();
     setFullOrder(prevState => ({...prevState, dateOrdered: date}));
-
+    console.log(fullOrder)
   }
+
 
   let content = null;
 
   if (currentStep === "cart") {
     content = <ShoppingCart items={items} stepHandler={setStepHandler} addToFinal={addToFinalOrderHandler}/>
   } else if (currentStep === "schedule") {
-    content = <Schedule stepHandler={setStepHandler}/>
+    content = <Schedule stepHandler={setStepHandler} setDate={addToFinalOrderHandler}/>
   } else if (currentStep === "info" ) {
     content = <OrderInfo stepHandler={setStepHandler} addToFinal={addToFinalOrderHandler}/>
   } else if (currentStep === "payment") {

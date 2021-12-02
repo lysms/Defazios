@@ -23,8 +23,14 @@ const Confirmation = props => {
           <Text style={styles.regularText}>{order.fname + order.lname}</Text>
 
           <View style={styles.innerText}>
-            <Text style={styles.regularText}>7:00PM</Text>
-            <Text style={styles.specialText}>December 21, 2021</Text>
+
+            <Text style={styles.specialText}>
+              Date: {(order.dateFor.getMonth() + 1) + "/" + order.dateFor.getDate() + "/" + order.dateFor.getFullYear()}
+            </Text>
+
+            <Text style={styles.regularText}>
+              Time: {order.dateFor.getHours() + ":" + order.dateFor.getMinutes()}
+            </Text>
           </View>
 
           <Text style={styles.regularText}>Phone Number: {order.phone}</Text>
