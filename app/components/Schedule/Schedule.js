@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, Button } from 'react-native';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -10,6 +10,10 @@ const Schedule = props => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    props.setDate("dateFor", date);
+  }, [])
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;

@@ -36,7 +36,20 @@ const Confirmation = props => {
           <Text style={styles.regularText}>Phone Number: {order.phone}</Text>
           <Text style={styles.regularText}>Email: {order.email}</Text>
 
-          <Text style={styles.regularText}>1 Large - Cheese Pizza</Text>
+          {
+            order.items.map(el => {
+
+              return (
+                <View key={el.id}>
+                  <View>
+                    <Text>{el.name}</Text>
+                    <Text>Quantity: {el.quantity}</Text>
+                  </View>
+                  <Text>${el.cost}</Text>
+                </View>
+              );
+            })
+          }
 
           <Text style={styles.regularText}>Subtotal: ${order.subTotal.toFixed(2)}</Text>
 
