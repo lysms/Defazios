@@ -25,7 +25,7 @@ const ShoppingCart = (props, { history }) => {
   return (
     <View style={styles.container}>
 
-      <HomeButton h={history} />
+      <HomeButton />
 
       <View style={styles.container3}>
       </View>

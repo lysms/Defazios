@@ -12,12 +12,8 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 const SignIn = ({ history }) => {
     return (
         <View style={styles.container}>
-            <HomeButton h={history} />
-            {/* <TouchableOpacity onPress={() => history.push('/')}>
-                <View style={styles.item}>
-                    <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
-                </View>
-            </TouchableOpacity> */}
+            <HomeButton />
+        
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign In</Text>

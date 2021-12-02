@@ -27,7 +27,7 @@ const Newsletter = ({ history }) => {
                 backgroundColor: '#fff',
                 flex: 1,
             }}>
-            <HomeButton h={history}/>
+            <HomeButton />
             {/* <View
                 style={styles.header}>
             </View> */}

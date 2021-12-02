@@ -12,7 +12,7 @@ import styles from './Menu.style';
 
 import firebase from '../../firebase';
 
-const Menu = ({history}) => {
+const Menu = () => {
 
   // allows us to add props to a link
   const location = useLocation();
@@ -112,7 +112,7 @@ const Menu = ({history}) => {
   return (
     <SafeAreaView style={styles.menuContainer}>
       <View style={styles.header}>
-        <HomeButton h={history}/>
+        <HomeButton />
       </View>
 
       <View style={styles.menuContent}>

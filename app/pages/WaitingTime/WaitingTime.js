@@ -9,7 +9,7 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 const WaitingTime = ({ history }) => {
     return (
         <View style={styles.container}>
-            <HomeButton h={history} />
+            <HomeButton />
             <View style={styles.contentContainer}>
 
                 <Text style={{ fontSize: 20 }}>Your order will be ready in</Text>

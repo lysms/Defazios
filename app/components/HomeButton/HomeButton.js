@@ -1,14 +1,15 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './HomeButton.style';
+import { Link } from 'react-router-native';
 
-const HomeButton = ({ h }) => {
+const HomeButton = () => {
   return (
-    <TouchableOpacity style={styles.homeButton} onPress={() => {h.push('/'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}}>
+    <Link style={styles.homeButton} to='/' onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
       <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
-    </TouchableOpacity>
+    </Link>
   )
 };
 

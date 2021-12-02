@@ -10,7 +10,7 @@ import { useLinkProps } from '@react-navigation/native';
 const Payment = (props, { history }) => {
   return (
     <View style={styles.container}>
-      <HomeButton h={history} />
+      <HomeButton/>
       <View>
         <TouchableOpacity onPress={() => props.stepHandler('info')}>
           <Text>Return to order information</Text>

@@ -13,7 +13,7 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 const SignUp = ({ history }) => {
     return (
         <View style={styles.container}>
-            <HomeButton h ={history}/>
+            <HomeButton />
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>

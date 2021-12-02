@@ -7,7 +7,7 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 import styles from './Catering.style';
 
 
-const Catering = ({history}) => {
+const Catering = () => {
 
   const [isOrdering, setIsOrdering] = useState(false);
 
@@ -15,7 +15,7 @@ const Catering = ({history}) => {
     <SafeAreaView style={{flex: 1}}>
         <View style={{ flexDirection: "column", flex: 1 }}>
           <View style={styles.header}>
-            <HomeButton h={history}/>
+            <HomeButton />
           </View>
 
           <View style={styles.viewForPreView}>
