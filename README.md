@@ -2,9 +2,9 @@
 
 Defazio is a light mobile app, aiming to provide users with cater ordering and reservation services. Moreover, consumers are able to find out the time they are ready to pickup thier food assisted by the time calculator, and subscribe to the newsletter for getting the last news about the great Pizza Hub.
 
-# Instruction to install the app on your device
+## Instruction to install the app on your device
 
-## Prerequests
+### Prerequests
 
 - Node.js should be installed no your devices
 
@@ -19,18 +19,18 @@ Defazio is a light mobile app, aiming to provide users with cater ordering and r
         Andorid: https://developer.android.com/studio
         Apple: https://docs.expo.dev/workflow/ios-simulator/
 
-## Download
+### Download
 
 - open the terminal on your computer
 - enter `git clone https://github.com/martin-stefan/defazios.git`
 - enter the github name and password when requested
 - enter `cd app`
 
-## Setup
+### Setup
 
 - enter `npm install` to download the dependencies
 - enter `npm start` for running the app
 
-## Run
+### Run
 
 - run the app on your installed simulators
