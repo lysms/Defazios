@@ -40,7 +40,7 @@ const Confirmation = props => {
 
       <View style={styles.container2}>
       
-        <Link to='/'>
+        <Link to='/' onPress={props.confirmOrder}>
           <Text>
             Confirm Order 
           </Text>

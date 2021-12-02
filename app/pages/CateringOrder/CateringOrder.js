@@ -25,7 +25,6 @@ const CateringOrder = () => {
     setFullOrder(prevState => ({...prevState, items: items}))
 
   }, [])
-  console.log(fullOrder);
 
   const setStepHandler = step => {
     setCurrentStep(step);
@@ -40,6 +39,12 @@ const CateringOrder = () => {
     console.log(fullOrder);
   }
 
+  const confirmOrderHandler = () => {
+    const date = new Date();
+    setFullOrder(prevState => ({...prevState, dateOrdered: date}));
+
+  }
+
   let content = null;
 
   if (currentStep === "cart") {
@@ -51,7 +56,7 @@ const CateringOrder = () => {
   } else if (currentStep === "payment") {
     content = <Payment stepHandler={setStepHandler}/>
   } else if (currentStep === "confirm") {
-    content = <Confirmation finalOrder={fullOrder} />
+    content = <Confirmation finalOrder={fullOrder} confirmOrder={confirmOrderHandler}/>
   }
 
   return (
