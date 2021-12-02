@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-
+import { useLocation } from 'react-router-native';
 
 import ShoppingCart from '../../components/ShoppingCart/ShoppingCart';
 import OrderInfo from '../../components/OrderInfo/OrderInfo';
@@ -8,7 +8,7 @@ import Payment from '../../components/Payment/Payment';
 import Confirmation from '../../components/Confirmation/Confirmation';
 import Schedule from '../../components/Schedule/Schedule';
 
-import { useLocation } from 'react-router-native'
+import firebase from '../../firebase';
 
 import styles from './CateringOrder.style';
 
@@ -43,6 +43,8 @@ const CateringOrder = () => {
     const date = new Date();
     setFullOrder(prevState => ({...prevState, dateOrdered: date}));
     console.log(fullOrder)
+
+    firebase.firestore().collection('orders').add(fullOrder)
   }
 
 
