@@ -31,5 +31,6 @@ Defazio is a light mobile app, aiming to provide users with cater ordering and r
 - enter `npm install` to download the dependencies
 - enter `npm start` for running the app
 
-## 
+## Run
 
+- run the app on your installed simulators
