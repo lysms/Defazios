@@ -2,8 +2,6 @@ import React from 'react';
 import { SafeAreaView, Text, View, TouchableOpacity, TextInput} from 'react-native';
 import { Formik } from 'formik';
 import styles from './OrderInfo.style';
-import { Link, useLocation } from 'react-router-native';
-
 
 const OrderInfo = (props, {history}) =>  {
 
@@ -81,7 +79,7 @@ const OrderInfo = (props, {history}) =>  {
                 value={values.specialRequests}
               />
 
-              <TouchableOpacity onPress={() => props.stepHandler('payment')}>
+              <TouchableOpacity onPress={() => {handleSubmit; props.addToFinal("info", values); props.stepHandler('payment')}}>
                 <Text>Continue to Payment</Text>
               </TouchableOpacity>
 

@@ -6,7 +6,7 @@ import styles from './ShoppingCart.style';
 import HomeButton from '../HomeButton/HomeButton';
 
 
-const ShoppingCart = (props, { history }) => {
+const ShoppingCart = (props) => {
 
   const order = props.items
   let sub = 0;
@@ -34,22 +34,12 @@ const ShoppingCart = (props, { history }) => {
         <Text style={styles.confirm}>Review Order</Text>
 
         <View style={styles.details}>
-
-            <View style={styles.innerText}>
-              <Text style={styles.regularText}>Order #123456</Text>
-              <Text style={styles.specialText}>December 19, 2021</Text>
-            </View>
-
-            <Text style={styles.regularText2}>4:39pm</Text>
-            <Text style={styles.regularText3}>Scheduled for 7:00pm December 21, 2021</Text>
-            <View>
-              { orders }
-            </View>
-            <Text style={styles.regularText2}>Subtotal: ${sub.toFixed(2)}</Text>
-
+          <View>
+            { orders }
+          </View>
+          <Text style={styles.regularText2}>Subtotal: ${sub.toFixed(2)}</Text>
         </View> 
       </View>
-
 
       <View style={styles.container4}>
         <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder:{order}}}}>
@@ -64,7 +54,7 @@ const ShoppingCart = (props, { history }) => {
 
 
       <View style={styles.container4}>
-        <TouchableOpacity onPress={() => props.stepHandler('schedule')}>
+        <TouchableOpacity onPress={() => {props.stepHandler('schedule'); props.addToFinal("subTotal", sub)}}>
           <Text>Schedule Date</Text>
         </TouchableOpacity>
       </View>

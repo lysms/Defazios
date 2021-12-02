@@ -4,53 +4,54 @@ import styles from './Confirmation.style';
 import { Link } from 'react-router-native';
 
 
-const Confirmation = () => {
-    return (
-      <View style={styles.container}>
+const Confirmation = props => {
 
-        <View style={styles.container3}>
-        </View>
+  const order = props.finalOrder;
 
-        <View style={styles.container1}>
-          <Text style={styles.confirm}>Order Confirmed!</Text>
+  return (
+    <View style={styles.container}>
 
-          <View style={styles.details}>
-              <Text style={styles.regularText}>
-                Confirmation Details
-              </Text>
+      <View style={styles.container3}>
+      </View>
 
-              <Text style={styles.regularText}>John Smith</Text>
+      <View style={styles.container1}>
+        <View style={styles.details}>
+          <Text style={styles.regularText}>
+            Confirmation Details
+          </Text>
 
-              <View style={styles.innerText}>
-                <Text style={styles.regularText}>7:00PM</Text>
-                <Text style={styles.specialText}>December 21, 2021</Text>
-              </View>
+          <Text style={styles.regularText}>{order.fname + order.lname}</Text>
 
-              <Text style={styles.regularText}>999-999-9999</Text>
-              <Text style={styles.regularText}>Johnsmith@email.com</Text>
-
-              <Text style={styles.regularText}>1 Large - Cheese Pizza</Text>
-
-              <Text style={styles.regularText}>Subtotal: $17.64</Text>
-
+          <View style={styles.innerText}>
+            <Text style={styles.regularText}>7:00PM</Text>
+            <Text style={styles.specialText}>December 21, 2021</Text>
           </View>
 
-        </View>
+          <Text style={styles.regularText}>Phone Number: {order.phone}</Text>
+          <Text style={styles.regularText}>Email: {order.email}</Text>
 
-        <View style={styles.container2}>
-        
-          <Link to='/'>
-            <Text>
-              Return to home 
-            </Text>
-          </Link>
-        </View>
+          <Text style={styles.regularText}>1 Large - Cheese Pizza</Text>
 
-        <View style={styles.container3}>
+          <Text style={styles.regularText}>Subtotal: ${order.subTotal.toFixed(2)}</Text>
+
         </View>
 
       </View>
-    );
+
+      <View style={styles.container2}>
+      
+        <Link to='/'>
+          <Text>
+            Confirm Order 
+          </Text>
+        </Link>
+      </View>
+
+      <View style={styles.container3}>
+      </View>
+
+    </View>
+  );
 };
 
 export default Confirmation;

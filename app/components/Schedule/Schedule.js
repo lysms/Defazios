@@ -14,11 +14,12 @@ const Schedule = props => {
   }
 
   return (
-    <View>
+    <View style={styles.schedContainer}>
 
-      <TouchableOpacity onPress={() => props.stepHandler('cart')}>
-        <Text>Return to Cart</Text>
-      </TouchableOpacity>
+      <Text>Schedule Order</Text>
+      
+
+      <Text>Want to cater for tomorrow? Call us at 518-271-1111 instead.</Text>
 
       <CalendarPicker 
         onDateChange={dateChangeHandler}
@@ -33,6 +34,10 @@ const Schedule = props => {
           <Text>Confirm Order Information</Text>
         </TouchableOpacity>
       </View>
+      
+      <TouchableOpacity onPress={() => props.stepHandler('cart')}>
+        <Text>Return to Cart</Text>
+      </TouchableOpacity>
     </View>
 
   )
