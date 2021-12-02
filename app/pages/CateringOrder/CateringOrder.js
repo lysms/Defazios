@@ -6,6 +6,7 @@ import ShoppingCart from '../../components/ShoppingCart/ShoppingCart';
 import OrderInfo from '../../components/OrderInfo/OrderInfo';
 import Payment from '../../components/Payment/Payment';
 import Confirmation from '../../components/Confirmation/Confirmation';
+import Schedule from '../../components/Schedule/Schedule';
 
 import { useLocation } from 'react-router-native'
 
@@ -35,6 +36,8 @@ const CateringOrder = () => {
     content = <Payment stepHandler={setStepHandler}/>
   } else if (currentStep === "confirm") {
     content = <Confirmation />
+  } else if (currentStep === "schedule") {
+    content = <Schedule stepHandler={setStepHandler}/>
   }
 
   return (

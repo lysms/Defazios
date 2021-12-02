@@ -64,8 +64,8 @@ const ShoppingCart = (props, { history }) => {
 
 
       <View style={styles.container4}>
-        <TouchableOpacity onPress={() => props.stepHandler('info')}>
-          <Text>Confirm Order Information</Text>
+        <TouchableOpacity onPress={() => props.stepHandler('schedule')}>
+          <Text>Schedule Date</Text>
         </TouchableOpacity>
       </View>
 

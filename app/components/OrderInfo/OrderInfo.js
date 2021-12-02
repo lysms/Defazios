@@ -10,8 +10,8 @@ const OrderInfo = (props, {history}) =>  {
   return (
     <SafeAreaView style={styles.infoContainer}>
       <View>
-        <TouchableOpacity onPress={() => props.stepHandler('cart')}>
-          <Text>Return to Cart</Text>
+        <TouchableOpacity onPress={() => props.stepHandler('schedule')}>
+          <Text>Return to Schedule</Text>
         </TouchableOpacity>
       </View>
       
