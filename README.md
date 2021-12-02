@@ -1,10 +1,10 @@
-# Defazio's
+# DeFazio's
 
-Defazio is a light mobile app, aiming to provide users with cater ordering and reservation services. Moreover, consumers are able to find out the time they are ready to pickup thier food assisted by the time calculator, and subscribe to the newsletter for getting the last news about the great Pizza Hub.
+DeFazio's is a light mobile app, aiming to provide users with cater ordering and reservation services. Moreover, consumers are able to find out the time their food is ready assisted by a time calculator as well as subscribe to a newsletter to get the latest news about DeFazio's.
 
-## Instruction to install the app on your device
+## Instructions to install the app on your device
 
-### Prerequests
+### Prerequisites
 
 - Node.js should be installed no your devices
 
@@ -33,4 +33,5 @@ Defazio is a light mobile app, aiming to provide users with cater ordering and r
 
 ### Run
 
-- run the app on your installed simulators
+- open the expo app on the simulated device
+- copy the link from the terminal into expo and launch the app
