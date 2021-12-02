@@ -35,3 +35,17 @@ DeFazio's is a light mobile app, aiming to provide users with cater ordering and
 
 - open the expo app on the simulated device
 - copy the link from the terminal into expo and launch the app
+
+## Features
+
+### Cater Ordering
+
+Users can use DeFazio's to make a quick order for pickup, based on the food that DeFazio's provide users with
+
+### Reservation
+
+Users can make reservation in the app, instead of making one via calling DeFazio's
+
+### Time Calculator
+
+After consumers placed a valid catering order, they will be provided with the time estimate of their orders
