@@ -22,12 +22,12 @@ const OrderInfo = (props, {history}) =>  {
         <Formik
           initialValues={{
             email: '',
-            fname: '',
-            lname: '',
-            specialRequests: '',
+            firstName: '',
+            lastName: '',
+            requests: '',
             phone: ''
           }}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => props.addToFinal("info", values)}
         >
 
           {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -38,18 +38,18 @@ const OrderInfo = (props, {history}) =>  {
               <TextInput 
                 style={styles.infoInput}
                 placeholder="First Name"
-                onChangeText={handleChange('fname')}
-                onBlur={handleBlur('fname')}
-                value={values.fname}
+                onChangeText={handleChange('firstName')}
+                onBlur={handleBlur('firstName')}
+                value={values.firstName}
               />
 
               <Text style={styles.infoText}>Last Name</Text>
               <TextInput 
                 style={styles.infoInput}
                 placeholder="Last Name"
-                onChangeText={handleChange('lname')}
-                onBlur={handleBlur('lname')}
-                value={values.lname}
+                onChangeText={handleChange('lastName')}
+                onBlur={handleBlur('lastName')}
+                value={values.lastName}
               />
                   
               <Text style={styles.infoText}>Phone Number</Text>
@@ -69,17 +69,18 @@ const OrderInfo = (props, {history}) =>  {
                 onBlur={handleBlur('email')}
                 value={values.email}
               />
+
               <Text style={styles.infoText}>Special Requests</Text>
               <TextInput
-                style={styles.specialRequests}
+                style={styles.requests}
                 multiline={true}
                 placeholder="Enter any special requests here"
-                onChangeText={handleChange('specialRequests')}
-                onBlur={handleBlur('specialRequests')}
-                value={values.specialRequests}
+                onChangeText={handleChange('requests')}
+                onBlur={handleBlur('requests')}
+                value={values.requests}
               />
 
-              <TouchableOpacity onPress={() => {handleSubmit; props.addToFinal("info", values); props.stepHandler('payment')}}>
+              <TouchableOpacity onPress={() => {handleSubmit; props.stepHandler('payment')}}>
                 <Text>Continue to Payment</Text>
               </TouchableOpacity>
 

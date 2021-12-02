@@ -32,7 +32,7 @@ export default StyleSheet.create({
     marginBottom: 5
   },
 
-  specialRequests: {
+  requests: {
     fontSize: 17,
     padding: 7,
     borderRadius: 6,
