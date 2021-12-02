@@ -64,6 +64,10 @@ const EditMenus = ({ history }) => {
 
     const handleAdd = (event) => {
         console.log("hi")
+        history.push({
+            pathname: '/addMenus'
+
+        });
     }
 
     return (
@@ -149,7 +153,7 @@ const EditMenus = ({ history }) => {
 
 
 
-            {/* <View style={styles.container3}></View> */}
+            <View style={styles.container3}></View>
             {/* Footer component */}
 
             <View style={styles.menucontainer}>

@@ -79,7 +79,9 @@ export default StyleSheet.create({
         textAlign: 'center',
         padding: 5,
         fontSize: 18,
+        height: 'auto'
     },
+
 
 
     ButtonContainer: {
@@ -90,6 +92,55 @@ export default StyleSheet.create({
 
     Button: {
         padding: screen.width / 8,
-    }
+    },
+    mainbody: {
+        fontSize: 19,
+        fontWeight: "bold",
+        paddingBottom: 5,
+        paddingTop: 7,
+
+    },
+
+    inputtext: {
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 10,
+        height: 45,
+        paddingVertical: 5,
+        paddingHorizontal: 10
+    },
+
+    inputtext2: {
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 10,
+        height: 95,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        textAlignVertical: "top",
+    },
+    mainform: {
+        padding: 2
+    },
+
+    container10: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20
+    },
+    submit: {
+        borderWidth: 2,
+        backgroundColor: "black",
+        width: screen.width / 4,
+        height: 42,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+
+    textsubmit: {
+        color: 'white',
+        fontSize: 20,
+    },
 
 })

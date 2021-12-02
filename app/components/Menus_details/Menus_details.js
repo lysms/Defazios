@@ -43,12 +43,15 @@ const MenusDetails = ({ history }) => {
 
     const handleDetails = (data) => {
         console.log(data);
+
         if (data.hasOwnProperty('fullCost')) {
+            data['collection'] = 'cateringMenu'
             history.push({
                 pathname: '/menus_sub_catering_item_details',
                 state: data
             });
         } else {
+            data['collection'] = 'menu'
             history.push({
                 pathname: '/menus_sub_item_details',
                 state: data
