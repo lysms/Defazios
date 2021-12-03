@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
 import { auth } from "../../firebase_auth"
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import HomeButton from '../../components/HomeButton/HomeButton';
-
-
-// To do: Add the function to recceive the input value and authentication on the value input
 
 
 const SignIn = ({ history }) => {
@@ -37,12 +33,6 @@ const SignIn = ({ history }) => {
     return (
         <View style={styles.container}>
             <HomeButton h={history} />
-            {/* <TouchableOpacity onPress={() => history.push('/')}>
-                <View style={styles.item}>
-                    <MaterialIcons style={styles.itemicons} name="home" size={32} color="white" />
-                </View>
-            </TouchableOpacity> */}
-
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign In</Text>
             </View>
@@ -93,10 +83,7 @@ const SignIn = ({ history }) => {
 
             <View style={styles.container3}>
             </View>
-
-
             {/* <Button title="Login with Google" onPress={() => Linking.openURL('https://reactnativecode.com')} /> */}
-
 
         </View>
 

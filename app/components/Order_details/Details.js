@@ -8,16 +8,12 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 const Detail = ({ history }) => {
     const location = useLocation();
-
-    const [Order, setOrder] = useState([])
-    const [Items, setItems] = useState([])
-
     let final = {}
     let result = location['state'];
     final = result;
     console.log(final)
 
-
+    // Function to handle the delete workflow for the Firebase Database
     const handleDelete = () => {
         let firstName = final.fname
         let lastName = final.lname

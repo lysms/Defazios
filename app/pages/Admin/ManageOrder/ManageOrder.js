@@ -91,9 +91,6 @@ const ManageOrder = ({ history }) => {
 
                 </View>
 
-
-
-
                 <ScrollView>
 
                     {
