@@ -6,16 +6,19 @@ import firebase from '../../../firebase'
 import Details from '../../../components/Order_details/Details'
 
 
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import { isEmailIdentifier } from 'firebase-admin/lib/auth/identifier';
-
-
-
-
 const ManageOrder = ({ history }) => {
 
     const [orderItems, setOrderItems] = useState([]);
-    const [state, setState] = useState([]);
+    const [DateFor, setDateFor] = useState("")
+    const [DateOrdered, setDateOrdered] = useState("");
+    const [Email, setEmail] = useState("")
+    const [Fname, setFname] = useState("")
+    const [Lname, setLname] = useState("")
+    const [Phone, setPhone] = useState("")
+    const [Item, setItem] = useState([])
+    const [SpecialRequests, setSpecialRequests] = useState("")
+    const [SubTotal, setSubTotal] = useState(0)
+
     let final = [];
 
     useEffect(() => {
@@ -24,152 +27,34 @@ const ManageOrder = ({ history }) => {
             .then(result => {
 
                 result.forEach(item => {
-                    let docs = item.data();
-                    let dateFor = docs.dateFor.toDate().toString();
-                    let dateOrdered = docs.dateOrdered.toDate().toString();
-                    let firstName = docs.firstName;
-                    let lastName = docs.lastName;
-                    let cost = docs.totalCost;
-                    let requests = docs.requests;
-                    let quantity = 0;
-                    let size = "";
-                    let addons = [];
-                    let order_item = ""
-                    let order_index = []
+                    let data = item.data();
+                    setFname(data.fname)
+                    setLname(data.lname)
+                    setPhone(data.phone)
+                    setSpecialRequests(data.specialRequests)
+                    setSubTotal(parseInt(data.subTotal))
+                    setItem(data.items)
+                    setDateFor(data.dateFor.toDate().toString())
+                    setDateOrdered(data.dateOrdered.toDate().toString())
+                    setEmail(data.email)
 
-                    dateFor = dateFor.split(' ');
-
-                    let month = 0;
-                    let day = dateFor[2];
-                    let year = dateFor[3];
-                    let time = dateFor[4]
-                    switch (dateFor[1]) {
-                        case 'Jan':
-                            month = 1;
-                            break;
-                        case 'Feb':
-                            month = 2;
-                            break;
-                        case 'Mar':
-                            month = 3;
-                            break;
-                        case 'Apr':
-                            month = 4;
-                            break;
-                        case 'May':
-                            month = 5;
-                            break;
-                        case 'Jun':
-                            month = 6;
-                            break;
-                        case 'Jul':
-                            month = 7;
-                            break;
-                        case 'Aug':
-                            month = 8;
-                            break;
-                        case 'Sep':
-                            month = 9;
-                            break;
-                        case 'Oct':
-                            month = 10;
-                            break;
-                        case 'Nov':
-                            month = 11;
-                            break;
-                        case 'Dec':
-                            month = 12;
-                            break;
-                        default:
-                            month = 0;
+                    let value = {
+                        lname: Lname,
+                        fname: Fname,
+                        dateFor: DateFor,
+                        dateOrdered: DateOrdered,
+                        specialRequests: SpecialRequests,
+                        items: Item,
+                        email: Email,
+                        phone: Phone,
+                        subTotal: SubTotal,
                     }
-
-                    let time1 = (month).toString() + '/' + (day) + '/' + (year) + '; ' + time;
-
-                    console.log("This is time \t" + time1)
-                    let order = docs.items;
-
-
-                    // console.log("\n", "This is promise\n")
-                    // Promise.all([order]).then((values) => {
-
-                    //     values.forEach((t => {
-
-                    //         t.forEach((x => {
-                    //             console.log("\t", x['addOns'])
-                    //             size = x["halfOrFull"];
-                    //             quantity = x["quantity"];
-                    //             let Add = x["addOns"];
-
-
-                    //             Add.map((x) => {
-                    //                 addons.push(x);
-                    //             })
-
-                    //         }))
-
-                    //     }))
-                    // })
-
-
-                    let temp = [];
-                    if (order != '') {
-
-                        order.map((item, index) => {
-                            //console.log(item);
-                            let Add = item['addOns']
-                            order_item = item['item']
-                            Add.map((x) => {
-                                addons.push(x);
-                            })
-                            size = item['halfOrFull']
-                            quantity = item['quantity']
-                            let tmp = []
-                            tmp.push(addons)
-                            addons = []
-                            tmp.push(size)
-                            tmp.push(order_item)
-                            tmp.push(quantity)
-                            temp.push(tmp)
-                        })
-
-                    }
-                    // order.forEach((t => {
-                    //     size = t["halfOrFull"];
-                    //     quantity = t["quantity"];
-                    //     let Add = t["addOns"];
-                    //     console.log(size)
-                    //     Add.map((x) => {
-                    //         addons.push(x);
-                    //     })
-                    //     // let order_item = t["item"]
-
-                    // }))
-                    //console.log(addons)
-
-                    temp.push(firstName)
-                    temp.push(lastName)
-                    temp.push(time)
-                    temp.push(dateOrdered)
-                    temp.push(requests)
-                    temp.push(cost)
-
-                    console.log(temp[0])
-                    console.log(temp[1])
-                    console.log(temp[2])
-                    console.log(temp[3])
-                    console.log(temp[4])
-                    console.log(temp[5])
-                    console.log(temp[6])
-
-                    final.push(temp)
+                    final.push(value)
+                    console.log(final)
                 })
                 setOrderItems([...final]);
 
             })
-
-
-
     }, [])
 
     const handleDetails = (data) => {
@@ -195,55 +80,42 @@ const ManageOrder = ({ history }) => {
             <View style={styles.profile}>
 
                 <View style={styles.minimenucontainer}>
-                    {/* <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/')}>
-                    <Text style={styles.textcreate}>Home</Text>
-                </TouchableOpacity> */}
 
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminMenus')}>
-                        <Text style={styles.textcreate}>Name</Text>
+                    <TouchableOpacity style={styles.createAccount2}>
+                        <Text style={styles.textcreate2}>Name</Text>
                     </TouchableOpacity>
 
-
-
-                    {/* <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminOrder')}>
-                        <Text style={styles.textcreate}>Prices</Text>
-                    </TouchableOpacity> */}
-
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminHome')}>
-                        <Text style={styles.textcreate}>Time</Text>
+                    <TouchableOpacity style={styles.createAccount2} >
+                        <Text style={styles.textcreate2}>Time</Text>
                     </TouchableOpacity>
-
 
                 </View>
 
 
 
 
-                <ScrollView style={styles.orderHistory}>
+                <ScrollView>
 
                     {
+                        orderItems.length > 0 ?
 
-                        orderItems.map((data, i) => {
-                            // 0: items (array) => addons is also array; 
-                            // 1: first; 2: last; 3: Datefor; 
-                            // 4: DateOrdered; 5: requests; 6: costs
+                            orderItems.map((data, i) => {
 
-                            return (
-                                <View>
-                                    <Text key={i}></Text>
-                                    {/* {setState([...data])} */}
-                                    <TouchableOpacity onPress={() => handleDetails(data)}>
-                                        <View style={styles.minimenucontainer2}>
-                                            <Text style={styles.subitem}>{data[1]}, {data[2]}</Text>
+                                return (
+                                    <View key={i}>
+                                        <Text></Text>
+                                        <TouchableOpacity onPress={() => handleDetails(data)}>
+                                            <View style={styles.minimenucontainer2}>
+                                                <Text key={i - 1} style={styles.subitem}>{data.fname}, {data.lname}</Text>
 
-                                            <Text style={styles.subitem}>{data[3]}</Text>
-                                        </View>
-                                        {/* <Details name={data} /> */}
-                                    </TouchableOpacity>
+                                                <Text key={i + 1} style={styles.subitem}>{data.dateFor.substring(0, 10)} {data.dateFor.substring(15, 21)} {data.dateFor.substring(34, 39)}</Text>
 
-                                </View>
-                            )
-                        })
+                                            </View>
+                                        </TouchableOpacity>
+
+                                    </View>
+                                )
+                            }) : <View></View>
                     }
                 </ScrollView>
             </View>
@@ -254,10 +126,6 @@ const ManageOrder = ({ history }) => {
             {/* Footer component */}
 
             <View style={styles.menucontainer}>
-                {/* <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/')}>
-                    <Text style={styles.textcreate}>Home</Text>
-                </TouchableOpacity> */}
-
                 <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminMenus')}>
                     <Text style={styles.textcreate}>Menus</Text>
                 </TouchableOpacity>
