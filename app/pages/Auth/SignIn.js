@@ -32,8 +32,7 @@ const SignIn = ({ history }) => {
 
     return (
         <View style={styles.container}>
-            <HomeButton />
-
+            <HomeButton h={history} />
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign In</Text>
             </View>

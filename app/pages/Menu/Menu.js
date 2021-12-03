@@ -1,40 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import {SafeAreaView, View, Text, ScrollView } from 'react-native';
-import { useLocation, Link } from 'react-router-native';
+import React, { createElement, useEffect, useState } from 'react';
+import {SafeAreaView, View, Text, ScrollView, Button } from 'react-native';
+import { useLocation } from 'react-router-native'
 import * as Haptics from 'expo-haptics';
+
+
 // import COLORS from '../constants/colors';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
-import HomeButton from '../../components/HomeButton/HomeButton';
 
 import styles from './Menu.style';
 
 import firebase from '../../firebase';
+import HomeButton from '../../components/HomeButton/HomeButton';
 
-const Menu = () => {
+const Menu = ({history}) => {
 
   // allows us to add props to a link
   const location = useLocation();
   let type = location.state?.type;
   if (!type) {
     type = "menu";
-  }
-  const [order, setOrder] = useState([])
-
-  const isOrdering = location.state?.createOrder;
-
-  const prevOrder = location.state?.currentOrder.order;
-  
-  let goToCartBtn = '';
-
-  if (isOrdering) {
-    goToCartBtn = 
-    <Link to={{pathname:"/cateringOrder", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
-      <Text style={styles.textInsideOrderBtn}>Go to Cart</Text>
-    </Link>
-  } else {
-    goToCartBtn = null
   }
 
   // state
@@ -46,10 +32,6 @@ const Menu = () => {
 
 
   useEffect(() => {
-
-    if (isOrdering && prevOrder) {
-      setOrder([...prevOrder]);
-    }
     // gets the categories from the current collection
     const collection = firebase.firestore().collection(currentMenuType);
     collection.doc('Categories').get()
@@ -61,6 +43,7 @@ const Menu = () => {
         console.error(err)
       })
     
+
     collection.onSnapshot((querySnapShot) => {
       let tempData = []
       querySnapShot.forEach(res => {
@@ -93,17 +76,39 @@ const Menu = () => {
   const baseMenuItemHandler = () => {
     console.log('item clicked')
   }
-  const addItemToOrderHandler = item => {
-    setOrder([...order, item]);
+
+  const handleAddOrder = () => {
+
+    // fill in the name/title of the item
+    let name = "enter name here";
+
+
+    // fill in the cost of the item along with the description and category
+    // leave image as null
+    // leave time as 0
+    firebase.firestore().collection('menu').add(
+      {
+        category: "enter category it belongs to",
+        cost: 9,
+        desc: "enter description here, if there is no description, leave it as an empty string",
+        image: null,
+        name: name,
+        time: 0
+      }
+    )
+    
+    console.log('request completed for ' + name);
+
   }
 
+  
   let menuStep = <MenuCat />
 
   if (step == "categories") {
     menuStep = <MenuCat handler={filterItemsHandler} menu={currentCategories}/>
   }
   else if (step == "items") {
-    menuStep = <MenuItem add={addItemToOrderHandler} handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType} h={catHandler}/>
+    menuStep = <MenuItem handler={baseMenuItemHandler} back={catHandler} category={detail} menuType={currentMenuType}/>
   }
   else if (step == "itemDetail") {
     menuStep = <MenuItemDetail back={filterItemsHandler}/>
@@ -112,19 +117,16 @@ const Menu = () => {
   return (
     <SafeAreaView style={styles.menuContainer}>
       <View style={styles.header}>
-        <HomeButton />
+        <HomeButton h={history}/>
       </View>
 
-      <View style={styles.menuContent}>
-        <ScrollView style={styles.scrollContainer}>
-          { menuStep }
-        </ScrollView>
+      <Button title="add to db" onPress={handleAddOrder}/>
 
-        {goToCartBtn}
-
-      </View>
-
+      <ScrollView style={styles.scrollContainer}>
+        { menuStep }
+      </ScrollView>
     </SafeAreaView>
+
   );
 };
 

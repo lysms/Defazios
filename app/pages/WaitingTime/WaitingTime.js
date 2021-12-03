@@ -8,10 +8,9 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 
 const WaitingTime = ({ history }) => {
     return (
-
         <SafeAreaView style={{flex: 1}}>
             <View style={styles.header}>
-                <HomeButton />
+                <HomeButton h={history}/>
             </View>
             <View style={styles.container}>
                 <View style={styles.contentContainer}>

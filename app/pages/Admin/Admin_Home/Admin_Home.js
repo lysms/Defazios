@@ -23,7 +23,7 @@ const Admin_Home = ({ history }) => {
     }
     return (
         <View style={styles.container}>
-            <HomeButton />
+            <HomeButton h={history} />
 
             <View style={styles.container1}>
                 <Text style={styles.headerText}>Welcome, Admin {auth.currentUser?.email}</Text>

@@ -32,9 +32,7 @@ const SignUp = ({ history }) => {
 
     return (
         <View style={styles.container}>
-
-            <HomeButton />
-
+            <HomeButton h={history} />
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>

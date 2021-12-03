@@ -60,9 +60,8 @@ const MenuItemAdd = props => {
       cost: totalCost, 
       halfOrFull: horf
     }
-    props.h()
+    console.log(itemOrder)
     props.showHandler();
-    props.addToOrderHandler(itemOrder);
   }
   
   const toggleHalfHandler = () => {
