@@ -8,15 +8,13 @@ import Menu from './pages/Menu/Menu';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
 import Profile from './pages/Profile/Profile';
-import Confirmed from './pages/Ordering/Confirmed';
-import ShoppingCart from './pages/Ordering/ShoppingCart';
-import Payment from './pages/Ordering/Payment/Payment';
-import Admin_Home from './pages/Admin/Admin_Home/Admin_Home';
+
+import Admin_Home from './pages/Admin/Admin_Home/Admin_Home' ;
 import Booked from './pages/Admin/Booked/Booked';
 import EditMenus from './pages/Admin/EditMenus/EditMenus';
 import EditNewsLetter from './pages/Admin/EditNewsLetter/EditNewsLetter';
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
-import Catering from './pages/Catering/Catering';
+
 import Reservation from './pages/Reservation/Reservation';
 import MakeOneWithCalendar from './pages/Reservation/MakeOneWithCalendar';
 
@@ -30,7 +28,11 @@ import Information from './pages/Reservation/Information';
 import Confirmation from './pages/Reservation/Confirmation';
 
 import { initializeApp } from 'firebase/app';
+
 import WaitingTime from './pages/WaitingTime/WaitingTime';
+
+import Catering from './pages/Catering/Catering';
+import CateringOrder from './pages/CateringOrder/CateringOrder';
 
 export default function App() {
 
@@ -45,9 +47,6 @@ export default function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/newsletter" component={Newsletter} />
-          <Route exact path="/confirmed" component={Confirmed} />
-          <Route exact path="/shoppingCart" component={ShoppingCart} />
-          <Route exact path="/payment" component={Payment} />
           <Route exact path="/waiting" component={WaitingTime} />
           <Route exact path="/adminHome" component={Admin_Home} />
           <Route exact path="/adminReservation" component={Booked} />
@@ -56,6 +55,7 @@ export default function App() {
           <Route exact path="/adminOrder" component={ManageOrder} />
           <Route exact path="/catering" component={Catering} />
           <Route exact path="/reservation" component={Reservation} />
+          <Route exact path="/cateringOrder" component={CateringOrder} />
           <Route exact path="/makeOneWithCalendar" component={MakeOneWithCalendar} />
           <Route exact path="/order_details" component={OrderDetails} />
           <Route exact path="/menus_details" component={MenusDetails} />

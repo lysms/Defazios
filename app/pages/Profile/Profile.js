@@ -16,7 +16,7 @@ const Profile = ({ history }) => {
             {/* Name  ->   Current Order + waiting time  ->  Order history(in one weeks) */}
             {/* At the top => will be able to view the overall menus  (can be direct to the menus page.) */}
 
-            <HomeButton h={history} />
+            <HomeButton />
             <View style={styles.headerSection}>
                 <Text style={styles.headerText}>USER PROFILE</Text>
             </View>
