@@ -15,7 +15,7 @@ const Reservation = ({history}) => {
                     flex: 1
                 }}>
                 <View style={styles.header}>
-                    <HomeButton h={history}/>
+                    <HomeButton />
                 </View>
                 <View style={styles.viewForPreView}>
                     <Text

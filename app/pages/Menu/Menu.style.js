@@ -26,12 +26,39 @@ export default StyleSheet.create({
   },
 
   scrollContainer: {
-    height: '100%', 
     width: '100%',
-    paddingHorizontal: 40
+    paddingHorizontal: 40,
+    marginBottom: 40
   }, 
 
   header: {
     height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
-  }
+  },
+
+  menuContent: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+
+  orderBtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 12,
+    borderRadius: 6,
+    backgroundColor: "black",
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    shadowOffset: {
+        height: 2,
+        width: 1
+    },
+    elevation: 2,
+    width: '80%',
+  },
+  textInsideOrderBtn: {
+    fontSize: 16,
+    color: 'white',
+}
 });
