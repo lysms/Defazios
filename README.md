@@ -48,8 +48,5 @@ Users can make reservation in the app, instead of making one via calling DeFazio
 
 ### Time Calculator
 
-<<<<<<< HEAD
 After consumers placed a valid catering order, they will be provided with the time estimate of their orders
-=======
-After consumers placed a valid catering order, they will be provided with the time estimate of their orders
->>>>>>> parent of 7899db5 (Revert "Merge branch 'main' into authentication")
+
