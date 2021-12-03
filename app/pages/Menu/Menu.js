@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {SafeAreaView, View, Text, ScrollView } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
 import * as Haptics from 'expo-haptics';
-// import COLORS from '../constants/colors';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
 import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
@@ -20,26 +19,39 @@ const Menu = () => {
   if (!type) {
     type = "menu";
   }
+
   const [order, setOrder] = useState([])
 
   const isOrdering = location.state?.createOrder;
-
   const prevOrder = location.state?.currentOrder.order;
   
   let goToCartBtn = '';
 
   if (isOrdering) {
-    goToCartBtn = 
-    <Link to={{pathname:"/cateringOrder", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
-      <Text style={styles.textInsideOrderBtn}>Go to Cart</Text>
-    </Link>
+    if (type == "cateringMenu") {
+      goToCartBtn = 
+      <Link to={{pathname:"/cateringOrder", state: {type: "done", order: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+        <Text style={styles.textInsideOrderBtn}>Go to Cart</Text>
+      </Link>
+    } else if (type == "waiting") {
+      goToCartBtn = 
+      <Link to={{pathname:"/waiting", state: {type: "done", details: {time: 65 }}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+        <Text style={styles.textInsideOrderBtn}>Calculate Waiting Time</Text>
+      </Link>
+    }
+
   } else {
     goToCartBtn = null
   }
 
+  let coll = type;
+  if (type == "waiting") {
+    coll = "menu";
+  }
+
   // state
   const [step, setStep] = useState('categories');
-  const [currentMenuType, setCurrentMenuType] = useState(type);
+  const [currentMenuType, setCurrentMenuType] = useState(coll);
   const [currentMenu, setCurrentMenu] = useState([])
   const [currentCategories, setCurrentCategories] = useState([])
   const [detail, setDetail] = useState(null)

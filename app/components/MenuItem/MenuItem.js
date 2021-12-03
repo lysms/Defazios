@@ -26,12 +26,28 @@ const MenuItem = props => {
       .then(snap => {
         snap.forEach(doc => {
           let d = doc.data();
-          let tempObject = {
-            category: d.category, 
-            fullCost: d.fullCost,
-            halfCost: d.halfCost,
-            name: d.name, 
-            id: doc.id
+          let tempObject = {}
+          if (props.menuType == "menu" || props.menuType == "waiting") {
+            let menuObject = {
+              category: d.category,
+              cost: d.cost,
+              desc: d.desc,
+              name: d.name
+            }
+
+            tempObject = {...menuObject}
+
+          } else if (props.menuType == "cateringMenu") {
+
+            let cateringObject = {
+              category: d.category, 
+              fullCost: d.fullCost,
+              halfCost: d.halfCost,
+              name: d.name, 
+              id: doc.id
+            }
+
+            tempObject = {...cateringObject}
           }
           tempData.push(tempObject);
           console.log(tempObject)
