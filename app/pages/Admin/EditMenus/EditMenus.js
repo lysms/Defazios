@@ -90,7 +90,7 @@ const EditMenus = ({ history }) => {
 
             <View style={styles.profile}>
                 <View style={styles.subTitleSection}>
-                    <Text style={styles.subTitle}>Menus</Text>
+                    <Text style={styles.subTitle}>Standard Menus</Text>
                 </View>
                 <ScrollView style={styles.cat}>
                     <View>

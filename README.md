@@ -49,3 +49,4 @@ Users can make reservation in the app, instead of making one via calling DeFazio
 ### Time Calculator
 
 After consumers placed a valid catering order, they will be provided with the time estimate of their orders
+

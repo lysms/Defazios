@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import firebase from '../../firebase'
 
 import styles from './Menus_details.style';
-import { MaterialIcons, AntDesign, Entypo } from '@expo/vector-icons';
+import { AntDesign, Entypo } from '@expo/vector-icons';
 
 const MenusDetails = ({ history }) => {
     const location = useLocation();
@@ -26,19 +26,13 @@ const MenusDetails = ({ history }) => {
                     console.log(element.data())
                     final.push(element.data())
                 });
-                //console.log(final[0])
 
                 final.sort(function (a, b) {
                     return a.name > b.name;
                 })
                 //console.log(final[0])
                 setMenus(prevState => [...prevState, ...final]);
-
             })
-
-
-        // setOrder(prevState => [...prevState, ...final]);
-        // console.log(Order)
     }, [])
 
     const handleDetails = (data) => {
@@ -67,8 +61,6 @@ const MenusDetails = ({ history }) => {
                 <AntDesign name="back" size={30} color="white" />
                 <Text style={styles.goback}>Go Back</Text>
             </TouchableOpacity>
-
-
             <View style={styles.profile}>
                 <ScrollView style={styles.cat}>
                     <View>
@@ -77,12 +69,10 @@ const MenusDetails = ({ history }) => {
                                 return (
                                     <View key={index}>
                                         <Text></Text>
-
                                         <TouchableOpacity onPress={() => handleDetails(item)}>
                                             <View style={styles.minimenucontainer2}>
                                                 <Text style={styles.subitem}>{item.name}</Text>
                                             </View>
-
                                         </TouchableOpacity>
 
                                     </View>
@@ -96,9 +86,6 @@ const MenusDetails = ({ history }) => {
             </View>
 
             <View style={styles.container2}></View>
-
-
-
         </View>
     );
 }

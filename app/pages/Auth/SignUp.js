@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
-
+import { auth } from "../../firebase_auth"
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import HomeButton from '../../components/HomeButton/HomeButton';
@@ -11,9 +11,30 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 
 
 const SignUp = ({ history }) => {
+
+    const [FirstName, setFirstName] = useState("")
+    const [LastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    const handleSignUp = () => {
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log("Sign up with: ", user.email)
+            })
+            .catch(error => alert(error.message))
+    }
+
+
+
     return (
         <View style={styles.container}>
+
             <HomeButton />
+
 
             <View style={styles.header}>
                 <Text style={styles.innertext}>Sign Up</Text>
@@ -22,22 +43,22 @@ const SignUp = ({ history }) => {
             <View style={styles.mainbody}>
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>First Name</Text>
-                    <TextInput placeholder="First Name" style={styles.inputtext} />
+                    <TextInput placeholder="First Name" style={styles.inputtext} onChangeText={text => setFirstName(text)} value={FirstName} />
                 </View>
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Last Name</Text>
-                    <TextInput placeholder="Last Name" style={styles.inputtext} />
+                    <TextInput placeholder="Last Name" style={styles.inputtext} onChangeText={text => setLastName(text)} value={LastName} />
                 </View>
                 <View style={styles.mainform}>
-                    <Text style={styles.mainbody}>Email Address</Text>
-                    <TextInput placeholder="email" style={styles.inputtext} />
+                    <Text style={styles.mainbody}>Email</Text>
+                    <TextInput placeholder="email" style={styles.inputtext} onChangeText={text => setEmail(text)} value={email} />
                 </View>
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Password</Text>
-                    <TextInput placeholder="password" secureTextEntry={true} style={styles.inputtext} />
+                    <TextInput placeholder="password" secureTextEntry={true} style={styles.inputtext} onChangeText={text => setPassword(text)} value={password} />
                 </View>
                 <View style={styles.container2}>
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/menu')}>
+                    <TouchableOpacity style={styles.createAccount} onPress={handleSignUp}>
                         <Text style={styles.textcreate}>Create Account</Text>
                     </TouchableOpacity>
                 </View>

@@ -71,5 +71,17 @@ export default StyleSheet.create({
         padding: screen.width / 8,
     },
 
+    scroll: {
+        height: screen.height / 2,
+    },
+
+    itemContainer: {
+        borderWidth: 1,
+        borderRadius: 20,
+        borderColor: 'red',
+        marginTop: 16,
+        padding: 10,
+    }
+
 
 })

@@ -67,8 +67,17 @@ export default StyleSheet.create({
     },
 
     minimenucontainer2: {
-        height: screen.height / 11,
+        height: 'auto',
         backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 18,
+
+    },
+
+    minimenucontainer3: {
+        height: 'auto',
+        backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 18,
