@@ -50,7 +50,6 @@ const MenuItem = props => {
             tempObject = {...cateringObject}
           }
           tempData.push(tempObject);
-          console.log(tempObject)
         })
         setMenuItems([...tempData]);
       })

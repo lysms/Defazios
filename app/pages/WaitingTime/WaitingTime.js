@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TouchableOpacity, View, Dimensions, Button } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
@@ -12,6 +12,36 @@ const WaitingTime = () => {
   const location = useLocation();
   let type = location.state?.type;
   let details = location.state?.details;
+  
+  useEffect(() => {
+    if (details) {
+      calculateTime(details)
+    }
+  }, [])
+
+
+  const calculateTime = items => {
+    let counts = {
+      pizza: 0, 
+      pasta: 0
+    }
+
+    let date = new Date();
+    let today = date.getDay();
+    let hour = date.getHours();
+    let minTime = 0;
+    
+    items.map(el => {
+      if (el.category == "Pizzas") {
+        counts.pizza += el.quantity
+      } else if (el.category == "Pasta") {
+        counts.pasta += el.quantity
+      }
+    })
+
+    
+
+  }
 
   let answer = null;
 
@@ -22,7 +52,7 @@ const WaitingTime = () => {
       <View style={styles.TimeContainer}>
         <StatusBar style='light-content' />
         <TouchableOpacity onPress={() => null} style={styles.button}>
-            <Text style={styles.buttonText}>{details.time} mins</Text>
+            {/* <Text style={styles.buttonText}>{details.time} mins</Text> */}
         </TouchableOpacity>
       </View>
     </View>

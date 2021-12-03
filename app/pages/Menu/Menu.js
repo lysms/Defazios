@@ -35,7 +35,7 @@ const Menu = () => {
       </Link>
     } else if (type == "waiting") {
       goToCartBtn = 
-      <Link to={{pathname:"/waiting", state: {type: "done", details: {time: 65 }}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+      <Link to={{pathname:"/waiting", state: {type: "done", details: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
         <Text style={styles.textInsideOrderBtn}>Calculate Waiting Time</Text>
       </Link>
     }
