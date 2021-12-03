@@ -131,7 +131,7 @@ const Item = ({ history }) => {
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Text style={styles.title}>Defazio's Pizza sdfsdfs</Text>
+                <Text style={styles.title}>Defazio's Pizza</Text>
             </View>
             {
                 <TouchableOpacity style={styles.backButton} onPress={() => { handleDetails(Category) }}>

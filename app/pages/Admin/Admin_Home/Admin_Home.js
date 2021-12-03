@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './Admin_Home.style'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { auth } from '../../../firebase_auth'
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import HomeButton from '../../../components/HomeButton/HomeButton';
@@ -10,12 +11,22 @@ import HomeButton from '../../../components/HomeButton/HomeButton';
 const Tap = createBottomTabNavigator();
 
 const Admin_Home = ({ history }) => {
+
+
+    const handleSignOut = () => {
+        auth
+            .signOut()
+            .then(() => {
+                history.push("/");
+            })
+            .catch(error => alert(error.message))
+    }
     return (
         <View style={styles.container}>
             <HomeButton h={history} />
 
             <View style={styles.container1}>
-                <Text style={styles.headerText}>Welcome, Admin. </Text>
+                <Text style={styles.headerText}>Welcome, Admin {auth.currentUser?.email}</Text>
             </View>
 
 
@@ -49,10 +60,17 @@ const Admin_Home = ({ history }) => {
                         culpa qui officia deserunt mollit anim id est laborum.
                     </Text>
                 </ScrollView>
+
+
             </View>
 
 
             <View style={styles.container3}></View>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button} onPress={handleSignOut}>
+                    <Text style={styles.buttonText}>Sign out</Text>
+                </TouchableOpacity>
+            </View>
             <View style={styles.container3}></View>
             {/* Footer component */}
 

@@ -104,7 +104,6 @@ const Item = ({ history }) => {
                         name: UpdateName,
                         fullCost: Price,
                         halfCost: HalfPrice,
-
                         desc: Dec
                     });
                 } else {
