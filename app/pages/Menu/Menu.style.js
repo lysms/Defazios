@@ -55,10 +55,17 @@ export default StyleSheet.create({
         width: 1
     },
     elevation: 2,
-    width: '80%',
+    marginHorizontal: 5
   },
+  
   textInsideOrderBtn: {
     fontSize: 16,
-    color: 'white',
-}
+    color: 'white'
+  },
+
+  waitBtns: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '80%'
+  }
 });
