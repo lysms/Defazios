@@ -21,16 +21,15 @@ const Newsletter = ({ history }) => {
             ]
         );
 
+const image = { url: 'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80'}
+
     return (
-        <SafeAreaView
-            style={{
-                backgroundColor: '#fff',
-                flex: 1,
-            }}>
-            <HomeButton />
-            {/* <View
-                style={styles.header}>
-            </View> */}
+
+        // <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <SafeAreaView style={{flex: 1,}}>
+            <View style={styles.header}>
+                <HomeButton />
+            </View>
             <View style={styles.content}>
                 <Text style={styles.contentText}>Join our newsletter to keep track of the
                     latest specials, offers, merchandise, and more!</Text>
@@ -51,11 +50,12 @@ const Newsletter = ({ history }) => {
                         onPress={() => console.log({ emailAddress })}
                         onPress={createTwoButtonAlert}
                     >
-                        <Text style={{ color: '#fff', fontWeight: 'bold', }}>Submit</Text>
+                        <Text style={{ fontSize: 17, color: '#fff', fontWeight: 'bold', }}>Submit</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
+        // </ImageBackground>
     )
 };
 

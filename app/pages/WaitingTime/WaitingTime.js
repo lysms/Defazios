@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TouchableOpacity, View, Dimensions, Button } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
+
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 import styles from './WaitingTime.style';
@@ -156,6 +157,7 @@ const WaitingTime = () => {
       </View>
     </View>
   )
+
 };
 
 export default WaitingTime;

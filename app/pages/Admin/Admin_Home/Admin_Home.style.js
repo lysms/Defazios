@@ -84,4 +84,24 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         padding: 20
     },
+
+    buttonContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    button: {
+        backgroundColor: '#0782F9',
+        width: screen.width / 3.8,
+        padding: 15,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+
+    buttonText: {
+        color: "white",
+        fontWeight: '700',
+        fontSize: 18,
+    }
 })

@@ -40,6 +40,33 @@ export default StyleSheet.create({
         height: 65,
     },
 
+    minimenucontainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: screen.width,
+    },
+
+    minimenucontainer2: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: screen.width / 1.07,
+        height: 'auto',
+        backgroundColor: COLORS.lightGrayBorder,
+        alignItems: 'center',
+    },
+
+    subitem: {
+        width: screen.width / 3,
+        fontSize: 18,
+        textAlign: 'center',
+        textTransform: 'capitalize',
+    },
+
+    subitem_price: {
+        width: screen.width / 5,
+        padding: 5,
+        fontSize: 18,
+    },
 
     createAccount: {
 
@@ -47,11 +74,31 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
 
+
     },
+
+    createAccount2: {
+
+        color: "black",
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomColor: 'red',
+        borderBottomWidth: 2,
+
+    },
+
 
 
     textcreate: {
         fontSize: 18,
+        textAlign: 'center',
+        color: "black",
+
+    },
+
+    textcreate2: {
+        fontSize: 22,
+        fontWeight: 'bold',
         // width: screen.width / 4,
         textAlign: 'center',
         color: "black",

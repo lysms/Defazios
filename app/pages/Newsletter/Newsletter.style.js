@@ -1,18 +1,17 @@
-import {StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+import * as Haptics from 'expo-haptics';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
     header: {
-        flex: 1,
-        alignItems: 'baseline',
-        justifyContent: 'flex-start',
+        height: windowHeight > 800 ? windowHeight / 100 * 10 : windowHeight / 100 * 12,
     },
-    
     content: {
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 18,
-        // backgroundColor: 'black',
-
+        height: windowHeight > 800 ? windowHeight / 100 * 65 : windowHeight / 100 * 75,
     },
     contentText: {
         width: '80%',
@@ -20,14 +19,13 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         textAlign: 'center',
-        marginBottom: 10,
-        
+        marginBottom: 10, 
     },
     input: {
         height: 50,
         margin: 12,
         borderWidth: 2,
-        padding: 10,
+        padding: 13,
         width: 200,
         borderRadius: 10,
         fontSize: 15,
@@ -45,5 +43,9 @@ export default StyleSheet.create({
         color: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
+    image: {
+        flex: 1,
+        justifyContent: "center"
+    },
 });
