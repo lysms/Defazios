@@ -8,7 +8,7 @@ import Payment from '../../components/Payment/Payment';
 import Confirmation from '../../components/Confirmation/Confirmation';
 import Schedule from '../../components/Schedule/Schedule';
 
-import firebase from '../../firebase';
+import db from '../../firebase';
 
 import styles from './CateringOrder.style';
 
@@ -44,7 +44,7 @@ const CateringOrder = () => {
     setFullOrder(prevState => ({...prevState, dateOrdered: date}));
     console.log(fullOrder)
 
-    firebase.firestore().collection('orders').add(fullOrder)
+    db.collection('orders').add(fullOrder)
   }
 
 

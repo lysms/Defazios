@@ -9,7 +9,7 @@ import HomeButton from '../../components/HomeButton/HomeButton';
 
 import styles from './Menu.style';
 
-import firebase from '../../firebase';
+import db from '../../firebase';
 
 const Menu = () => {
 
@@ -69,7 +69,7 @@ const Menu = () => {
       setOrder([...prevOrder]);
     }
     // gets the categories from the current collection
-    const collection = firebase.firestore().collection(currentMenuType);
+    const collection = db.collection(currentMenuType);
     collection.doc('Categories').get()
       .then(snap => {
         const catList = snap.data().categories
