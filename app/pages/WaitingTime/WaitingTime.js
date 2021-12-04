@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TouchableOpacity, View, Dimensions, Button } from 'react-native';
+import { Text, TouchableOpacity, View, Dimensions, Button, SafeAreaView } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
@@ -8,7 +8,7 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import styles from './WaitingTime.style';
 import HomeButton from '../../components/HomeButton/HomeButton';
 
-import firebase from '../../firebase';
+import db from '../../firebase';
 
 const WaitingTime = () => {
 
@@ -57,7 +57,7 @@ const WaitingTime = () => {
     }
     
 
-    let collection = firebase.firestore().collection('traffic')
+    let collection = db.collection('traffic')
     collection.doc(today).get()
       .then(snap => {
         let dayInfo = {...snap.data()};
@@ -141,8 +141,7 @@ const WaitingTime = () => {
   }
 
   return (
-    <View style={styles.container}>
-
+    <SafeAreaView style={{flex: 1}}>
       <HomeButton />
       <Text>Create order and see what the expected waiting time is!</Text>
 
@@ -151,11 +150,10 @@ const WaitingTime = () => {
           <Text>Create Order</Text>
         </Link>
 
-
         { answer }
         
       </View>
-    </View>
+    </SafeAreaView>
   )
 
 };
