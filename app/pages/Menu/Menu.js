@@ -35,9 +35,15 @@ const Menu = () => {
       </Link>
     } else if (type == "waiting") {
       goToCartBtn = 
-      <Link to={{pathname:"/waiting", state: {type: "done", details: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
-        <Text style={styles.textInsideOrderBtn}>Calculate Waiting Time</Text>
-      </Link>
+      <View style={styles.waitBtns}>
+        <Link to={{pathname:"/waiting", state: {type: "pickup", details: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+          <Text style={styles.textInsideOrderBtn}>Calculate Pick-Up</Text>
+        </Link>
+
+        <Link to={{pathname:"/waiting", state: {type: "delivery", details: order}}} style={styles.orderBtn} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+          <Text style={styles.textInsideOrderBtn}>Calculate Delivery</Text>
+        </Link>
+      </View>
     }
 
   } else {
