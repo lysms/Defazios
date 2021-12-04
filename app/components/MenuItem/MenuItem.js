@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
 import styles from './MenuItem.style';
-import firebase from '../../firebase';
+import db from '../../firebase';
 import MenuItemAdd from '../MenuItemAdd/MenuItemAdd';
 
 const MenuItem = props => {
@@ -22,7 +22,7 @@ const MenuItem = props => {
 
   useEffect(() => {
     let tempData = [];
-    firebase.firestore().collection(props.menuType).where('category', '==', props.category).get()
+    db.collection(props.menuType).where('category', '==', props.category).get()
       .then(snap => {
         snap.forEach(doc => {
           let d = doc.data();
