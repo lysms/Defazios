@@ -24,6 +24,14 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    headerText2: {
+        fontSize: 20,
+        padding: 10,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: "orange"
+    },
+
     profile: {
         flex: 40,
         justifyContent: 'center',

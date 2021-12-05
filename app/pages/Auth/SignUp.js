@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
 import { auth } from "../../firebase_auth"
+import firebase from "../../firebase"
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import HomeButton from '../../components/HomeButton/HomeButton';
@@ -16,6 +17,8 @@ const SignUp = ({ history }) => {
     const [LastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [Token, setToken] = useState("user")
+    const [Phone, setPhone] = useState("")
 
 
     const handleSignUp = () => {
@@ -26,6 +29,19 @@ const SignUp = ({ history }) => {
                 console.log("Sign up with: ", user.email)
             })
             .catch(error => alert(error.message))
+
+        let data = {
+            firstName: FirstName,
+            lastName: LastName,
+            email: email,
+            token: Token,
+            phone: Phone
+        }
+
+        firebase.collection("users").add(data)
+        history.push({
+            pathname: '/profile'
+        });
     }
 
 
@@ -53,10 +69,17 @@ const SignUp = ({ history }) => {
                     <Text style={styles.mainbody}>Email</Text>
                     <TextInput placeholder="email" style={styles.inputtext} onChangeText={text => setEmail(text)} value={email} />
                 </View>
+
+                <View style={styles.mainform}>
+                    <Text style={styles.mainbody}>Phone Number</Text>
+                    <TextInput placeholder="phone" style={styles.inputtext} onChangeText={text => setPhone(text)} value={Phone} />
+                </View>
+
                 <View style={styles.mainform}>
                     <Text style={styles.mainbody}>Password</Text>
                     <TextInput placeholder="password" secureTextEntry={true} style={styles.inputtext} onChangeText={text => setPassword(text)} value={password} />
                 </View>
+
                 <View style={styles.container2}>
                     <TouchableOpacity style={styles.createAccount} onPress={handleSignUp}>
                         <Text style={styles.textcreate}>Create Account</Text>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Button, Linking, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import styles from './SignUp.style'
 import { auth } from "../../firebase_auth"
+import firebase from "../../firebase"
 import HomeButton from '../../components/HomeButton/HomeButton';
 
 
@@ -13,7 +14,25 @@ const SignIn = ({ history }) => {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
-                history.push("/adminHome")
+                console.log(user.email)
+
+                firebase.collection("users")
+                    .where("email", "==", user.email)
+                    .get()
+                    .then(value => {
+                        value.forEach(element => {
+                            //console.log(element.data())
+                            let token = (element.data().token)
+                            console.log(token)
+                            if (token === "user") {
+                                history.push("/profile")
+                            }
+                            else {
+                                history.push("/adminHome")
+                            }
+                        });
+                    })
+                //history.push("/adminHome")
             }
         })
         return unsubscribe;
@@ -24,6 +43,22 @@ const SignIn = ({ history }) => {
             .signInWithEmailAndPassword(email, password)
             .then(userCredentials => {
                 const user = userCredentials.user;
+                firebase.collection("users")
+                    .where("email", "==", email)
+                    .get()
+                    .then(value => {
+                        value.forEach(element => {
+                            //console.log(element.data())
+                            token = (element.data().token)
+                            console.log(token)
+                            if (token === "user") {
+                                history.push("/profile")
+                            }
+                            else {
+                                history.push("/adminHome")
+                            }
+                        });
+                    })
                 console.log("Logged in with: ", user.email)
             })
             .catch(error => alert(error.message))

@@ -50,7 +50,7 @@ export default StyleSheet.create({
         fontStyle: 'italic',
         fontSize: 20,
     },
-    Profile : {
+    Profile: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         paddingLeft: 2,
@@ -107,14 +107,14 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 30,
-        flex : 2
+        flex: 2
     },
     editBtn: {
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 30,
-        flex : 1
-        
+        flex: 1
+
     },
 
     createAccount: {
@@ -136,7 +136,48 @@ export default StyleSheet.create({
 
     orderHistory: {
         height: screen.height / 5,
-    }
+    },
+
+    mainbody: {
+        fontSize: 19,
+        fontWeight: "bold",
+        paddingBottom: 5,
+        paddingTop: 7
+    },
+
+    mainform: {
+        padding: 2
+    },
+
+    inputtext: {
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 10,
+        height: 45,
+        paddingVertical: 5,
+        paddingHorizontal: 10
+    },
+
+
+    createAccount: {
+        width: '50%',
+        height: 60,
+        color: "white",
+        backgroundColor: "black",
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 15
+    },
+    container10: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    textcreate: {
+        fontSize: 20,
+        color: "white",
+        fontWeight: "bold"
+    },
 
 
 });
