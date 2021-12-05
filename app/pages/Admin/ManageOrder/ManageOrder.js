@@ -56,6 +56,9 @@ const ManageOrder = ({ history }) => {
                 setOrderItems([...final]);
 
             })
+            .catch(err => {
+                console.error(err)
+            })
     }, [])
 
     const handleDetails = (data) => {
