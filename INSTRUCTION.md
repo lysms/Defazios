@@ -5,7 +5,7 @@
 After users enter the app, they will immediately see the page. Users can click the provided buttons to enter further feature pages. The quickview of the page is showed below.
 
 <p align="center">
-    <kbd><kbd><img src="ASSESTS/HomePage/HomePage.png" height="600" /></kbd></kbd>
+    <kbd><img src="ASSESTS/HomePage/HomePage.png" height="600" /></kbd>
 </p>
 
 ## MENU
