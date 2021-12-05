@@ -1,6 +1,6 @@
-## Instructions to install the app on your device
+# Instructions to install the app on your device
 
-### Prerequisites
+## Prerequisites
 
 - Node.js should be installed no your devices
 
@@ -15,19 +15,19 @@
         Andorid: https://developer.android.com/studio
         Apple: https://docs.expo.dev/workflow/ios-simulator/
 
-### Download
+## Download
 
 - open the terminal on your computer
 - enter `git clone https://github.com/martin-stefan/defazios.git`
 - enter the github name and password when requested
 - enter `cd app`
 
-### Setup
+## Setup
 
 - enter `npm install` to download the dependencies
 - enter `npm start` for running the app
 
-### Run
+## Run
 
 - open the expo app on the simulated device
 - copy the link from the terminal into expo and launch the app
