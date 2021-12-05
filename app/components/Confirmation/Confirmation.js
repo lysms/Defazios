@@ -7,7 +7,7 @@ import { Link } from 'react-router-native';
 const Confirmation = props => {
 
   const order = props.finalOrder;
-
+  
   return (
     <View style={styles.container}>
 
@@ -20,7 +20,7 @@ const Confirmation = props => {
             Confirmation Details
           </Text>
 
-          <Text style={styles.regularText}>{order.fname + order.lname}</Text>
+          <Text style={styles.regularText}>{order.fname} {order.lname}</Text>
 
           <View style={styles.innerText}>
 
