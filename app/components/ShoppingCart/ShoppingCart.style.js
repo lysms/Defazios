@@ -1,111 +1,124 @@
 import { StyleSheet, Dimensions } from 'react-native';
-
+import COLORS from '../../constants/colors'
 const screen = Dimensions.get('window')
 
 
 export default StyleSheet.create({
-    container: {
-        flex: 2,
-        backgroundColor: '#fff',
-    },
+  container: {
+    flex: 2,
+    backgroundColor: '#fff',
+  },
 
-    container1: {
-        flex: 20,
-        justifyContent: 'center',
-        alignItems: 'flex-start'
-    },
+  pageContent: {
+    justifyContent: 'space-between',
+    height: '90%'
+  },
 
-    confirm: {
-        fontSize: 20,
-        marginLeft: screen.width / 80,
-        padding: 10,
-        fontWeight: 'bold',
-    },
+  container1: {
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
 
-    details: {
-        borderWidth: 2,
-        marginLeft: screen.width / 21,
-        padding: 10,
-        width: screen.width / 1.1,
-        borderColor: "grey",
-        backgroundColor: '#F6F6F6'
-    },
+  confirm: {
+    fontSize: 20,
+    marginLeft: screen.width / 80,
+    padding: 10,
+    fontWeight: 'bold',
+  },
 
-    innerText: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
+  details: {
+    borderWidth: 2,
+    marginLeft: screen.width / 21,
+    padding: 10,
+    width: screen.width / 1.1,
+    borderColor: "grey",
+    backgroundColor: '#F6F6F6'
+  },
 
-    regularText: {
-        padding: 2,
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
+  innerText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 
-    regularText2: {
-        padding: 2,
-        fontSize: 18,
-        fontWeight: 'bold',
-        alignSelf: 'flex-end',
-    },
+  regularText: {
+    padding: 2,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+
+  regularText2: {
+    padding: 2,
+    fontSize: 18,
+    fontWeight: 'bold',
+    alignSelf: 'flex-end',
+  },
 
 
-    regularText3: {
-        padding: 2,
-        paddingLeft: 5,
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: 'grey'
+  regularText3: {
+    padding: 2,
+    paddingLeft: 5,
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'grey'
 
-    },
+  },
 
-    specialText: {
-        color: 'black',
-        padding: 2,
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
+  specialText: {
+    color: 'black',
+    padding: 2,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
 
-    createAccount: {
-        width: '55%',
-        height: 65,
-        color: "white",
-        backgroundColor: "black",
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 15
-    },
+  createAccount: {
+    width: '55%',
+    height: 65,
+    color: "white",
+    backgroundColor: "black",
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15
+  },
 
-    createAccount2: {
-        width: '65%',
-        height: 65,
-        color: "white",
-        backgroundColor: "black",
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 15
-    },
+  createAccount2: {
+    width: '65%',
+    height: 65,
+    color: "white",
+    backgroundColor: "black",
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15
+  },
 
-    textcreate: {
-        fontSize: 20,
-        color: "white",
-        fontWeight: "bold"
-    },
+  textcreate: {
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold"
+  },
+  container4: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20
+  },
 
-    container2: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20
-    },
-    container3: {
-        flex: 5,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+  optionText: {
+    color: COLORS.blueText
+  },
 
-    container4: {
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        padding: 20
-    },
+  itemMain: {
+    flexDirection: 'row',
+    width: '95%',
+    justifyContent: 'space-between',
+    marginVertical: 3
+  },
+
+  itemTitle: {
+    fontWeight: 'bold'
+  },
+
+  itemNums: {
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  }
 })
