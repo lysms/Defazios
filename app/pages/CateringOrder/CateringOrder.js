@@ -41,10 +41,8 @@ const CateringOrder = () => {
 
   const confirmOrderHandler = () => {
     const date = new Date();
-    setFullOrder(prevState => ({...prevState, dateOrdered: date}));
-    console.log(fullOrder)
-
-    db.collection('orders').add(fullOrder)
+    let newOrder = {...fullOrder, dateOrdered: date}
+    db.collection('orders').add(newOrder)
   }
 
 
