@@ -1,50 +1,159 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, TextInput, Dimensions} from 'react-native';
-import CalendarPicker from 'react-native-calendar-picker';
-import COLORS from '../../constants/colors';
+import React, { useState } from 'react';
+import {  Text, View, SafeAreaView, TextInput, Button, TouchableOpacity } from 'react-native';
 import styles from './Information.style'
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { Link } from 'react-router-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Formik } from 'formik';
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
-export default class App extends Component {
-  render() {
-    return (
-      <SafeAreaView style={{flex: 1}}>
-        <View style={styles.header}>
-            <Link to={{pathname:"/makeOneWithCalendar"}} style={styles.returnBtn} onPress={()=>Haptics.ImpactFeedbackStyle.Light}>
-                <Text style={styles.textInsideReturnBtn}> Return </Text>
-            </Link>
-        </View>
-        <View style={styles.viewForInput}>
+const Information = props => {
 
-          	<Text style={styles.textForTitle}>Enter Confirmation Details</Text>
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [minutes, setMinutes] = useState(date.getMinutes());
+  const [hours, setHours] = useState(date.getHours());
 
-          	<Text style={styles.infoText}>First Name</Text>
-          	<TextInput style={styles.infoInput} placeholder="Enter Your First Name Here"/>
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
 
-          	<Text style={styles.infoText}>Last Name</Text>
-			<TextInput style={styles.infoInput} placeholder="Enter Your Last Name Here"/>
+    setHours(currentDate.getHours())
+    setMinutes(currentDate.getMinutes())
+  };
 
-          	<Text style={styles.infoText}>Phone Number</Text>
-          	<TextInput style={styles.infoInput} placeholder="Enter Your Phone Number Here"/>
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
 
-          	<Text style={styles.infoText}>Address</Text>
-          	<TextInput style={styles.infoInput} placeholder="Enter Your Address Here"/>
+  const showDatepicker = () => {
+    showMode('date');
+  };
 
-          	<Text style={styles.infoText}>Special Direction</Text>
-          	<TextInput	multiline={true} style={styles.infoInputForMutli} placeholder="Enter Your Special Direction Here"/>
-			
-        </View>
-        <View style={styles.viewForComfirm}>
-			<Link to={{pathname:"/confirmation"}} style={styles.confirmBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
-				<Text style={styles.textInConfirmBtn}> Confirm </Text>
-			</Link>
-        </View>
-      </SafeAreaView>
-    );
+  const showTimepicker = () => {
+    showMode('time');
+  };
+
+  const handleFormSubmit = values => {
+    let curDate = new Date();
+    let newObj = {
+      ...values, 
+      datePlaced: curDate, 
+      date: date
+    }
+    props.setInfoHandler(newObj);
   }
+
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.header}>
+        <Link to={{pathname:"/reservation"}} style={styles.returnBtn} onPress={()=>Haptics.ImpactFeedbackStyle.Light}>
+          <Text style={styles.textInsideReturnBtn}> Return </Text>
+        </Link>
+      </View>
+      <View style={styles.viewForInput}>
+
+        <Text style={styles.textForTitle}>Enter Confirmation Details</Text>
+        <Formik
+          initialValues={{
+            size: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: ''
+          }}
+          onSubmit={values => handleFormSubmit(values)}
+        >
+
+          {({handleChange, handleBlur, handleSubmit, values}) => (
+
+            <View>
+
+              <Text style={styles.infoText}>First Name</Text>
+              <TextInput 
+                style={styles.infoInput}
+                placeholder="First Name"
+                onChangeText={handleChange('firstName')}
+                onBlur={handleBlur('firstName')}
+                value={values.firstName}
+              />
+
+              <Text style={styles.infoText}>Last Name</Text>
+              <TextInput 
+                style={styles.infoInput}
+                placeholder="Last Name"
+                onChangeText={handleChange('lastName')}
+                onBlur={handleBlur('lastName')}
+                value={values.lastName}
+              />
+                  
+              <Text style={styles.infoText}>Phone Number</Text>
+              <TextInput 
+                style={styles.infoInput}
+                placeholder="###-###-####"
+                onChangeText={handleChange('phone')}
+                onBlur={handleBlur('phone')}
+                value={values.phone}
+              />
+
+              <Text style={styles.infoText}>Email Address</Text>
+              <TextInput
+                style={styles.infoInput}
+                placeholder="johndoe@email.com"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+              />
+
+              <Text style={styles.infoText}>Party Size</Text>
+              <TextInput
+                style={styles.infoInput}
+                placeholder="2-10"
+                onChangeText={handleChange('size')}
+                onBlur={handleBlur('size')}
+                value={values.size}
+              />
+
+              <View>
+
+              <View>
+                  <Button onPress={showDatepicker} title="Show date picker!" />
+              </View>
+              <Text>Selected date: {date.getMonth() + 1}/{date.getDate()}</Text>
+
+              <View>
+                <Button onPress={showTimepicker} title="Show time picker!" />
+              </View>
+
+              <Text>Selected time: {hours}:{minutes}</Text>
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode={mode}
+                  is24Hour={true}
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+              </View> 
+
+              <TouchableOpacity onPress={handleSubmit}>
+                <Text>Confirm Reservation</Text>
+              </TouchableOpacity>
+
+            </View>
+          )}
+        </Formik>
+        
+      </View>
+    </SafeAreaView>
+  );
+
 }
+
+export default Information;
