@@ -4,7 +4,6 @@ import { useLocation, Link } from 'react-router-native';
 import * as Haptics from 'expo-haptics';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import MenuCat from '../../components/MenuCat/MenuCat';
-import MenuItemDetail from '../../components/MenuItemDetail/MenuItemDetail';
 import HomeButton from '../../components/HomeButton/HomeButton';
 
 import styles from './Menu.style';

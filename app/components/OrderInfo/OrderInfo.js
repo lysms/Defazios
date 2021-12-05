@@ -75,6 +75,7 @@ const OrderInfo = (props) =>  {
                 onBlur={handleBlur('requests')}
                 value={values.requests}
               />
+
               <TouchableOpacity onPress={handleSubmit}>
                 <Text>Continue to Payment</Text>
               </TouchableOpacity>

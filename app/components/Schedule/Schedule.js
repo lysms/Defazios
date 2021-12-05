@@ -37,50 +37,57 @@ const Schedule = props => {
 
   return (
     <View style={styles.schedContainer}>
-
-      <Text>Schedule Order</Text>
-      
-
-      <Text>Want to cater for tomorrow? Call us at 518-271-1111 instead.</Text>
-
-
       <View>
-        <Button onPress={showDatepicker} title="Choose Date" />
+        <Text style={styles.mainText}>Choose Date</Text>
+        <Text style={styles.subText}>Want to cater for tomorrow? Call us at 518-271-1111 instead.</Text>
       </View>
 
-      <View>
-        <Button onPress={showTimepicker} title="Choose Time" />
+
+      <View style={styles.chooseContainer}>
+
+        <View style={styles.chooseItem}>
+          <TouchableOpacity onPress={showDatepicker} style={styles.chooseBtn}>
+            <Text style={styles.chooseBtnText}>Choose Date</Text>
+          </TouchableOpacity>
+
+          <Text>
+            Selected Date: {(date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()}
+          </Text>
+        </View>
+
+        <View style={styles.chooseItem}>
+          <TouchableOpacity onPress={showTimepicker} style={styles.chooseBtn}>
+            <Text style={styles.chooseBtnText}>Choose Time</Text>
+          </TouchableOpacity>
+
+          <Text>
+            Time: {date.getHours() + ":" + date.getMinutes()}
+          </Text>
+        </View>
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+        )}
+
       </View>
 
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-
-      <Text>
-        Date: {(date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()}
-      </Text>
-
-      <Text>
-        Time: {date.getHours() + ":" + date.getMinutes()}
-      </Text>
-      
-
-      <View style={styles.container4}>
-        <TouchableOpacity onPress={() => props.stepHandler('info')}>
-          <Text>Confirm Order Information</Text>
+      <View style={styles.linkContainer}>
+        
+        <TouchableOpacity onPress={() => props.stepHandler('cart')}>
+          <Text style={styles.optionText}>Return to Cart</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => props.stepHandler('info')}>
+          <Text style={styles.optionText}>Confirm Order Information</Text>
+        </TouchableOpacity>
+        
       </View>
-      
-      <TouchableOpacity onPress={() => props.stepHandler('cart')}>
-        <Text>Return to Cart</Text>
-      </TouchableOpacity>
     </View>
 
   )
