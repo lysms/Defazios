@@ -6,13 +6,13 @@ DeFazio's is a light mobile app, aiming to provide users with cater ordering and
 
 - React-Native
 
-        https://reactnative.dev/
+        Link: https://reactnative.dev/
 
 ## Backend
 
 - Firebase
 
-        https://firebase.google.com/
+        Link: https://firebase.google.com/
 
 
 
