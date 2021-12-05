@@ -28,6 +28,7 @@ const ManageOrder = ({ history }) => {
 
                 result.forEach(item => {
                     let data = item.data();
+                    console.log("Hello", data)
                     setFname(data.fname)
                     setLname(data.lname)
                     setPhone(data.phone)
@@ -39,19 +40,20 @@ const ManageOrder = ({ history }) => {
                     setEmail(data.email)
 
                     let value = {
-                        lname: Lname,
-                        fname: Fname,
-                        dateFor: DateFor,
-                        dateOrdered: DateOrdered,
-                        specialRequests: SpecialRequests,
-                        items: Item,
-                        email: Email,
-                        phone: Phone,
-                        subTotal: SubTotal,
+                        lname: data.lname,
+                        fname: data.fname,
+                        dateFor: data.dateFor.toDate().toString(),
+                        dateOrdered: data.dateOrdered.toDate().toString(),
+                        specialRequests: data.specialRequests,
+                        items: data.items,
+                        email: data.email,
+                        phone: data.phone,
+                        subTotal: data.subTotal,
                     }
                     final.push(value)
-                    console.log(final)
+
                 })
+                // console.log(final)
                 setOrderItems([...final]);
 
             })
@@ -88,6 +90,7 @@ const ManageOrder = ({ history }) => {
                     <TouchableOpacity style={styles.createAccount2} >
                         <Text style={styles.textcreate2}>Time</Text>
                     </TouchableOpacity>
+
 
                 </View>
 
