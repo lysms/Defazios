@@ -28,7 +28,6 @@ const ManageOrder = ({ history }) => {
 
                 result.forEach(item => {
                     let data = item.data();
-                    console.log("Hello", data)
                     setFname(data.fname)
                     setLname(data.lname)
                     setPhone(data.phone)
