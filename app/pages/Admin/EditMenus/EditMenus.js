@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './EditMenus.style'
+import COLORS from '../../../constants/colors';
 import firebase from '../../../firebase'
 
 
@@ -43,7 +44,6 @@ const EditMenus = ({ history }) => {
         let value = []
         value.push(data);
         value.push('menu')
-        console.log(value);
         history.push({
             pathname: '/menus_details',
             state: value
@@ -55,7 +55,6 @@ const EditMenus = ({ history }) => {
         let value = []
         value.push(data);
         value.push('cateringMenu')
-        console.log(value);
         history.push({
             pathname: '/menus_details',
             state: value
@@ -63,7 +62,6 @@ const EditMenus = ({ history }) => {
     }
 
     const handleAdd = (event) => {
-        console.log("hi")
         history.push({
             pathname: '/addMenus'
 
@@ -75,13 +73,13 @@ const EditMenus = ({ history }) => {
 
 
             <View style={styles.container1}>
-                <Text style={styles.headerText}>Select a Category to continue</Text>
+                <Text style={styles.headerText}>Select a category to continue</Text>
             </View>
 
             <View style={styles.AddListContainer}>
                 <TouchableOpacity style={styles.AddList} onPress={() => { handleAdd() }}>
-                    <Text style={styles.AddText}>Add a new menu</Text>
-                    <Entypo name="add-to-list" size={24} color="blue" />
+                    <Text style={styles.AddText}>Add a new menu item</Text>
+                    <Entypo name="add-to-list" size={20} color={COLORS.blueText} />
                 </TouchableOpacity>
 
             </View>
@@ -90,7 +88,7 @@ const EditMenus = ({ history }) => {
 
             <View style={styles.profile}>
                 <View style={styles.subTitleSection}>
-                    <Text style={styles.subTitle}>Standard Menus</Text>
+                    <Text style={styles.subTitle}>Standard Menu</Text>
                 </View>
                 <ScrollView style={styles.cat}>
                     <View>
@@ -122,7 +120,7 @@ const EditMenus = ({ history }) => {
 
             <View style={styles.profile}>
                 <View style={styles.subTitleSection}>
-                    <Text style={styles.subTitle}>Catering Menus</Text>
+                    <Text style={styles.subTitle}>Catering Menu</Text>
                 </View>
                 <ScrollView style={styles.cat}>
                     <View>
@@ -132,8 +130,8 @@ const EditMenus = ({ history }) => {
                                     <View key={index}>
                                         <Text></Text>
 
-                                        <TouchableOpacity onPress={() => handleDetailsCate(item)}>
-                                            <View style={styles.minimenucontainer2}>
+                                        <TouchableOpacity style={styles.minimenucontainer2}onPress={() => handleDetailsCate(item)}>
+                                            <View>
                                                 <Text style={styles.subitem}>{item}</Text>
 
 

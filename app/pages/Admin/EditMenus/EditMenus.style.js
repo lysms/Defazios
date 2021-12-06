@@ -19,7 +19,7 @@ export default StyleSheet.create({
     },
 
     headerText: {
-        fontSize: 30,
+        fontSize: 20,
         padding: 10,
         textAlign: 'center',
         fontWeight: 'bold',
@@ -90,7 +90,9 @@ export default StyleSheet.create({
 
     minimenucontainer2: {
         height: screen.height / 14,
-        backgroundColor: COLORS.lightGrayBorder,
+        borderWidth: 1,
+        borderColor: COLORS.lightGray,
+        backgroundColor: COLORS.offWhite,
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -103,13 +105,13 @@ export default StyleSheet.create({
     },
 
     subTitleSection: {
-        borderBottomColor: 'red',
+        borderBottomColor: COLORS.lightGrayBorder,
         borderBottomWidth: 2,
         marginBottom: 10,
     },
 
     subTitle: {
-        fontSize: 22,
+        fontSize: 19,
     },
 
     AddListContainer: {
@@ -119,12 +121,13 @@ export default StyleSheet.create({
 
     AddList: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
 
     AddText: {
         paddingRight: 7,
-        fontSize: 18,
-        color: 'blue',
+        fontSize: 16,
+        color: COLORS.blueText,
     },
 
     backButton: {
