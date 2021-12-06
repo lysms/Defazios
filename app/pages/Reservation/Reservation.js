@@ -15,7 +15,7 @@ const Reservation = () => {
         </View>
 
         <View style={styles.viewForPreView}>
-          <Text style={styles.titleForPreView}>
+          {/* <Text style={styles.titleForPreView}>
             Previous Orders
           </Text>
           <ScrollView style={styles.scrollviewForPreView}>
@@ -34,16 +34,18 @@ const Reservation = () => {
               <Button title="Details" onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}/>
             </View>
 
-          </ScrollView>
+          </ScrollView> */}
+          <Text style={styles.textInsidePreOrderBtn}>Want to schedule a time to eat at the DeFazio's Garden? Choose a time and reserve now!</Text>
+
+          <View style={styles.viewForOrderBtn}>    
+            <Link to={{pathname:"/resinfo", state: {type: "calendar"}}} style={styles.orderBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
+              <Text style={styles.textInsideOrderBtn}>
+                Create New Reservation 
+              </Text>
+            </Link>
+          </View>
         </View>
 
-        <View style={styles.viewForOrderBtn}>    
-          <Link to={{pathname:"/resinfo", state: {type: "calendar"}}} style={styles.orderBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
-            <Text style={styles.textInsideOrderBtn}>
-              Create New Reservation 
-            </Text>
-          </Link>
-        </View>
 
       </View>
     </SafeAreaView>

@@ -20,7 +20,7 @@ const Catering = () => {
 
         <View style={styles.viewForPreView}>
 
-          <Text style={styles.titleForPreView}>Previous Orders</Text>
+          {/* <Text style={styles.titleForPreView}>Previous Orders</Text>
           <ScrollView style={styles.scrollviewForPreView}>
             <View style={styles.preOrderBtn}>
               <Text style={styles.textInsidePreOrderBtn}>October 24, 2021</Text>
@@ -31,14 +31,15 @@ const Catering = () => {
               <Text style={styles.textInsidePreOrderBtn}>September 16, 2021</Text>
               <Button title="Details" onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}/>
             </View>
-          </ScrollView>
+          </ScrollView> */}
+          <Text style={styles.textInsidePreOrderBtn}>Want to have DeFazio's at your next event? Choose your meal and create your order now!</Text>
+          <View style={styles.viewForOrderBtn}>
+            <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder: []}}} style={styles.orderBtn} onPress={() => {setIsOrdering(true); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
+              <Text style={styles.textInsideOrderBtn}>Create New Catering Order</Text>
+            </Link>
+          </View>
         </View>
 
-        <View style={styles.viewForOrderBtn}>    
-          <Link to={{pathname:"/menu", state: {type: "cateringMenu", createOrder: true, currentOrder: []}}} style={styles.orderBtn} onPress={() => {setIsOrdering(true); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}}>
-            <Text style={styles.textInsideOrderBtn}>Create New Catering Order</Text>
-          </Link>
-        </View>
       </View>
     </SafeAreaView>
   )
