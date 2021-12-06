@@ -30,6 +30,7 @@ export default StyleSheet.create({
     borderWidth: 2,
     marginLeft: screen.width / 21,
     padding: 10,
+    paddingRight: 0,
     width: screen.width / 1.1,
     borderColor: "grey",
     backgroundColor: '#F6F6F6'
@@ -119,6 +120,13 @@ export default StyleSheet.create({
 
   itemNums: {
     justifyContent: 'center',
-    alignItems: 'flex-end'
+    alignItems: 'flex-start',
+    marginRight: 10
+  },
+
+  cartItemInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 })
