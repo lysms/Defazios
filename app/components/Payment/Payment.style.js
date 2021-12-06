@@ -20,23 +20,44 @@ export default StyleSheet.create({
     // alignItems: 'center'
   },
 
+  formItems: {
+    marginBottom: 10
+  },
+
   formItem: {
-    marginVertical: 4,
+    marginVertical: 3,
+  },
+
+  paymentText: {
+    fontSize: 17,
+    fontWeight: 'bold',
   },
 
   paymentInput: {
-    width: '100%',
+    fontSize: 17,
+    padding: 7,
+    borderRadius: 6,
+    backgroundColor: colors.lightGrayText,
+    height: 34,
+    borderColor: colors.lightGray,
     borderWidth: 1,
-    borderColor: colors.lightGrayBorder,
-    paddingHorizontal: 5,
-    width: '80%',
-    paddingLeft: 10
+    margin: 2,
+    width: '100%',
   },
 
   formTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
     marginBottom: 5
+  },
+  linkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  optionText: {
+    color: colors.blueText
   }
 });
