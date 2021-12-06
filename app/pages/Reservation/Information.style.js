@@ -116,5 +116,12 @@ export default StyleSheet.create({
     paddingVertical: 20
   },
 
+  schedContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%'
+  }
+
   
 });

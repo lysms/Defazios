@@ -140,15 +140,16 @@ const Information = props => {
                   </Text>
                 </View>
 
-                  {show && (
-                    <DateTimePicker
-                      testID="dateTimePicker"
-                      value={date}
-                      mode={mode}
-                      is24Hour={true}
-                      display="default"
-                      onChange={onChange}
-                    />
+                  {show && (                      <DateTimePicker
+                        testID="dateTimePicker"
+                        value={date}
+                        mode={mode}
+                        is24Hour={true}
+                        display="default"
+                        onChange={onChange}
+                      />
+                    
+
                   )}
                 </View> 
 
