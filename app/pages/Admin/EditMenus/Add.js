@@ -66,7 +66,6 @@ const Add = ({ history }) => {
 
 
 
-    const message = "Hello world";
     return (
         <View style={styles.container}>
 
@@ -91,7 +90,8 @@ const Add = ({ history }) => {
                         <Text style={styles.mainbody}>Collection: </Text>
 
                         <View style={styles.add_cat_pick}>
-                            <Picker selectedValue={selectedCollection}
+                            <Picker 
+                                selectedValue={selectedCollection}
                                 style={styles.picker}
                                 onValueChange={(itemValue, itemIndex) => setSelectedCollection(itemValue)}>
                                 <Picker.Item label="Menu" value="menu" />
