@@ -73,7 +73,7 @@ const Add = ({ history }) => {
 
             <View style={styles.container8}>
                 <TouchableOpacity style={styles.backButton} onPress={() => { history.push('/adminMenus') }}>
-                    <AntDesign name="back" size={30} color="white" />
+                    <AntDesign name="back" size={20} color="white" />
                     <Text style={styles.goback}>Go Back</Text>
                 </TouchableOpacity>
 
@@ -82,8 +82,7 @@ const Add = ({ history }) => {
 
 
             <View style={styles.container1}>
-                <Text style={styles.headerText1}>Defazio's Pizza</Text>
-                <Text style={styles.subheader}>Add an Item</Text>
+                <Text style={styles.subheader}>Add an item to the menu</Text>
             </View>
             <View style={styles.container11}>
 

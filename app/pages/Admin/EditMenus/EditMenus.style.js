@@ -205,7 +205,7 @@ export default StyleSheet.create({
     },
 
     submit: {
-        borderWidth: 2,
+        borderWidth: 1,
         backgroundColor: "black",
         width: screen.width / 4,
         height: 42,
@@ -226,7 +226,7 @@ export default StyleSheet.create({
     },
 
     add_cat_pick: {
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 10,
     }
 })
