@@ -11,7 +11,6 @@ const Detail = ({ history }) => {
     let final = {}
     let result = location['state'];
     final = result;
-    console.log(final)
 
     // Function to handle the delete workflow for the Firebase Database
     const handleDelete = () => {
@@ -19,7 +18,6 @@ const Detail = ({ history }) => {
         let lastName = final.lname
         let cost = final.subTotal
         let specialRequests = final.specialRequests
-        console.log("Delete", firstName, lastName, cost, specialRequests);
         let id = "";
         var query = firebase.collection("orders")
         query = query.where("fname", "==", firstName)
@@ -31,23 +29,20 @@ const Detail = ({ history }) => {
             value.forEach(element => {
                 id = element.id
             })
-            console.log(id)
             firebase.collection("orders").doc(id).delete();
             history.push({
                 pathname: '/adminOrder',
-
             });
-            Alert.alert("You have successfully delete this order");
+            Alert.alert("You have successfully deleted this order");
         })
 
     }
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Text style={styles.title}>Defazio's Pizza</Text>
             </View>
             <TouchableOpacity style={styles.backButton} onPress={() => { history.push('/adminOrder') }}>
-                <AntDesign name="back" size={30} color="white" />
+                <AntDesign name="back" size={20} color="white" />
                 <Text style={styles.goback}>Go Back</Text>
             </TouchableOpacity>
 
@@ -57,9 +52,12 @@ const Detail = ({ history }) => {
 
                     {
                         <View>
-                            <Text style={styles.Value}>Name: {final.fname}, {final.lname}</Text>
+                            <Text style={styles.Value}>Name: {final.fname} {final.lname}</Text>
                             <Text style={styles.Value}>Email: {final.email}</Text>
                             <Text style={styles.Value}>Phone: {final.phone}</Text>
+                            <Text style={styles.Value}>Scheduled for: {final.dateFor}</Text>
+                            <Text style={styles.Value}>Date Ordered: {final.dateOrdered}</Text>
+                            
                             {
                                 final.items.length > 0 ?
                                     final.items.map((value, index) => {
@@ -86,10 +84,8 @@ const Detail = ({ history }) => {
                                     }) : <View></View>
                             } */}
                             </View>
-                            <Text style={styles.Value}>Date For: {final.dateFor}</Text>
-                            <Text style={styles.Value}>Date Ordered: {final.dateOrdered}</Text>
-                            <Text style={styles.Value}>Price: ${final.subTotal}</Text>
-                            <Text style={styles.Value}>Special Requests: "{final.specialRequests}"</Text>
+                            
+                            
                         </View>
                     }
                 </View>
@@ -98,7 +94,8 @@ const Detail = ({ history }) => {
             {
                 <View style={styles.ButtonContainer}>
                     <TouchableOpacity style={styles.Button} onPress={() => { handleDelete() }}>
-                        <AntDesign name="delete" size={34} color="black" />
+                        <Text>Delete Order</Text>
+                        <AntDesign name="delete" size={25} color="black" />
                     </TouchableOpacity>
                 </View>
             }
