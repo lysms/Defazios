@@ -33,8 +33,6 @@ const Booked = ({ history }) => {
           }
 
           orders.push(newObj)
-          console.log(orders)
-
         })
 
         setOrderItems([...orders])
