@@ -23,13 +23,11 @@ const Profile = ({ history }) => {
 
 
     let email = auth.currentUser.email
-    console.log(email)
     firebase.collection("users")
         .where("email", "==", email)
         .get()
         .then(value => {
             value.forEach(element => {
-                //console.log(element.data())
 
                 setFirstName(element.data().firstName)
                 setLastName(element.data().lastName)
@@ -66,7 +64,6 @@ const Profile = ({ history }) => {
             last: UpdateLast,
             phone: UpdatePhone
         }
-        console.log(info)
         let id = ""
         var query = firebase.collection("users")
         query = query.where("email", "==", auth.currentUser.email)
@@ -77,7 +74,6 @@ const Profile = ({ history }) => {
             value.forEach(element => {
                 id = element.id
             })
-            console.log(id)
 
             firebase.collection("users").doc(id).update({
                 firstName: UpdateFirst,
@@ -97,51 +93,42 @@ const Profile = ({ history }) => {
             {/* At the top => will be able to view the overall menus  (can be direct to the menus page.) */}
 
             <HomeButton />
-            <View style={styles.headerSection}>
-                <Text style={styles.headerText}>USER PROFILE</Text>
-            </View>
 
-            <View>
-            </View>
-            {/* 
-                info to display:
-                    first name
-                    last name
-                    email
-                    phone number
-            */}
-            <View style={styles.Profile}>
-                <Text style={styles.ProfileInfoText}>
-                    First Name{" "}: {info.first} {"\n"}
-                    Last Name{"  "}: {info.last} {"\n"}
-                    Email{""}: {auth.currentUser?.email}{"\n"}
-                    Phone# : {info.phone}
-                </Text>
-            </View>
+            <View style={styles.pageContent}>
 
-            <View style={{ flexDirection: 'row' }}>
-                <View style={styles.editBtn}>
+                <View style={styles.headerSection}>
+                    <Text style={styles.headerText}>User Profile</Text>
+                </View>
+                {/* 
+                    info to display:
+                        first name
+                        last name
+                        email
+                        phone number
+                */}
+                <View style={styles.Profile}>
+                    <Text style={styles.ProfileInfoText}>
+                        First Name{" "}: {info.first} {"\n"}
+                        Last Name{"  "}: {info.last} {"\n"}
+                        Email{""}: {auth.currentUser?.email}{"\n"}
+                        Phone# : {info.phone}
+                    </Text>
+                </View>
+
+                <View style={styles.btnContainer}>
                     <TouchableOpacity style={styles.createAccount} onPress={() => callEdit(info)}>
                         <Text style={styles.textcreate}>Edit</Text>
                     </TouchableOpacity>
-                </View>
 
-                <View style={styles.editBtn}>
                     <TouchableOpacity style={styles.createAccount} onPress={handleSignOut}>
                         <Text style={styles.textcreate}>Sign Out</Text>
                     </TouchableOpacity>
                 </View>
-                {/* <View style={styles.menucontainer}>
-                    <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/shoppingCart')}>
-                        <Text style={styles.textcreate}>Browse Menus</Text>
-                    </TouchableOpacity>
-                </View> */}
-            </View>
 
-            <View>
+              
                 {
                     Change === true ?
-                        <View>
+                        <View style={styles.editContainer}>
                             <View style={styles.mainform}>
                                 <Text style={styles.mainbody}>First Name: </Text>
                                 <TextInput placeholder="Veggie Lasagna" style={styles.inputtext} onChangeText={text => setUpdateFirst(text)} value={UpdateFirst} />
@@ -164,8 +151,6 @@ const Profile = ({ history }) => {
                         </View> : <View></View>
                 }
             </View>
-            <View style={styles.container3}></View>
-
         </View>
 
 
