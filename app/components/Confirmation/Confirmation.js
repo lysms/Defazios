@@ -46,7 +46,7 @@ const Confirmation = props => {
           <Text style={styles.regularText}>Phone Number: {order.phone}</Text>
           <Text style={styles.regularText}>Email: {order.email}</Text>
 
-          <ScrollView>
+          <ScrollView style={styles.caterScroll}>
             { items }
           </ScrollView>
           <Text style={styles.regularText}>Subtotal: ${order.subTotal.toFixed(2)}</Text>

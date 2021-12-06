@@ -19,7 +19,7 @@ export default StyleSheet.create({
     fontSize: 30,
     marginLeft: screen.width / 80,
     padding: 10,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
   },
 
   details: {
@@ -38,13 +38,13 @@ export default StyleSheet.create({
 
   regularText: {
     fontSize: 18,
-    fontWeight: 'bold'
+    // fontWeight: 'bold'
   },
 
   specialText: {
     color: 'black',
     fontSize: 18,
-    fontWeight: 'bold'
+    // fontWeight: 'bold'
   },
 
   createAccount: {
@@ -99,4 +99,8 @@ export default StyleSheet.create({
   optionText: {
     color: colors.blueText
   },
+
+  caterScroll: {
+    marginTop: 10
+  }
 })
