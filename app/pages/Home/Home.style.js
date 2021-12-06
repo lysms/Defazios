@@ -5,7 +5,7 @@ const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   homeContainer: {
-    flex: 1,
+    height: '83%',
     justifyContent: 'space-between'
   },
   
@@ -48,6 +48,6 @@ export default StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
 });
