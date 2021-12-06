@@ -184,7 +184,7 @@ export default StyleSheet.create({
         marginTop: 20
     },
     container8: {
-        flex: 0.1,
+        // flex: 0.1,
         marginTop: 30,
     },
     container11: {
@@ -220,8 +220,8 @@ export default StyleSheet.create({
     },
 
     picker: {
-        height: 50,
-        width: screen.width / 1.04,
+        // height: 100,
+        // width: screen.width / 1.04,
 
     },
 
