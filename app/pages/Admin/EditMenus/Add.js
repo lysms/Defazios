@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Picker, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { Text, View, ScrollView, Button, Linking, Dimensions, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import styles from './EditMenus.style'
 import firebase from '../../../firebase'
 import { MaterialIcons, AntDesign, Entypo } from '@expo/vector-icons';
@@ -15,10 +16,10 @@ const Add = ({ history }) => {
     const [selectedCategory, setSelectedCategory] = useState("Pizzas");
     const [Name, setName] = useState("");
     const [Desc, setDescription] = useState("");
-    const [Price, setPrice] = useState(0);
-    const [Time, setTime] = useState(0);
+    const [Price, setPrice] = useState("");
+    const [Time, setTime] = useState("");
 
-    const [HalfPrice, setHalfPrice] = useState(0);
+    const [HalfPrice, setHalfPrice] = useState("");
 
 
 
@@ -29,11 +30,11 @@ const Add = ({ history }) => {
 
             newData = {
                 category: selectedCategory,
-                cost: Price,
+                cost: parseInt(Price),
                 desc: Desc,
                 image: null,
                 name: Name,
-                time: Time
+                time: parseInt(Time)
 
             };
 
@@ -42,15 +43,15 @@ const Add = ({ history }) => {
                 newData = {
                     category: selectedCategory,
                     desc: Desc,
-                    fullCost: Price,
-                    halfCost: HalfPrice,
+                    fullCost: parseInt(Price),
+                    halfCost: parseInt(HalfPrice),
                     name: Name
                 }
             } else {
                 newData = {
                     category: selectedCategory,
-                    fullCost: Price,
-                    halfCost: HalfPrice,
+                    fullCost: parseInt(Price),
+                    halfCost: parseInt(HalfPrice),
                     name: Name
                 }
             }
@@ -138,11 +139,11 @@ const Add = ({ history }) => {
                                 </View>
                                 <View style={styles.mainform}>
                                     <Text style={styles.mainbody}>Price: </Text>
-                                    <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setPrice(parseInt(text))} value={Price} />
+                                    <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setPrice((text))} value={Price} />
                                 </View>
                                 <View style={styles.mainform}>
                                     <Text style={styles.mainbody}>Cooking Time:</Text>
-                                    <TextInput placeholder="20" style={styles.inputtext} onChangeText={text => setTime(parseInt(text))} value={Time} />
+                                    <TextInput placeholder="20" style={styles.inputtext} onChangeText={text => setTime((text))} value={Time} />
                                 </View>
 
                                 <View style={styles.container10}>
@@ -178,12 +179,12 @@ const Add = ({ history }) => {
 
                                     <View style={styles.mainform}>
                                         <Text style={styles.mainbody}>Full Price: </Text>
-                                        <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setPrice(parseInt(text))} value={Price} />
+                                        <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setPrice((text))} value={Price} />
                                     </View>
 
                                     <View style={styles.mainform}>
                                         <Text style={styles.mainbody}>Half Price: </Text>
-                                        <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setHalfPrice(parseInt(text))} value={HalfPrice} />
+                                        <TextInput placeholder="15" style={styles.inputtext} onChangeText={text => setHalfPrice((text))} value={HalfPrice} />
                                     </View>
 
                                     {selectedCategory === 'Dessert' ? <View style={styles.mainform}>
