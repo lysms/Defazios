@@ -106,7 +106,7 @@ const ManageOrder = ({ history }) => {
                                             <Text></Text>
                                             <TouchableOpacity onPress={() => handleDetails(data)}>
                                                 <View style={styles.minimenucontainer2}>
-                                                    <Text key={i - 1} style={styles.subitem}>{data.fname}, {data.lname}</Text>
+                                                    <Text key={i - 1} style={styles.subitem}>{data.fname} {data.lname}</Text>
 
                                                     <Text key={i + 1} style={styles.subitem}>{data.dateFor.substring(0, 10)} {data.dateFor.substring(15, 21)} {data.dateFor.substring(34, 39)}</Text>
 

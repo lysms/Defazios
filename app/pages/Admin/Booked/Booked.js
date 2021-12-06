@@ -50,8 +50,21 @@ const Booked = ({ history }) => {
 
 
       <View style={styles.container1}>
-          <Text style={styles.headerText}>View the Upcoming Reservation. </Text>
+          <Text style={styles.headerText}>View Reservations</Text>
       </View>
+
+      <View style={styles.minimenucontainer}>
+
+        <TouchableOpacity style={styles.createAccount2}>
+            <Text style={styles.textcreate2}>Name</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.createAccount2} >
+            <Text style={styles.textcreate2}>Date</Text>
+        </TouchableOpacity>
+
+
+    </View>
 
 
       <View style={styles.profile}>

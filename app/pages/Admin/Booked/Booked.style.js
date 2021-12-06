@@ -41,6 +41,51 @@ export default StyleSheet.create({
         height: 65,
     },
 
+    createAccount2: {
+        color: "black",
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomColor: COLORS.lightGray,
+        borderBottomWidth: 1,
+    
+    },
+
+    textcreate2: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        // width: screen.width / 4,
+        textAlign: 'center',
+        color: "black",
+    
+      },
+    
+    minimenucontainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: screen.width,
+      },
+
+    minimenucontainer2: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        // width: screen.width / 1.07,
+        // width: '90%',
+        // height: 'auto',
+        borderColor: COLORS.lightGrayText,
+        backgroundColor: COLORS.lightGrayText,
+        alignItems: 'center',
+        paddingVertical: 6,
+        paddingHorizontal: 12,
+        borderRadius: 3
+      },
+
+      subitem: {
+        width: screen.width / 3,
+        fontSize: 16,
+        textAlign: 'center',
+        textTransform: 'capitalize',
+      },
+
 
     createAccount: {
 

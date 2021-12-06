@@ -61,7 +61,7 @@ export default StyleSheet.create({
 
   subitem: {
     width: screen.width / 3,
-    fontSize: 18,
+    fontSize: 16,
     textAlign: 'center',
     textTransform: 'capitalize',
   },
