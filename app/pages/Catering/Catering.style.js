@@ -68,6 +68,7 @@ export default StyleSheet.create({
   textInsideOrderBtn: {
     fontSize: 18,
     color: 'white',
+    fontWeight: 'bold'
   }
 
 });

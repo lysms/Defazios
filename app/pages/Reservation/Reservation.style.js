@@ -61,12 +61,13 @@ export default StyleSheet.create({
     marginHorizontal: '10%'
   },
   textInsideOrderBtn: {
-    fontSize: 21,
+    fontSize: 18,
     color: 'white',
     fontWeight: 'bold'
   },
   pageContent: {
     flexDirection: "column",
+    justifyContent: 'space-between',
     flex: 1
   }
 
