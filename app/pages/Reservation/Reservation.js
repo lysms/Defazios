@@ -39,9 +39,9 @@ const Reservation = () => {
 
         <View style={styles.viewForOrderBtn}>    
           <Link to={{pathname:"/resinfo", state: {type: "calendar"}}} style={styles.orderBtn} onPress={()=>Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}>
-              <Text style={styles.textInsideOrderBtn}>
-                Create New Reservation 
-              </Text>
+            <Text style={styles.textInsideOrderBtn}>
+              Create New Reservation 
+            </Text>
           </Link>
         </View>
 

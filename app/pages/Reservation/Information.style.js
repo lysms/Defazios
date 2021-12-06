@@ -6,7 +6,7 @@ const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   infoText: {
-    fontSize: 21,
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 5,
     marginHorizontal: 3
@@ -64,7 +64,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around'
   },
   textForTitle: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 5,
   },
@@ -106,4 +106,15 @@ export default StyleSheet.create({
     margin: 5,
     width: '97%',
   },
+
+  infoContent: {
+    height: '93%',
+    justifyContent: 'space-between'
+  },
+
+  datePicker: {
+    paddingVertical: 20
+  },
+
+  
 });

@@ -16,8 +16,12 @@ const MenuItem = props => {
   }
 
   const itemClickHandler = (item, type) => {
-    let newModalItem = <MenuItemAdd addToOrderHandler={props.add} item={item} show={true} showHandler={toggleModal} type={type} h={props.h}/>
-    setModalItem(newModalItem)
+    if (props.ordering) {
+      let newModalItem = <MenuItemAdd addToOrderHandler={props.add} item={item} show={true} showHandler={toggleModal} type={type} h={props.h}/>
+      setModalItem(newModalItem)
+    } else {
+      return
+    }
   }
 
   useEffect(() => {

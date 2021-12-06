@@ -32,6 +32,11 @@ export default StyleSheet.create({
     marginBottom: 5
   },
 
+  infoContent: {
+    height: '93%',
+    justifyContent: 'space-between'
+  },
+
   requests: {
     fontSize: 17,
     padding: 7,
@@ -78,5 +83,16 @@ export default StyleSheet.create({
     fontSize: 21,
     fontWeight: 'bold',
     color: 'white'
-  }
+  },
+
+  optionText: {
+    color: COLORS.blueText
+  },
+
+  linkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    // padding: 20
+  },
 });
