@@ -50,7 +50,7 @@ export default StyleSheet.create({
 
     backButton: {
         backgroundColor: 'black',
-        borderRadius: 16,
+        borderRadius: 4,
         width: screen.width / 3,
         height: 'auto',
         alignItems: 'center',
@@ -67,11 +67,12 @@ export default StyleSheet.create({
     },
 
     minimenucontainer2: {
-        height: 'auto',
-        backgroundColor: COLORS.lightGrayBorder,
+        borderWidth: 1,
+        borderColor: COLORS.lightGray,
+        backgroundColor: COLORS.offWhite,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 18,
+        borderRadius: 3
 
     },
 
@@ -101,6 +102,9 @@ export default StyleSheet.create({
 
     Button: {
         padding: screen.width / 8,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     mainbody: {
         fontSize: 19,
