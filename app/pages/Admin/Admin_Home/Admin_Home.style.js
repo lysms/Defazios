@@ -99,7 +99,7 @@ export default StyleSheet.create({
   },
   button: {
     backgroundColor: 'black',
-    width: screen.width / 3.8,
+    // width: screen.width / 3.8,
     padding: 15,
     borderRadius: 20,
     alignItems: 'center',
