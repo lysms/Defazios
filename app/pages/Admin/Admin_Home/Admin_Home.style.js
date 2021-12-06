@@ -47,7 +47,7 @@ export default StyleSheet.create({
   menucontainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: COLORS.lightGray,
+    backgroundColor: COLORS.lightGrayText,
     width: screen.width,
     height: 65,
   },

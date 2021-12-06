@@ -35,7 +35,7 @@ export default StyleSheet.create({
         flex: 8,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        backgroundColor: COLORS.lightGray,
+        backgroundColor: COLORS.lightGrayText,
         width: screen.width,
         height: 65,
     },

@@ -144,9 +144,9 @@ const ManageOrder = ({ history }) => {
                     <Text style={styles.textcreate}>Booked</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminNews')}>
+                {/* <TouchableOpacity style={styles.createAccount} onPress={() => history.push('/adminNews')}>
                     <Text style={styles.textcreate}>News</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
 
         </View>
