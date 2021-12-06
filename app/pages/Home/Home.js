@@ -93,14 +93,14 @@ const Home = ({ history }) => {
           >
             <Text style={styles.buttonText}>Wait Time Calculator</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.button}
             onPress={
               () => { history.push('/newsletter'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }
             }
           >
             <Text style={styles.buttonText}>Newsletter</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           {
             Logged === true ? <TouchableOpacity
