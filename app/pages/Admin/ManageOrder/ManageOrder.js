@@ -62,8 +62,6 @@ const ManageOrder = ({ history }) => {
     }, [])
 
     const handleDetails = (data) => {
-        console.log("you click");
-        console.log(data);
         history.push({
             pathname: '/order_details',
             state: data
@@ -77,7 +75,7 @@ const ManageOrder = ({ history }) => {
 
 
             <View style={styles.container1}>
-                <Text style={styles.headerText}>Welcome to view all the order. </Text>
+                <Text style={styles.headerText}>View Catering Orders</Text>
             </View>
 
 
@@ -90,7 +88,7 @@ const ManageOrder = ({ history }) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.createAccount2} >
-                        <Text style={styles.textcreate2}>Time</Text>
+                        <Text style={styles.textcreate2}>Date</Text>
                     </TouchableOpacity>
 
 
@@ -98,27 +96,28 @@ const ManageOrder = ({ history }) => {
 
                 <ScrollView>
 
-                    {
-                        orderItems.length > 0 ?
+                        {
+                            orderItems.length > 0 ?
 
-                            orderItems.map((data, i) => {
+                                orderItems.map((data, i) => {
 
-                                return (
-                                    <View key={i}>
-                                        <Text></Text>
-                                        <TouchableOpacity onPress={() => handleDetails(data)}>
-                                            <View style={styles.minimenucontainer2}>
-                                                <Text key={i - 1} style={styles.subitem}>{data.fname}, {data.lname}</Text>
+                                    return (
+                                        <View key={i}>
+                                            <Text></Text>
+                                            <TouchableOpacity onPress={() => handleDetails(data)}>
+                                                <View style={styles.minimenucontainer2}>
+                                                    <Text key={i - 1} style={styles.subitem}>{data.fname}, {data.lname}</Text>
 
-                                                <Text key={i + 1} style={styles.subitem}>{data.dateFor.substring(0, 10)} {data.dateFor.substring(15, 21)} {data.dateFor.substring(34, 39)}</Text>
+                                                    <Text key={i + 1} style={styles.subitem}>{data.dateFor.substring(0, 10)} {data.dateFor.substring(15, 21)} {data.dateFor.substring(34, 39)}</Text>
 
-                                            </View>
-                                        </TouchableOpacity>
+                                                </View>
+                                            </TouchableOpacity>
 
-                                    </View>
-                                )
-                            }) : <View></View>
-                    }
+                                        </View>
+                                    )
+                                }) : <View></View>
+                        }
+
                 </ScrollView>
             </View>
 
