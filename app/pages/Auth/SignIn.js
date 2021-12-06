@@ -100,11 +100,11 @@ const SignIn = ({ history }) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.container_create}>
+                {/* <View style={styles.container_create}>
                     <TouchableOpacity onPress={() => history.push('/adminHome')}>
                         <Text style={styles.textsignup}>Admin Login</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
 
                 <View style={styles.container2}>
