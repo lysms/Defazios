@@ -11,7 +11,10 @@ export default StyleSheet.create({
   viewForPreView: {
     height: windowHeight > 800 ? windowHeight / 100 * 70 : windowHeight / 100 * 70,
     paddingHorizontal: 17,
-    paddingVertical: 7,
+    paddingVertical: 7,  
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 70
   },
   titleForPreView: {
     fontSize: 23,
@@ -19,11 +22,14 @@ export default StyleSheet.create({
   },
   scrollviewForPreView: {
     margin: 10,
-    height: '95%'
+    height: '95%',
+  
+  
   },
   textInsidePreOrderBtn: {
     fontSize: 16,
     fontWeight: 'bold',
+    textAlign: 'center'
   },
   preOrderBtn: {
     flexDirection: 'row',
@@ -46,7 +52,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   viewForOrderBtn: {
-    height: windowHeight > 800 ? windowHeight / 100 * 20 : windowHeight / 100 * 18,
+    // height: windowHeight > 800 ? windowHeight / 100 * 20 : windowHeight / 100 * 18,
   },
   orderBtn: {
     alignItems: 'center',

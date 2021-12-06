@@ -23,7 +23,6 @@ const Item = ({ history }) => {
     let final = []
     useEffect(() => {
         let result = location['state'];
-        console.log("this is the result\n", result);
 
         //console.log(result.category)
         if (result.hasOwnProperty('desc')) {
@@ -37,7 +36,6 @@ const Item = ({ history }) => {
     }, [])
 
     const handleDetails = (data) => {
-        console.log(data);
         let value = [];
         value.push(data)
         value.push('cateringMenu')
@@ -48,7 +46,6 @@ const Item = ({ history }) => {
     }
 
     const handleDelete = (data) => {
-        console.log("Delete", data, Collection);
         let id = "";
         firebase.collection(Collection)
             .where("name", "==", data)
@@ -74,7 +71,6 @@ const Item = ({ history }) => {
     }
 
     const callEdit = (data) => {
-        console.log("Edit", data, Collection, Change);
         setChange(true)
     }
 
@@ -88,7 +84,6 @@ const Item = ({ history }) => {
 
                     id = element.id
                 })
-                console.log(id)
                 let newData = {
                     category: Category,
                     collection: Collection,
@@ -115,7 +110,6 @@ const Item = ({ history }) => {
                     });
                 }
 
-                console.log(newData)
 
                 let values = []
                 values.push(Category);
@@ -127,17 +121,16 @@ const Item = ({ history }) => {
                 });
 
 
-                Alert.alert("You have successfully update the menus")
+                Alert.alert("You have successfully update the menu")
             })
     }
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Text style={styles.title}>Defazio's Pizza sdfsdfs</Text>
             </View>
             {
                 <TouchableOpacity style={styles.backButton} onPress={() => { handleDetails(Category) }}>
-                    <AntDesign name="back" size={30} color="white" />
+                    <AntDesign name="back" size={20} color="white" />
                     <Text style={styles.goback}>Go Back</Text>
                 </TouchableOpacity>
             }
@@ -221,11 +214,13 @@ const Item = ({ history }) => {
                 {
                     <View style={styles.ButtonContainer}>
                         <TouchableOpacity style={styles.Button} onPress={() => { handleDelete(Name) }}>
-                            <AntDesign name="delete" size={34} color="black" />
+                            <Text>Delete Item  </Text>
+                            <AntDesign name="delete" size={24} color="black" />
 
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.Button} onPress={() => { callEdit(Name) }}>
-                            <AntDesign name="edit" size={34} color="black" />
+                            <Text>Edit Item  </Text>
+                            <AntDesign name="edit" size={24} color="black" />
                         </TouchableOpacity>
                     </View>
                 }

@@ -65,12 +65,13 @@ const Schedule = props => {
           </Text>
         </View>
         {show && (
+          
           <DateTimePicker
             testID="dateTimePicker"
             value={date}
             mode={mode}
             is24Hour={true}
-            display="default"
+            display="spinner"
             onChange={onChange}
           />
         )}

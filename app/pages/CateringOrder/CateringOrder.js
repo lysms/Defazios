@@ -19,6 +19,7 @@ const CateringOrder = () => {
 
   const [fullOrder, setFullOrder] = useState({});
   const [currentStep, setCurrentStep] = useState('cart');
+  const [cartItems, setCartItems] = useState([...items]);
 
 
   useEffect(() => {
@@ -45,11 +46,15 @@ const CateringOrder = () => {
     db.collection('orders').add(newOrder)
   }
 
+  const editItemHandler = (items) => {
+    setCartItems([...items])
+  }
+
 
   let content = null;
 
   if (currentStep === "cart") {
-    content = <ShoppingCart items={items} stepHandler={setStepHandler} addToFinal={addToFinalOrderHandler}/>
+    content = <ShoppingCart items={cartItems} stepHandler={setStepHandler} addToFinal={addToFinalOrderHandler} editItems={editItemHandler}/>
   } else if (currentStep === "schedule") {
     content = <Schedule stepHandler={setStepHandler} setDate={addToFinalOrderHandler}/>
   } else if (currentStep === "info" ) {

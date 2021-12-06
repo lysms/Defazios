@@ -55,10 +55,9 @@ const MenusDetails = ({ history }) => {
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Text style={styles.title}>Defazio's Pizza</Text>
             </View>
             <TouchableOpacity style={styles.backButton} onPress={() => { history.push('/adminMenus') }}>
-                <AntDesign name="back" size={30} color="white" />
+                <AntDesign name="back" size={20} color="white" />
                 <Text style={styles.goback}>Go Back</Text>
             </TouchableOpacity>
             <View style={styles.profile}>

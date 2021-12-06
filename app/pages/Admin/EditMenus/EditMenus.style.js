@@ -19,7 +19,7 @@ export default StyleSheet.create({
     },
 
     headerText: {
-        fontSize: 30,
+        fontSize: 20,
         padding: 10,
         textAlign: 'center',
         fontWeight: 'bold',
@@ -37,7 +37,7 @@ export default StyleSheet.create({
         flex: 8,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        backgroundColor: COLORS.lightGray,
+        backgroundColor: COLORS.lightGrayText,
         width: screen.width,
         height: 65,
     },
@@ -90,7 +90,9 @@ export default StyleSheet.create({
 
     minimenucontainer2: {
         height: screen.height / 14,
-        backgroundColor: COLORS.lightGrayBorder,
+        borderWidth: 1,
+        borderColor: COLORS.lightGray,
+        backgroundColor: COLORS.offWhite,
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -103,13 +105,13 @@ export default StyleSheet.create({
     },
 
     subTitleSection: {
-        borderBottomColor: 'red',
+        borderBottomColor: COLORS.lightGrayBorder,
         borderBottomWidth: 2,
         marginBottom: 10,
     },
 
     subTitle: {
-        fontSize: 22,
+        fontSize: 19,
     },
 
     AddListContainer: {
@@ -119,12 +121,13 @@ export default StyleSheet.create({
 
     AddList: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
 
     AddText: {
         paddingRight: 7,
-        fontSize: 18,
-        color: 'blue',
+        fontSize: 16,
+        color: COLORS.blueText,
     },
 
     backButton: {
@@ -202,7 +205,7 @@ export default StyleSheet.create({
     },
 
     submit: {
-        borderWidth: 2,
+        borderWidth: 1,
         backgroundColor: "black",
         width: screen.width / 4,
         height: 42,
@@ -223,7 +226,7 @@ export default StyleSheet.create({
     },
 
     add_cat_pick: {
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 10,
     }
 })
