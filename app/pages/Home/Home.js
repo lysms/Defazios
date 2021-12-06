@@ -15,7 +15,6 @@ const Home = ({ history }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        console.log(user.email)
         setLogged(true)
       }
     })
@@ -32,9 +31,7 @@ const Home = ({ history }) => {
           .get()
           .then(value => {
             value.forEach(element => {
-              //console.log(element.data())
               let token = (element.data().token)
-              console.log(token)
               if (token === "user") {
                 history.push("/profile")
               }
@@ -51,10 +48,7 @@ const Home = ({ history }) => {
   return (
 
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <SafeAreaView
-        style={{
-          flex: 1,
-        }}>
+      <SafeAreaView style={styles.homeContainer}>
         <View
           style={styles.upperview}>
           <Text style={styles.titleText}>Welcome to DeFazio's</Text>
