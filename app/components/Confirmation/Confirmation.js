@@ -7,8 +7,6 @@ import { Link } from 'react-router-native';
 const Confirmation = props => {
 
   const order = props.finalOrder;
-  console.log(order)
-
 
   let items = 
     order.items.map(el => {

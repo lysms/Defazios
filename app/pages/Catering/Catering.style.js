@@ -22,7 +22,7 @@ export default StyleSheet.create({
     height: '95%'
   },
   textInsidePreOrderBtn: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   preOrderBtn: {
@@ -66,9 +66,8 @@ export default StyleSheet.create({
     marginHorizontal: '10%',
   },
   textInsideOrderBtn: {
-    fontSize: 21,
+    fontSize: 18,
     color: 'white',
-    fontWeight: 'bold',
   }
 
 });
