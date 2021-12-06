@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, TouchableOpacity, View, Dimensions, Button, SafeAreaView } from 'react-native';
 import { useLocation, Link } from 'react-router-native';
 
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
 import styles from './WaitingTime.style';
 import HomeButton from '../../components/HomeButton/HomeButton';
@@ -16,11 +15,13 @@ const WaitingTime = () => {
   let type = location.state?.type;
   let details = location.state?.details;
 
-  const [totalTime, setTotalTime] = useState('')
+  const [totalTime, setTotalTime] = useState('');
+  const [show, setShow] = useState(true)
   
   useEffect(() => {
     if (details) {
       calculateTime(details)
+      setShow(false)
     }
   }, [])
 
@@ -137,22 +138,31 @@ const WaitingTime = () => {
             <Text style={styles.buttonText}>{totalTime}</Text>
         </TouchableOpacity>
       </View>
+      
     </View>
+  }
+
+  let text = null;
+
+  if (show) {
+    text = <Text style={styles.headingText}>Create an order and see what the expected waiting time is!</Text>
   }
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <HomeButton />
-      <Text>Create order and see what the expected waiting time is!</Text>
 
       <View style={styles.contentContainer}>
-        <Link to={{pathname:"/menu", state: {type: "waiting", createOrder: true, currentOrder: []}}} >
-          <Text>Create Order</Text>
-        </Link>
+
+        { text }
 
         { answer }
+        <Link style={styles.btnOutline} to={{pathname:"/menu", state: {type: "waiting", createOrder: true, currentOrder: []}}} >
+          <Text style={styles.btnText}>Create Order</Text>
+        </Link>
         
       </View>
+      
     </SafeAreaView>
   )
 
